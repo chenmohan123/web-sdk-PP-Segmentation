@@ -1,0 +1,31 @@
+{
+  "verifiedAt": "2026-09-18T06:53:45Z",
+  "verificationMethod": "用户完成安全密钥验证后，读取 npm 网页成功提示与已保存的 Trusted Publisher 列表",
+  "pageUrl": "https://www.npmjs.com/package/web-sdk-pp-segmentation/access",
+  "package": "web-sdk-pp-segmentation",
+  "status": "configured",
+  "successMessage": "Successfully added new Trusted Publisher connection.",
+  "provider": "GitHub Actions",
+  "repositoryOwner": "chenmohan123",
+  "repositoryName": "web-sdk-PP-Segmentation",
+  "workflowFilename": "release.yml",
+  "environment": "npm",
+  "label": "PP-Segmentation 正式发布",
+  "permissions": ["npm publish", "npm stage publish"],
+  "githubVerification": {
+    "environmentApi": "https://api.github.com/repos/chenmohan123/web-sdk-PP-Segmentation/environments/npm",
+    "deploymentBranchPoliciesApi": "https://api.github.com/repos/chenmohan123/web-sdk-PP-Segmentation/environments/npm/deployment-branch-policies",
+    "allowedBranches": ["main"],
+    "allowedTags": ["v*"],
+    "workflowPath": ".github/workflows/release.yml",
+    "workflowCommit": "87b24c02b12e07155995717e0b07734dae3e5fe6",
+    "job": "npm",
+    "runner": "ubuntu-latest",
+    "permissions": {"contents": "read", "id-token": "write"},
+    "publishCommand": "npm publish package.tgz --provenance --access public"
+  },
+  "oidcPublicationVerified": false,
+  "initialVersion": "0.1.0",
+  "initialVersionHasProvenance": false,
+  "boundary": "仅验证远程绑定配置与 GitHub 发布工作流匹配；实际 OIDC 新版本发布与 provenance 生成待下一次正式版本验证。本次没有重发首版或创建额外版本。"
+}

@@ -48,4 +48,6 @@ pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versi
 - [x] [远程治理回执](../reports/2026-09-18-release-readiness/governance-published.json)记录仓库、Ruleset/environment、Pages、成功部署 commit 和验证时间，不含凭据。
 - [x] 本地 required 失败 0，四项适用远程治理规则已核验通过；npm 发布另有独立回读与安装证据。
 
-首版交付完成。后续自动 npm 发布仍需为此新包配置 Trusted Publishing；首版已由本机经安全验证发布，并由标签工作流独立核验完整性。
+- [x] 2026-09-18 已保存并回读 npm Trusted Publishing 配置，绑定 `chenmohan123/web-sdk-PP-Segmentation` 的 `release.yml` 与 `npm` 环境，允许 `npm publish`；见[配置回执](../reports/2026-09-18-release-readiness/npm-trusted-publishing.json)。
+
+首版交付完成，并已配置后续自动 npm 发布。首版由本机经安全验证发布，再由标签工作流独立核验完整性；实际 OIDC 新版本发布与 provenance 生成将在下一次正式版本验证，当前配置回执不代表该流程已实跑。
