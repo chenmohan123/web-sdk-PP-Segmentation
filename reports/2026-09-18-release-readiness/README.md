@@ -18,7 +18,8 @@
 - [npm 0.1.0](https://www.npmjs.com/package/web-sdk-pp-segmentation/v/0.1.0) 已由本机经 npm 账号与安全密钥验证发布。包包含 24 个文件，不含权重或评估图片；[CI 包核验](ci-package.json)确认 23 个文件与本地验收内容逐字节相同，package.json 仅 pnpm 重排字段，JSON 语义相同。
 - [完整回读](npm-published.json)确认 registry 返回的 tarball 与标签工作流构建包逐字节一致，SHA-256 `d67dcbc2863c1c0034a3fe5fd0fb108afe495f1ce88234be2812cc080492e156`。[真实安装](npm-installation.json)验证公共 ESM 导入与 Worker 子路径；此检查不代表 Node 可执行浏览器推理。
 - [PR #4](https://github.com/chenmohan123/web-sdk-PP-Segmentation/pull/4) 合并后固定不可变 `v0.1.0`，指向 `dfbc72056e8c8cf748a7697778f5d14a921b5302`。[GitHub Release](https://github.com/chenmohan123/web-sdk-PP-Segmentation/releases/tag/v0.1.0) 已正式发布，[工作流回执](github-published.json)为 success。
-- 首次标签工作流未配置新包的 Trusted Publishing，npm 步骤返回 ENEEDAUTH；本机安全验证发布同一 CI 产物后，重跑步骤独立验证 npm integrity 并完成 Release。没有降低账号安全要求，也没有移动版本标签。后续自动 npm 发布仍需一次 Trusted Publishing 配置。
+- 首次标签工作流未配置新包的 Trusted Publishing，npm 步骤返回 ENEEDAUTH；本机安全验证发布同一 CI 产物后，重跑步骤独立验证 npm integrity 并完成 Release。没有降低账号安全要求，也没有移动版本标签。
+- [Trusted Publishing 配置](npm-trusted-publishing.json)已于 2026-09-18 保存并回读：GitHub Actions，`chenmohan123/web-sdk-PP-Segmentation`，`release.yml`，`npm` 环境，允许 `npm publish`。GitHub 环境限定 `main` 分支和 `v*` 标签，发布任务具备 `id-token: write`。此项仅验证配置，下一次新版本再验证实际 OIDC 发布与 provenance；首版没有 provenance。
 
 ## 范围与归档
 
