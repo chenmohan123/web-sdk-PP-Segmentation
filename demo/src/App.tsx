@@ -18,6 +18,7 @@ import type {
 import metadata from "../../models/model.json";
 import tokens from "../ui-tokens.json";
 import { drawMask } from "./draw-mask";
+import { resolveDemoModel, type ModelSourceKind } from "./model-sources";
 declare const __LOCAL_MODEL__: boolean;
 type Api = typeof import("../../src/index");
 const labels = {
@@ -36,6 +37,7 @@ const labels = {
     main: "主线程",
     local: "本地开发模型",
     unpublished: "模型来源尚未发布",
+    invalidSource: "模型来源配置无效",
     empty: "上传图片，查看每个对象的轮廓",
     upload: "选择 JPG、PNG 或 WebP 图片",
     ready: "等待运行",
@@ -90,6 +92,7 @@ const labels = {
     main: "Main thread",
     local: "Local development model",
     unpublished: "Model sources are not published yet",
+    invalidSource: "Model source configuration is invalid",
     empty: "Upload an image to reveal object masks",
     upload: "Choose a JPG, PNG or WebP image",
     ready: "Ready to run",
@@ -160,7 +163,7 @@ export default function App() {
     t = labels[lang];
   const [backend, setBackend] = useState<Backend>("webgpu"),
     [mode, setMode] = useState<ExecutionMode>("worker"),
-    [source, setSource] = useState("modelscope");
+    [source, setSource] = useState<ModelSourceKind>("modelscope");
   const [file, setFile] = useState<File>(),
     [url, setUrl] = useState(""),
     [preview, setPreview] = useState<HTMLImageElement>(),
@@ -251,13 +254,35 @@ export default function App() {
     (api.current ??= (await import(
       /* @vite-ignore */ new URL("sdk/index.js", document.baseURI).href
     )) as Api);
-  const model = () => ({
-    ...metadata,
-    url: new URL("local-model/model.onnx", document.baseURI).href,
-  });
+  const distribution = resolveDemoModel(
+    metadata,
+    source,
+    __LOCAL_MODEL__,
+    document.baseURI,
+  );
+  const sourceStatus = distribution.ok
+    ? distribution.mode === "local"
+      ? t.local
+      : distribution.source.kind === "modelscope"
+        ? "ModelScope"
+        : "Hugging Face"
+    : distribution.code === "SOURCE_UNAVAILABLE"
+      ? t.unpublished
+      : t.invalidSource;
+  const model = () => {
+    if (!distribution.ok) throw new Error(distribution.code);
+    return distribution.model;
+  };
+  const cacheModel = {
+    id: metadata.id,
+    version: metadata.version,
+    bytes: metadata.bytes,
+    sha256: metadata.sha256,
+    url: "",
+  };
   async function updateCache(id: number) {
     try {
-      const value = await (await getApi()).getCacheUsage(model());
+      const value = await (await getApi()).getCacheUsage(cacheModel);
       if (id === generation.current) setCacheBytes(value.bytes);
     } catch {
       if (id === generation.current) setCacheBytes(undefined);
@@ -317,7 +342,7 @@ export default function App() {
       previewError ||
       controller.current ||
       cacheOperation.current ||
-      !__LOCAL_MODEL__
+      !distribution.ok
     )
       return;
     const id = ++generation.current,
@@ -396,7 +421,7 @@ export default function App() {
       await release.current;
       const module = await getApi();
       if (all) await module.clearAllModelCaches();
-      else await module.clearModelCache(model());
+      else await module.clearModelCache(cacheModel);
       await updateCache(id);
       if (id === generation.current) setNotice("cacheDone");
     } catch {
@@ -424,7 +449,7 @@ export default function App() {
         <div className="brand-block">
           <span className="eyebrow">ONNX RUNTIME WEB</span>
           <h1>PP-Segmentation</h1>
-          <span className="version">SDK 0.1.0-alpha.0</span>
+          <span className="version">SDK 0.1.0</span>
         </div>
         <nav className="top-actions">
           <a
@@ -454,16 +479,19 @@ export default function App() {
             <label className="control-group source-control">
               <span className="control-label">{t.source}</span>
               <select
-                disabled
+                disabled={busy || clearing || __LOCAL_MODEL__}
                 value={source}
-                onChange={(e) => setSource(e.target.value)}
+                onChange={(e) => {
+                  const next = e.target.value as ModelSourceKind;
+                  if (next === source) return;
+                  reset();
+                  setSource(next);
+                }}
               >
                 <option value="modelscope">ModelScope</option>
                 <option value="huggingface">Hugging Face</option>
               </select>
-              <span className="source-note">
-                {__LOCAL_MODEL__ ? t.local : t.unpublished}
-              </span>
+              <span className="source-note">{sourceStatus}</span>
             </label>
             <div className="control-group" role="group" aria-label={t.backend}>
               <span className="control-label">{t.backend}</span>
@@ -539,7 +567,7 @@ export default function App() {
                     !preview ||
                     !!previewError ||
                     clearing ||
-                    !__LOCAL_MODEL__
+                    !distribution.ok
                   }
                   onClick={() => void run()}
                 >
@@ -694,16 +722,15 @@ export default function App() {
                 <p>36.27 MB · 8.996M · ONNX opset 17</p>
                 <p>640 × 640 · COCO 80</p>
                 <p>
-                  {metadata.version} ·{" "}
-                  {__LOCAL_MODEL__ ? t.local : t.unpublished}
+                  {metadata.version} · {sourceStatus}
                 </p>
                 <p>
                   SHA-256: <code>{metadata.sha256}</code>
                 </p>
                 <p>
                   {lang === "zh"
-                    ? "上游源码 Apache-2.0；权重再分发待核验"
-                    : "Upstream code: Apache-2.0; weight redistribution under review"}
+                    ? "Apache-2.0 · 来源与许可依据见模型卡"
+                    : "Apache-2.0 · See the model card for provenance and license scope"}
                 </p>
               </div>
               <div data-sdk-runtime-info>
@@ -724,8 +751,8 @@ export default function App() {
                 </p>
                 <p>
                   {lang === "zh"
-                    ? "严格掩码验收仍有 1 个官方边缘裁剪差异，保持 alpha。"
-                    : "Strict mask acceptance still has one official edge-cropping difference; this remains alpha."}
+                    ? "64 图原图尺寸参考验收通过；最小掩码 IoU 0.9987。"
+                    : "Passed the 64-image original-size reference check; minimum mask IoU 0.9987."}
                 </p>
                 {result && (
                   <p>
@@ -735,8 +762,8 @@ export default function App() {
                 )}
                 <p>
                   {lang === "zh"
-                    ? "本地实验版本；未声明手机或 NPU 兼容。"
-                    : "Local alpha; mobile and NPU are unverified."}
+                    ? "验证范围为上述桌面环境；手机和 NPU 未验证。"
+                    : "Evidence covers the desktop environment above; mobile and NPU are unverified."}
                 </p>
               </div>
             </div>

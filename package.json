@@ -1,6 +1,6 @@
 {
   "name": "web-sdk-pp-segmentation",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0",
   "description": "基于 PP-YOLOE_seg 的浏览器实例分割 SDK",
   "type": "module",
   "private": false,

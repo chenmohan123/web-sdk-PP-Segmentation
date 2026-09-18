@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "files": [
+    {
+      "name": "paddle-original-size-results.json.gz",
+      "bytes": 1124500,
+      "sha256": "72fe96a98b07c520d3e59b6702b52df3b92512deaeacf588fc8e2206928ae8b7"
+    },
+    {
+      "name": "reference-execution.json",
+      "bytes": 28103,
+      "sha256": "64300098fd2dd170165561d648efa74fa9b6b2f19439e482e6c46ab5ef834cf6"
+    },
+    {
+      "name": "synthetic.json",
+      "bytes": 2773,
+      "sha256": "e36d97c3b6b6f19a42a46fdf9867e04f45d3c994ee300b6d26f294e28fb81cec"
+    },
+    {
+      "name": "upstream-head.py",
+      "bytes": 34982,
+      "sha256": "cf0287f8a946d54e7bcb16808c7f3e9dafe5f365105f715525e3d5a8521d44b9"
+    },
+    {
+      "name": "post-process-original.py",
+      "bytes": 2080,
+      "sha256": "dbbdb6fae7090f09249486044aaddfe2895281c1df0df199240669cc4fe8301f"
+    },
+    {
+      "name": "post-process-original-size.py",
+      "bytes": 2128,
+      "sha256": "010465a639adab17331a2aafc218ca3c49e77ed7c42f96aaed55ac81003fac8b"
+    },
+    {
+      "name": "crop-only.patch",
+      "bytes": 1031,
+      "sha256": "3087604d78129ca0f60e86ef3017f25cccb28091b9621740d12e2df308ae8449"
+    }
+  ]
+}

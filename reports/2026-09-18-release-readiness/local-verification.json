@@ -1,0 +1,13 @@
+{
+  "verifiedAt": "2026-09-18T05:59:02.780597+00:00",
+  "status": "passed",
+  "unitTests": 50,
+  "typechecks": 2,
+  "builds": [
+    "sdk",
+    "demo"
+  ],
+  "packageCheck": "passed",
+  "sourceRuntimeUnchanged": true,
+  "logSha256": "7838496145b8517cba13698dd499430914bffe7053fb1c7a230c03944fd0f894"
+}

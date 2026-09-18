@@ -9,9 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with: { persist-credentials: false }
       - uses: pnpm/action-setup@v4
-        with: { version: 11 }
+        with: { version: 11.21.0 }
       - uses: actions/setup-node@v4
         with: { node-version: 24, cache: pnpm }
       - run: pnpm install --frozen-lockfile --config.verify-deps-before-run=false --config.manage-package-manager-versions=false
-      - run: pnpm verify
+      - run: pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versions=false verify

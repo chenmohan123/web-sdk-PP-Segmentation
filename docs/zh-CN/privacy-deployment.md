@@ -50,8 +50,8 @@ base-uri 'self';
 
 ## 模型来源与发布边界
 
-`models/model.json` 是当前模型大小、摘要、格式及上游身份来源。正式来源仅 ModelScope/Hugging Face，默认 ModelScope，但当前 `sources` 为空：尚无可用正式仓库 revision 或权重 URL，不填造 revision。
+`models/model.json` 是模型身份与分发来源的唯一事实源。读取 `defaultSource`，再从 `sources` 选择同名条目的固定 `downloadUrl`、`bytes` 和 `sha256`；不要在应用或文档中复制 revision。清单尚无来源时表示远程权重仍待发布，不得用规划地址代替。
 
 本地开发用显式 `new URL('/local-model/model.onnx', location.origin).href` 覆盖，Vite 从忽略目录 `.tmp/model.onnx` 提供；它不是正式分发来源。SDK npm 产物与生产 Demo 不包含 ONNX。正式来源未配置时，生产 Demo 应保持不可运行并显示原因。
 
-正式发布前为每个 Hub 固定不可变 revision、完整 URL、字节数及 SHA-256，并做完整下载回读；同时核验权重再分发许可与第三方归因。源码 Apache-2.0 不代替权重许可结论，见 [NOTICE](../../NOTICE)。评估图片也有各自许可，不能直接作为生产 Demo 素材再分发。更多发布门槛见[发布说明](release.md)。
+ModelScope/Hugging Face 发布必须固定不可变 revision、完整 URL、字节数及 SHA-256，并做完整下载回读。基于固定 PaddleDetection Apache-2.0 项目声明、官方权重表与归因证据，本项目对官方权重及 ONNX 转换物采用 Apache-2.0；Hub 镜像由本项目维护，见 [NOTICE](../../NOTICE) 与[许可决定](../../reports/2026-09-18-release-readiness/license/README.md)。未找到独立点名权重的许可文本是解释边界，不是额外授权硬门槛。评估图片不作为生产 Demo 素材再分发。

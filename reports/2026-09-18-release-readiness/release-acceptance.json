@@ -1,0 +1,501 @@
+{
+  "version": "0.1.0",
+  "testedAt": "2026-09-18T05:58:46.825Z",
+  "browser": "153.0.8010.12",
+  "model": {
+    "id": "ppyoloe-seg-s-640-fp32",
+    "version": "0.1.0",
+    "file": "ppyoloe-seg-s-640-fp32.onnx",
+    "bytes": 36265193,
+    "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334",
+    "precision": "fp32",
+    "opset": 17,
+    "parameterCount": 8995698,
+    "status": "stable",
+    "defaultSource": "modelscope",
+    "sources": [
+      {
+        "kind": "modelscope",
+        "repository": "chenmohan/web-sdk-pp-segmentation",
+        "revision": "7dff857118c4d223b1bdf031d42121f7db2e09b8",
+        "path": "ppyoloe-seg-s-640/0.1.0/ppyoloe-seg-s-640-fp32.onnx",
+        "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-segmentation/resolve/7dff857118c4d223b1bdf031d42121f7db2e09b8/ppyoloe-seg-s-640/0.1.0/ppyoloe-seg-s-640-fp32.onnx",
+        "bytes": 36265193,
+        "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334"
+      },
+      {
+        "kind": "huggingface",
+        "repository": "chenmohan/web-sdk-pp-segmentation",
+        "revision": "9997957d1bd1e47f5b367a54a8f7527806494d8e",
+        "path": "ppyoloe-seg-s-640/0.1.0/ppyoloe-seg-s-640-fp32.onnx",
+        "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-segmentation/resolve/9997957d1bd1e47f5b367a54a8f7527806494d8e/ppyoloe-seg-s-640/0.1.0/ppyoloe-seg-s-640-fp32.onnx",
+        "bytes": 36265193,
+        "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334"
+      }
+    ],
+    "upstreamRevision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5"
+  },
+  "input": {
+    "bytes": 54901,
+    "sha256": "fba520c270003f70a09bdbb9ab8ca856a4a6cde110c64f05879e96b755ca7af6"
+  },
+  "assets": {
+    "dist/cache.d.ts": {
+      "bytes": 639,
+      "sha256": "ab58b4431e7799ce53ba58809f8bbf16b7b286418e95b4dfb5f3590244f17a6f"
+    },
+    "dist/engine.d.ts": {
+      "bytes": 590,
+      "sha256": "faae6066181a10a663bdd82d4bc0f8b8ac0b12551d7ca5f56ccdedd68ecb4031"
+    },
+    "dist/errors.d.ts": {
+      "bytes": 420,
+      "sha256": "b8879192c5067d24ea6e69d1e02614405306bd0d2186dc97ba71ad1f947fe26d"
+    },
+    "dist/image.d.ts": {
+      "bytes": 148,
+      "sha256": "9d27b396d5c2d3c752937f01a33f94c16c5051197cb9da836bc31faefc01b330"
+    },
+    "dist/index.d.ts": {
+      "bytes": 336,
+      "sha256": "c25554443512909f9f2d7bb157026912740381e58fd68ec9a0b5e61e5bfe0365"
+    },
+    "dist/index.js": {
+      "bytes": 33522,
+      "sha256": "bec08d2754a4b278f89faea15ca64f785aac5cb5f0f76503ca7004cab7a4f8e3"
+    },
+    "dist/index.js.map": {
+      "bytes": 66561,
+      "sha256": "bc590c79c1b908b9038bfd789dfde57be3d249b185e79942fc0f0812ded15309"
+    },
+    "dist/inference.worker.d.ts": {
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+    },
+    "dist/inference.worker.js": {
+      "bytes": 20630,
+      "sha256": "672886c08f66995832cc780b2496104e30501bd4cd4ebaae9b9368e2aa9de885"
+    },
+    "dist/inference.worker.js.map": {
+      "bytes": 43609,
+      "sha256": "3b3de2400d826ea7a2157e42257a0ec18415bbd8442bf2a23f82573b5f7b86db"
+    },
+    "dist/labels.d.ts": {
+      "bytes": 53,
+      "sha256": "4fc5e92b7dc73d8d0b2c363674a2742091ebcaa700eb56d758b29ec9bbdcb08d"
+    },
+    "dist/ort-wasm-simd-threaded.asyncify.mjs": {
+      "bytes": 47507,
+      "sha256": "7236653b8565da4046e459cd0e274123419a1d9f1f8f18fd36c28058346ca655"
+    },
+    "dist/ort-wasm-simd-threaded.asyncify.wasm": {
+      "bytes": 24254953,
+      "sha256": "7e83cd6cee77e478bc96a7e91b198144fb5e4126287daf1f9b54bb195ebcd55a"
+    },
+    "dist/ort.d.ts": {
+      "bytes": 219,
+      "sha256": "ac4a0a2bb6021c858509894a705e25443a7938dbcf1e408aabf750a0da9f3907"
+    },
+    "dist/ort.webgpu.bundle.min.mjs": {
+      "bytes": 113035,
+      "sha256": "3a18c7f261e05d44a15b2eef18a28e5f53c044d5d140bcea6066baf1f09c8b53"
+    },
+    "dist/postprocess.d.ts": {
+      "bytes": 460,
+      "sha256": "309b93e1d1c9a60833ed40c335c94c5bef7eafb0397024ca08c4b1ce8dc096bd"
+    },
+    "dist/preprocess.d.ts": {
+      "bytes": 177,
+      "sha256": "67c4b77456a2818951042c56c2ccfbfdfe7a912791d28157c962fe953d22fc8d"
+    },
+    "dist/runtime.d.ts": {
+      "bytes": 154,
+      "sha256": "fc7730a99a481b7404829183dc445b950cfeb9015f879d490661d59c3c49c97c"
+    },
+    "dist/types.d.ts": {
+      "bytes": 2613,
+      "sha256": "2911acd78d508a9954f8ab6be4276b1cb61246bc1a3706df80437e3e0644d5c8"
+    },
+    "demo-dist/assets/index-BrHspwgY.css": {
+      "bytes": 10178,
+      "sha256": "01e6a44c72d437d85246ae1231d6b6030cc2229e187d47a609163d267dfe34ce"
+    },
+    "demo-dist/assets/index-_rBZmkH0.js": {
+      "bytes": 244396,
+      "sha256": "e5321cbc1e0ed095ab4400eb481de50f4196d3a3728b09f682f7ea231a994984"
+    },
+    "demo-dist/index.html": {
+      "bytes": 379,
+      "sha256": "3cefa72551694d780a8b75036d610cfbe896f3e6601bce574a1a6423a8d9f403"
+    },
+    "demo-dist/sdk/cache.d.ts": {
+      "bytes": 639,
+      "sha256": "ab58b4431e7799ce53ba58809f8bbf16b7b286418e95b4dfb5f3590244f17a6f"
+    },
+    "demo-dist/sdk/engine.d.ts": {
+      "bytes": 590,
+      "sha256": "faae6066181a10a663bdd82d4bc0f8b8ac0b12551d7ca5f56ccdedd68ecb4031"
+    },
+    "demo-dist/sdk/errors.d.ts": {
+      "bytes": 420,
+      "sha256": "b8879192c5067d24ea6e69d1e02614405306bd0d2186dc97ba71ad1f947fe26d"
+    },
+    "demo-dist/sdk/image.d.ts": {
+      "bytes": 148,
+      "sha256": "9d27b396d5c2d3c752937f01a33f94c16c5051197cb9da836bc31faefc01b330"
+    },
+    "demo-dist/sdk/index.d.ts": {
+      "bytes": 336,
+      "sha256": "c25554443512909f9f2d7bb157026912740381e58fd68ec9a0b5e61e5bfe0365"
+    },
+    "demo-dist/sdk/index.js": {
+      "bytes": 33522,
+      "sha256": "bec08d2754a4b278f89faea15ca64f785aac5cb5f0f76503ca7004cab7a4f8e3"
+    },
+    "demo-dist/sdk/index.js.map": {
+      "bytes": 66561,
+      "sha256": "bc590c79c1b908b9038bfd789dfde57be3d249b185e79942fc0f0812ded15309"
+    },
+    "demo-dist/sdk/inference.worker.d.ts": {
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+    },
+    "demo-dist/sdk/inference.worker.js": {
+      "bytes": 20630,
+      "sha256": "672886c08f66995832cc780b2496104e30501bd4cd4ebaae9b9368e2aa9de885"
+    },
+    "demo-dist/sdk/inference.worker.js.map": {
+      "bytes": 43609,
+      "sha256": "3b3de2400d826ea7a2157e42257a0ec18415bbd8442bf2a23f82573b5f7b86db"
+    },
+    "demo-dist/sdk/labels.d.ts": {
+      "bytes": 53,
+      "sha256": "4fc5e92b7dc73d8d0b2c363674a2742091ebcaa700eb56d758b29ec9bbdcb08d"
+    },
+    "demo-dist/sdk/ort-wasm-simd-threaded.asyncify.mjs": {
+      "bytes": 47507,
+      "sha256": "7236653b8565da4046e459cd0e274123419a1d9f1f8f18fd36c28058346ca655"
+    },
+    "demo-dist/sdk/ort-wasm-simd-threaded.asyncify.wasm": {
+      "bytes": 24254953,
+      "sha256": "7e83cd6cee77e478bc96a7e91b198144fb5e4126287daf1f9b54bb195ebcd55a"
+    },
+    "demo-dist/sdk/ort.d.ts": {
+      "bytes": 219,
+      "sha256": "ac4a0a2bb6021c858509894a705e25443a7938dbcf1e408aabf750a0da9f3907"
+    },
+    "demo-dist/sdk/ort.webgpu.bundle.min.mjs": {
+      "bytes": 113035,
+      "sha256": "3a18c7f261e05d44a15b2eef18a28e5f53c044d5d140bcea6066baf1f09c8b53"
+    },
+    "demo-dist/sdk/postprocess.d.ts": {
+      "bytes": 460,
+      "sha256": "309b93e1d1c9a60833ed40c335c94c5bef7eafb0397024ca08c4b1ce8dc096bd"
+    },
+    "demo-dist/sdk/preprocess.d.ts": {
+      "bytes": 177,
+      "sha256": "67c4b77456a2818951042c56c2ccfbfdfe7a912791d28157c962fe953d22fc8d"
+    },
+    "demo-dist/sdk/runtime.d.ts": {
+      "bytes": 154,
+      "sha256": "fc7730a99a481b7404829183dc445b950cfeb9015f879d490661d59c3c49c97c"
+    },
+    "demo-dist/sdk/types.d.ts": {
+      "bytes": 2613,
+      "sha256": "2911acd78d508a9954f8ab6be4276b1cb61246bc1a3706df80437e3e0644d5c8"
+    }
+  },
+  "results": [
+    {
+      "source": "modelscope",
+      "revision": "7dff857118c4d223b1bdf031d42121f7db2e09b8",
+      "backend": "wasm",
+      "mode": "main",
+      "status": "passed",
+      "runtime": {
+        "requestedBackend": "wasm",
+        "actualBackend": "wasm",
+        "runtimeVersion": "onnxruntime-web@1.27.0",
+        "executionMode": "main"
+      },
+      "instances": 4,
+      "image": {
+        "width": 500,
+        "height": 375
+      },
+      "model": {
+        "id": "ppyoloe-seg-s-640-fp32",
+        "version": "0.1.0",
+        "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334"
+      },
+      "loadTimings": {
+        "modelDownloadMs": 4291.5999999940395,
+        "modelCacheReadMs": 0.6000000014901161,
+        "integrityMs": 115.80000000447035,
+        "sessionMs": 1013.2000000029802
+      },
+      "timings": {
+        "decodeMs": 77.10000000149012,
+        "preprocessMs": 78.60000000149012,
+        "inferenceMs": 1406,
+        "postprocessMs": 34,
+        "totalMs": 1596.2999999970198
+      }
+    },
+    {
+      "source": "modelscope",
+      "revision": "7dff857118c4d223b1bdf031d42121f7db2e09b8",
+      "backend": "wasm",
+      "mode": "worker",
+      "status": "passed",
+      "runtime": {
+        "requestedBackend": "wasm",
+        "actualBackend": "wasm",
+        "runtimeVersion": "onnxruntime-web@1.27.0",
+        "executionMode": "worker"
+      },
+      "instances": 4,
+      "image": {
+        "width": 500,
+        "height": 375
+      },
+      "model": {
+        "id": "ppyoloe-seg-s-640-fp32",
+        "version": "0.1.0",
+        "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334"
+      },
+      "loadTimings": {
+        "modelDownloadMs": 0,
+        "modelCacheReadMs": 70.5,
+        "integrityMs": 110.59999999403954,
+        "sessionMs": 534.2000000029802
+      },
+      "timings": {
+        "decodeMs": 5.299999997019768,
+        "preprocessMs": 67.30000000447035,
+        "inferenceMs": 1547.5,
+        "postprocessMs": 37.899999998509884,
+        "totalMs": 1659.5
+      }
+    },
+    {
+      "source": "modelscope",
+      "revision": "7dff857118c4d223b1bdf031d42121f7db2e09b8",
+      "backend": "webgpu",
+      "mode": "main",
+      "status": "passed",
+      "runtime": {
+        "requestedBackend": "webgpu",
+        "actualBackend": "webgpu",
+        "runtimeVersion": "onnxruntime-web@1.27.0",
+        "executionMode": "main"
+      },
+      "instances": 4,
+      "image": {
+        "width": 500,
+        "height": 375
+      },
+      "model": {
+        "id": "ppyoloe-seg-s-640-fp32",
+        "version": "0.1.0",
+        "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334"
+      },
+      "loadTimings": {
+        "modelDownloadMs": 0,
+        "modelCacheReadMs": 55.79999999701977,
+        "integrityMs": 103,
+        "sessionMs": 455.5
+      },
+      "timings": {
+        "decodeMs": 13.200000002980232,
+        "preprocessMs": 78.60000000149012,
+        "inferenceMs": 1270.2999999970198,
+        "postprocessMs": 40.399999998509884,
+        "totalMs": 1402.5
+      }
+    },
+    {
+      "source": "modelscope",
+      "revision": "7dff857118c4d223b1bdf031d42121f7db2e09b8",
+      "backend": "webgpu",
+      "mode": "worker",
+      "status": "passed",
+      "runtime": {
+        "requestedBackend": "webgpu",
+        "actualBackend": "webgpu",
+        "runtimeVersion": "onnxruntime-web@1.27.0",
+        "executionMode": "worker"
+      },
+      "instances": 4,
+      "image": {
+        "width": 500,
+        "height": 375
+      },
+      "model": {
+        "id": "ppyoloe-seg-s-640-fp32",
+        "version": "0.1.0",
+        "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334"
+      },
+      "loadTimings": {
+        "modelDownloadMs": 0,
+        "modelCacheReadMs": 64.60000000149012,
+        "integrityMs": 102.39999999850988,
+        "sessionMs": 689.1999999955297
+      },
+      "timings": {
+        "decodeMs": 8.899999998509884,
+        "preprocessMs": 91.79999999701977,
+        "inferenceMs": 1358.2000000029802,
+        "postprocessMs": 35.29999999701977,
+        "totalMs": 1495.6000000014901
+      }
+    },
+    {
+      "source": "huggingface",
+      "revision": "9997957d1bd1e47f5b367a54a8f7527806494d8e",
+      "backend": "wasm",
+      "mode": "main",
+      "status": "passed",
+      "runtime": {
+        "requestedBackend": "wasm",
+        "actualBackend": "wasm",
+        "runtimeVersion": "onnxruntime-web@1.27.0",
+        "executionMode": "main"
+      },
+      "instances": 4,
+      "image": {
+        "width": 500,
+        "height": 375
+      },
+      "model": {
+        "id": "ppyoloe-seg-s-640-fp32",
+        "version": "0.1.0",
+        "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334"
+      },
+      "loadTimings": {
+        "modelDownloadMs": 3328.3000000044703,
+        "modelCacheReadMs": 0.3999999985098839,
+        "integrityMs": 104.60000000149012,
+        "sessionMs": 975.5999999940395
+      },
+      "timings": {
+        "decodeMs": 24.600000001490116,
+        "preprocessMs": 113.5,
+        "inferenceMs": 1417.6000000014901,
+        "postprocessMs": 35.5,
+        "totalMs": 1591.9000000059605
+      }
+    },
+    {
+      "source": "huggingface",
+      "revision": "9997957d1bd1e47f5b367a54a8f7527806494d8e",
+      "backend": "wasm",
+      "mode": "worker",
+      "status": "passed",
+      "runtime": {
+        "requestedBackend": "wasm",
+        "actualBackend": "wasm",
+        "runtimeVersion": "onnxruntime-web@1.27.0",
+        "executionMode": "worker"
+      },
+      "instances": 4,
+      "image": {
+        "width": 500,
+        "height": 375
+      },
+      "model": {
+        "id": "ppyoloe-seg-s-640-fp32",
+        "version": "0.1.0",
+        "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334"
+      },
+      "loadTimings": {
+        "modelDownloadMs": 0,
+        "modelCacheReadMs": 56.600000001490116,
+        "integrityMs": 105.09999999403954,
+        "sessionMs": 480.29999999701977
+      },
+      "timings": {
+        "decodeMs": 5.799999997019768,
+        "preprocessMs": 73.69999999552965,
+        "inferenceMs": 1543.5,
+        "postprocessMs": 34.399999998509884,
+        "totalMs": 1659.2000000029802
+      }
+    },
+    {
+      "source": "huggingface",
+      "revision": "9997957d1bd1e47f5b367a54a8f7527806494d8e",
+      "backend": "webgpu",
+      "mode": "main",
+      "status": "passed",
+      "runtime": {
+        "requestedBackend": "webgpu",
+        "actualBackend": "webgpu",
+        "runtimeVersion": "onnxruntime-web@1.27.0",
+        "executionMode": "main"
+      },
+      "instances": 4,
+      "image": {
+        "width": 500,
+        "height": 375
+      },
+      "model": {
+        "id": "ppyoloe-seg-s-640-fp32",
+        "version": "0.1.0",
+        "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334"
+      },
+      "loadTimings": {
+        "modelDownloadMs": 0,
+        "modelCacheReadMs": 54.399999998509884,
+        "integrityMs": 96.60000000149012,
+        "sessionMs": 420.09999999403954
+      },
+      "timings": {
+        "decodeMs": 13.400000005960464,
+        "preprocessMs": 91,
+        "inferenceMs": 1291.3999999985099,
+        "postprocessMs": 31.600000001490116,
+        "totalMs": 1427.4000000059605
+      }
+    },
+    {
+      "source": "huggingface",
+      "revision": "9997957d1bd1e47f5b367a54a8f7527806494d8e",
+      "backend": "webgpu",
+      "mode": "worker",
+      "status": "passed",
+      "runtime": {
+        "requestedBackend": "webgpu",
+        "actualBackend": "webgpu",
+        "runtimeVersion": "onnxruntime-web@1.27.0",
+        "executionMode": "worker"
+      },
+      "instances": 4,
+      "image": {
+        "width": 500,
+        "height": 375
+      },
+      "model": {
+        "id": "ppyoloe-seg-s-640-fp32",
+        "version": "0.1.0",
+        "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334"
+      },
+      "loadTimings": {
+        "modelDownloadMs": 0,
+        "modelCacheReadMs": 66.89999999850988,
+        "integrityMs": 99.5,
+        "sessionMs": 720.2999999970198
+      },
+      "timings": {
+        "decodeMs": 7.800000004470348,
+        "preprocessMs": 64.5,
+        "inferenceMs": 1220.2000000029802,
+        "postprocessMs": 36.20000000298023,
+        "totalMs": 1330
+      }
+    }
+  ],
+  "explicitSourceFailure": "passed",
+  "pageErrors": [],
+  "status": "passed"
+}

@@ -11,3 +11,4 @@ demo/public/sdk/
 __pycache__/
 # UI截图含本地评估图片；只归档数值证据，不随SDK源码分发原图。
 reports/2026-09-18-image-sdk/ui/*.png
+reports/2026-09-18-release-readiness/ui/*.png

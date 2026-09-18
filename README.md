@@ -4,19 +4,19 @@
 
 浏览器端 PP-YOLOE_seg_s 实例分割 SDK。输入一张 `Blob` 或 RGBA 图片，输出对象类别、分数、原图边界框和紧致二值实例掩码；图片在浏览器本地处理，runtime 不依赖 React。
 
-> `web-sdk-pp-segmentation@0.1.0-alpha.0` 是本地 alpha，尚未发布 npm 包、远程仓库、模型权重或在线 Demo。以下远程地址为规划地址，不能作为可用性或分发证据。
+> `web-sdk-pp-segmentation@0.1.0` 当前为首版发布候选。质量验收已通过，ModelScope/Hugging Face 权重已发布并完整回读，GitHub 仓库与治理已配置；npm 包和在线 Demo 仍以实际发布完成及回读结果为准。以下 npm/Demo 入口在完成前只是目标地址。
 
 ## 当前范围
 
 - 单帧图片；PP-YOLOE_seg_s 640 FP32、COCO 80 类、ONNX opset 17，模型 36,265,193 字节、8,995,698 参数。
 - WASM/CPU 与 WebGPU/GPU，`main` 或 `worker`。API 默认 `wasm/worker`；React Demo 默认 `webgpu/worker`。显式后端失败不会静默回退。
 - 每个实例保留独立、可重叠的 ROI 二值 `Uint8Array`。ROI 包含二次插值后的全部前景，可能超出检测框；绘制以 `mask.x/y` 为准。列表序号不是跟踪 ID。
-- 正式模型来源仅 ModelScope/Hugging Face，默认 ModelScope；当前 `models/model.json` 的 `sources` 为空，仅用显式本地开发地址验证。
+- 正式模型来源为 ModelScope/Hugging Face，默认来源及固定下载 URL 以 [models/model.json](models/model.json) 的 `defaultSource` 与 `sources` 为准；文档不复制可能过期的 revision。
 - 本轮不包含视频、摄像头、NPU、门户组合或移动端兼容承诺。
 
 ## 本地运行
 
-需要 Node.js ≥22.12.0、pnpm、此工作区源码及已经取得的本地模型 `.tmp/model.onnx`。模型身份、大小和摘要见 [models/model.json](models/model.json)；仓库和 npm 构建产物不携带模型。缺少权重时先按已有授权来源准备与该摘要一致的模型，不把尚未发布的 Hub 当作下载入口。
+需要 Node.js ≥22.12.0、pnpm、此工作区源码及本地模型 `.tmp/model.onnx`。模型身份、大小、摘要和已发布的固定来源见 [models/model.json](models/model.json)；按 `defaultSource` 从 `sources` 读取 `downloadUrl`，下载后核对 `bytes` 与 `sha256`。仓库和 npm 构建产物不携带模型。
 
 在仓库根目录执行：
 
@@ -31,22 +31,23 @@ pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versi
 下面的浏览器模块示例使用上述开发服务提供的 `/sdk/` 和 `/local-model/`。HTML 放置 `<input id="image" type="file" accept="image/*">`；事件中的 `file` 来自用户选择，未选择时不运行：
 
 ```js
-import { createSegmentation } from '/sdk/index.js';
+import { createSegmentation } from "/sdk/index.js";
 
-document.querySelector('#image').addEventListener('change', async (event) => {
+document.querySelector("#image").addEventListener("change", async (event) => {
   const file = event.currentTarget.files?.[0];
   if (!file) return;
   const sdk = createSegmentation({
     model: {
-      id: 'ppyoloe-seg-s-640-fp32',
-      version: '0.1.0-alpha.0',
-      url: new URL('/local-model/model.onnx', location.origin).href,
+      id: "ppyoloe-seg-s-640-fp32",
+      version: "0.1.0",
+      url: new URL("/local-model/model.onnx", location.origin).href,
       bytes: 36265193,
-      sha256: 'd418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334',
+      sha256:
+        "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334",
     },
-    backend: 'wasm',
-    executionMode: 'worker',
-    runtimeBaseUrl: new URL('/sdk/', location.origin).href,
+    backend: "wasm",
+    executionMode: "worker",
+    runtimeBaseUrl: new URL("/sdk/", location.origin).href,
   });
   try {
     await sdk.load({ onProgress: console.log });
@@ -60,23 +61,23 @@ document.querySelector('#image').addEventListener('change', async (event) => {
 });
 ```
 
-接入其他应用时将整个 `dist/` 部署到同源 `/sdk/`，包括 Worker 和同版本 ORT 文件；`runtimeBaseUrl` 使用以 `/` 结尾的完整 URL。应用也可安装本地打包文件后从包名导入。正式 npm 发布前不要使用 `pnpm add web-sdk-pp-segmentation` 作为安装步骤，详见[快速开始](docs/zh-CN/quick-start.md)。
+接入其他应用时将整个 `dist/` 部署到同源 `/sdk/`，包括 Worker 和同版本 ORT 文件；`runtimeBaseUrl` 使用以 `/` 结尾的完整 URL。正式发布后可执行 `pnpm add web-sdk-pp-segmentation@0.1.0`；当前发布准备阶段继续使用本地打包文件。详见[快速开始](docs/zh-CN/quick-start.md)。
 
 ## 文档与证据
 
-| 中文 | English |
-|---|---|
-| [快速开始](docs/zh-CN/quick-start.md) | [Quick start](docs/en/quick-start.md) |
-| [API](docs/zh-CN/api.md) | [API](docs/en/api.md) |
-| [兼容性](docs/zh-CN/compatibility.md) | [Compatibility](docs/en/compatibility.md) |
-| [排障](docs/zh-CN/troubleshooting.md) | [Troubleshooting](docs/en/troubleshooting.md) |
+| 中文                                           | English                                                 |
+| ---------------------------------------------- | ------------------------------------------------------- |
+| [快速开始](docs/zh-CN/quick-start.md)          | [Quick start](docs/en/quick-start.md)                   |
+| [API](docs/zh-CN/api.md)                       | [API](docs/en/api.md)                                   |
+| [兼容性](docs/zh-CN/compatibility.md)          | [Compatibility](docs/en/compatibility.md)               |
+| [排障](docs/zh-CN/troubleshooting.md)          | [Troubleshooting](docs/en/troubleshooting.md)           |
 | [隐私与部署](docs/zh-CN/privacy-deployment.md) | [Privacy and deployment](docs/en/privacy-deployment.md) |
-| [性能](docs/zh-CN/performance.md) | [Performance](docs/en/performance.md) |
-| [发布说明](docs/zh-CN/release.md) | [Release notes](docs/en/release.md) |
+| [性能](docs/zh-CN/performance.md)              | [Performance](docs/en/performance.md)                   |
+| [发布说明](docs/zh-CN/release.md)              | [Release notes](docs/en/release.md)                     |
 
-2026-09-18 的固定 64 图公共 SDK 四组合已执行，但严格质量验收仍未通过：图片 204871 的一个 car 实例有 58 个差异像素，全部在官方 612×612→611×611 裁剪丢掉的边缘，共同区域一致。SDK 保留完整原图且不降低门槛，见[边缘诊断](reports/2026-09-18-image-sdk/edge-diagnosis.json)。完整结论、环境和逐图记录见[本地验收报告](reports/2026-09-18-image-sdk/README.md)，不代表完整 COCO 或其他设备表现。[Demo 检查清单](docs/demo-checklist.md)与[发布检查清单](docs/release-checklist.md)区分本地实现和未完成发布事项。
+2026-09-18 的固定 64 图公共 SDK 四组合通过原图整数尺寸独立参考验收：每种模式匹配 423 个 `score>0.5` 实例，最小 mask IoU 为 0.9987084870848708；WASM 与 WebGPU 的 mask AP 下降分别为 0.07768926117917574 和 0.07768469154607605 个百分点。此次仅修正参考实现最终裁剪及空掩码尺寸，SDK 无数值改动；256 次 SDK 推理复用已核验摘要的既有归档，并非本次重跑。见[原图尺寸验收](reports/2026-09-18-original-size/README.md)。旧官方截断口径的失败档案继续保留；64 图子集不代表完整 COCO、手机或 NPU 表现。[Demo 检查清单](docs/demo-checklist.md)与[发布检查清单](docs/release-checklist.md)区分质量通过和仍待完成的发布事项。
 
-规划入口：[GitHub（尚未创建）](https://github.com/chenmohan123/web-sdk-PP-Segmentation) · [npm（尚未发布）](https://www.npmjs.com/package/web-sdk-pp-segmentation) · [在线 Demo（尚未部署）](https://chenmohan123.github.io/web-sdk-PP-Segmentation/)。可行性阶段的上游来源与转换记录见门户[实例分割评估报告](https://github.com/chenmohan123/chenmohan123.github.io/tree/main/reports/segmentation/2026-09-18-feasibility)。
+发布目标：[GitHub](https://github.com/chenmohan123/web-sdk-PP-Segmentation) · [npm](https://www.npmjs.com/package/web-sdk-pp-segmentation) · [在线 Demo](https://chenmohan123.github.io/web-sdk-PP-Segmentation/)。在发布检查清单完成前，这些链接不构成已上线声明。可行性阶段的上游来源与转换记录见门户[实例分割评估报告](https://github.com/chenmohan123/chenmohan123.github.io/tree/main/reports/segmentation/2026-09-18-feasibility)。
 
 ## 本地检查与许可证
 
@@ -87,4 +88,4 @@ pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versi
 
 浏览器检查需要本地模型、已构建资源和可用 Chromium；具体验收操作见 [scripts/evaluation/README.md](scripts/evaluation/README.md)。标准检查从相邻门户执行，见发布清单。
 
-SDK 源码使用 Apache-2.0，见 [LICENSE](LICENSE)。上游 PaddleDetection 源码许可不等同于模型权重再分发审查；正式上传权重前仍需核验权重许可、来源及第三方归因，见 [NOTICE](NOTICE)。评估数据和模型不进入 npm 或 Git。
+SDK 源码使用 Apache-2.0，见 [LICENSE](LICENSE)。基于固定 PaddleDetection Apache-2.0 项目声明、官方模型表及归因证据，项目将 Apache-2.0 用于官方权重及其 ONNX 转换物；未找到独立点名该权重的许可文本是解释边界，不是额外授权硬门槛。Hub 镜像由本项目维护，详见 [NOTICE](NOTICE) 与[许可决定](reports/2026-09-18-release-readiness/license/README.md)。评估数据不进入 npm、Git 或公开 Demo。

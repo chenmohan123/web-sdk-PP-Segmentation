@@ -1,0 +1,18 @@
+--- post-process-original.py
++++ post-process-original-size.py
+@@ -17,7 +17,7 @@
+             if 'npu' in paddle.device.get_all_custom_device_type():
+                 mask_logits = mask_logits[..., :round(ori_h.item()), :round(ori_w.item())]
+             else:
+-                mask_logits = mask_logits[..., :int(ori_h), :int(ori_w)]
++                mask_logits = mask_logits[..., :self._original_size[0], :self._original_size[1]]
+         masks = mask_logits.squeeze(0)
+         mask_pred = paddle.to_tensor(masks > self.mask_thr_binary).cast('float32')
+         scale_factor = scale_factor.flip(-1).tile([1, 2])
+@@ -26,5 +26,5 @@
+         ori_h, ori_w = im_shape[0] / scale_factor[0]
+         bbox_num = paddle.to_tensor([1]).cast('int32')
+         bbox_pred = paddle.zeros([bbox_num, 6])
+-        mask_pred = paddle.zeros([bbox_num, int(ori_h), int(ori_w)])
++        mask_pred = paddle.zeros([bbox_num, self._original_size[0], self._original_size[1]])
+     return (bbox_pred, bbox_num, mask_pred, keep_idxs)
