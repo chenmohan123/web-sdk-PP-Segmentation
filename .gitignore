@@ -1,0 +1,11 @@
+node_modules/
+dist/
+demo-dist/
+demo/public/sdk/
+.tmp/
+.worktrees/
+.superpowers/
+*.onnx
+*.pdparams
+*.log
+__pycache__/
