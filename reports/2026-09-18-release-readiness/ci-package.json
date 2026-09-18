@@ -1,0 +1,11 @@
+{
+  "verifiedAt": "2026-09-18T06:22:16.329445+00:00",
+  "runId": 35314428068,
+  "tag": "v0.1.0",
+  "sourceCommit": "dfbc72056e8c8cf748a7697778f5d14a921b5302",
+  "files": 24,
+  "contentAgreement": "23文件逐字节一致；package.json仅pnpm字段顺序变化，JSON语义一致",
+  "bytes": 6072971,
+  "sha256": "d67dcbc2863c1c0034a3fe5fd0fb108afe495f1ce88234be2812cc080492e156",
+  "status": "passed"
+}

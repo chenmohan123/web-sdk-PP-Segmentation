@@ -22,3 +22,5 @@
 ## 交付状态
 
 [PR #2](https://github.com/chenmohan123/web-sdk-PP-Segmentation/pull/2) 已通过 Linux CI 并合并；[HTTPS Demo](https://chenmohan123.github.io/web-sdk-PP-Segmentation/) 的 22 个文件与验收产物摘要一致，默认 ModelScope/GPU/Worker 实测成功。见[线上回执](../../reports/2026-09-18-release-readiness/demo-published.json)和[远程治理](../../reports/2026-09-18-release-readiness/governance-published.json)。npm 与 GitHub Release 的交付状态见[发布清单](../release-checklist.md)。
+
+首版 npm 已发布并完成完整包回读和安装检查；GitHub Release 使用不可变 `v0.1.0`。详见 [npm 回执](../../reports/2026-09-18-release-readiness/npm-published.json)与 [Release 回执](../../reports/2026-09-18-release-readiness/github-published.json)。首版由本机经安全验证发布；后续自动 npm 发布需为新包配置 Trusted Publishing。

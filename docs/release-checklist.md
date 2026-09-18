@@ -1,12 +1,12 @@
 # 发布检查清单
 
-依据门户标准 v1 的 `templates/release-checklist.md`。当前范围为 `0.1.0` 首版，日期 2026-09-18；质量、双源和 HTTPS Demo 已通过，npm 与最终版本标签仍待账号验证。源码/运行证据与正式发布证据分别保留。
+依据门户标准 v1 的 `templates/release-checklist.md`。当前范围为 `0.1.0` 首版，日期 2026-09-18；质量、双源、npm、GitHub Release 与 HTTPS Demo 均已发布并回读验证。源码/运行证据与正式发布证据分别保留。
 
 ## 本地实现与验收
 
 - [x] 中文 README 为默认入口，完整英文 README 与六组指南互链；发布说明也有英文对应。
-- [x] README 清楚标出包名/版本、本地运行、发布后 npm 安装步骤及 GitHub/npm/Demo 的候选状态。
-- [x] `CHANGELOG.md` 含 0.1.0 发布候选条目。
+- [x] README 清楚标出包名/版本、本地运行、npm 安装步骤及 GitHub/npm/Demo 正式入口。
+- [x] `CHANGELOG.md` 含 0.1.0 正式版本条目。
 - [x] 模型有固定身份、大小、SHA-256 与上游源码 revision；正式来源从 [models/model.json](../models/model.json) 的 `defaultSource`/`sources` 读取，不在文档复制 Hub revision。
 - [x] 兼容性记录浏览器、OS、设备、驱动、后端、runtime 与日期；见[兼容性](zh-CN/compatibility.md)和 [host.json](../reports/2026-09-18-image-sdk/host.json)。
 - [x] 固定 64 图公共 SDK 四组合已执行并归档；本次核验 256 次 SDK 推理旧档的源码、冻结文件与当前构建摘要，没有重跑。
@@ -40,12 +40,12 @@ pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versi
 - [x] 创建正式 GitHub 仓库并核验 About description、Homepage/Demo URL、topics。
 - [x] 默认分支 active Ruleset 要求 PR、当前 CI checks、已解决会话，并禁止删除/force push。
 - [x] 发布 tag active Ruleset 防止已发布标签更新/删除；bypass actor 为空或记录最小权限理由。
-- [ ] npm 包正式发布且名称/版本可回读，安装包不含模型、原始输出、评估数据或本地测试图片。
-- [ ] GitHub Release 使用现存不可变 tag，说明模型来源、许可、默认资产、后端与已知限制。
-- [ ] 正式仓库、npm、在线 Demo 的 README 链接全部可用。
+- [x] npm `web-sdk-pp-segmentation@0.1.0` 已发布；[完整 tarball 回读](../reports/2026-09-18-release-readiness/npm-published.json)与 GitHub 验收包逐字节一致，[实际安装与公共导入](../reports/2026-09-18-release-readiness/npm-installation.json)通过，产物不含模型或评估素材。
+- [x] [GitHub Release v0.1.0](https://github.com/chenmohan123/web-sdk-PP-Segmentation/releases/tag/v0.1.0) 已发布，不可变标签固定 `dfbc72056e8c8cf748a7697778f5d14a921b5302`；[回执](../reports/2026-09-18-release-readiness/github-published.json)记录成功工作流。说明包含来源、许可、模型、后端和局限。
+- [x] 正式仓库、npm、在线 Demo 的 README 入口均已发布；npm registry 完整下载与 Demo 实际运行已核验。
 - [x] HTTPS Demo 已从受保护源码部署，22 个线上文件与验收构建逐字节一致，默认源 GPU/Worker 实测通过；见 [demo-published.json](../reports/2026-09-18-release-readiness/demo-published.json)。
 - [x] GitHub Pages Source 为 GitHub Actions，使用 `github-pages` environment、限定 Pages 权限、HTTPS 与并发控制。
 - [x] [远程治理回执](../reports/2026-09-18-release-readiness/governance-published.json)记录仓库、Ruleset/environment、Pages、成功部署 commit 和验证时间，不含凭据。
-- [x] 本地 required 失败 0，四项适用远程治理规则已核验通过；此结论不代表 npm 已发布。
+- [x] 本地 required 失败 0，四项适用远程治理规则已核验通过；npm 发布另有独立回读与安装证据。
 
-剩余 npm/版本标签/Release 在服务端账号验证后继续完成；不把待发布项目写成已上线。
+首版交付完成。后续自动 npm 发布仍需为此新包配置 Trusted Publishing；首版已由本机经安全验证发布，并由标签工作流独立核验完整性。

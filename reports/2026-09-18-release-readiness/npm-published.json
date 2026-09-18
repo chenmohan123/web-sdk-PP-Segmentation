@@ -1,0 +1,12 @@
+{
+  "verifiedAt": "2026-09-18T06:36:18.387Z",
+  "status": "passed",
+  "name": "web-sdk-pp-segmentation",
+  "version": "0.1.0",
+  "registry": "https://registry.npmjs.org/web-sdk-pp-segmentation/0.1.0",
+  "tarball": "https://registry.npmjs.org/web-sdk-pp-segmentation/-/web-sdk-pp-segmentation-0.1.0.tgz",
+  "integrity": "sha512-C6YAOrDcVqXhDV3tvoPeLh0X1Vl7JsBIoim5sgIzFeOVL5/GHc56Id7uR5wr4knvEOY+O9gHw/7qCiC3VyoMTQ==",
+  "bytes": 6072971,
+  "sha256": "d67dcbc2863c1c0034a3fe5fd0fb108afe495f1ce88234be2812cc080492e156",
+  "exactCiArtifact": true
+}

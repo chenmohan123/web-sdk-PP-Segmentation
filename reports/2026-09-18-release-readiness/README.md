@@ -11,11 +11,14 @@
 - [工程验证](local-verification.json)：50 单测、两项类型检查、SDK/Demo 构建与 npm 清单检查通过。[UI 验证](ui/summary.json)：四组合、无效预览拒绝、取消/换图恢复、缓存、Vanilla、中英、390px 与实例选择不跳动通过。
 - [PR #2](https://github.com/chenmohan123/web-sdk-PP-Segmentation/pull/2) 通过 Linux CI 后合并为 `c62c2187fd5fc1014c48937b538fa910a6eb796f`。CI 核验当前构建与真实八组合回执，冻结证据按原始字节入 Git；没有改写旧失败结果。
 - [HTTPS Demo](https://chenmohan123.github.io/web-sdk-PP-Segmentation/) 已上线；[回读](demo-published.json)确认 22 个文件与验收构建逐字节一致，默认 ModelScope/WebGPU/Worker 实际识别 4 个实例，中英切换保留结果。
-- [远程治理](governance-published.json)：默认分支 PR/严格 CI/会话解决/禁止删除和强推；v* 标签禁止修改删除；Pages Actions、HTTPS、受保护来源、最小部署权限与串行部署。四项适用远程规则通过，本地[标准检查](standard-after.json) required 失败 0。推荐项 EXAMPLE-003 是 Vite 复用 React 示例的静态发现限制，已有可运行证据。
+- [远程治理](governance-published.json)：默认分支 PR/严格 CI/会话解决/禁止删除和强推；v\* 标签禁止修改删除；Pages Actions、HTTPS、受保护来源、最小部署权限与串行部署。四项适用远程规则通过，本地[标准检查](standard-after.json) required 失败 0。推荐项 EXAMPLE-003 是 Vite 复用 React 示例的静态发现限制，已有可运行证据。
 
-## 剩余交付
+## 正式版本交付
 
-npm 的本机凭据失效，首次发布需要账号登录和可能的安全密钥验证。当前没有发布 npm 0.1.0，也没有创建最终 v0.1.0 标签或 GitHub Release。产物、workflow、来源和验收均已准备；账号验证后继续发布并独立回读 tarball，最后记录版本标签与 Release。
+- [npm 0.1.0](https://www.npmjs.com/package/web-sdk-pp-segmentation/v/0.1.0) 已由本机经 npm 账号与安全密钥验证发布。包包含 24 个文件，不含权重或评估图片；[CI 包核验](ci-package.json)确认 23 个文件与本地验收内容逐字节相同，package.json 仅 pnpm 重排字段，JSON 语义相同。
+- [完整回读](npm-published.json)确认 registry 返回的 tarball 与标签工作流构建包逐字节一致，SHA-256 `d67dcbc2863c1c0034a3fe5fd0fb108afe495f1ce88234be2812cc080492e156`。[真实安装](npm-installation.json)验证公共 ESM 导入与 Worker 子路径；此检查不代表 Node 可执行浏览器推理。
+- [PR #4](https://github.com/chenmohan123/web-sdk-PP-Segmentation/pull/4) 合并后固定不可变 `v0.1.0`，指向 `dfbc72056e8c8cf748a7697778f5d14a921b5302`。[GitHub Release](https://github.com/chenmohan123/web-sdk-PP-Segmentation/releases/tag/v0.1.0) 已正式发布，[工作流回执](github-published.json)为 success。
+- 首次标签工作流未配置新包的 Trusted Publishing，npm 步骤返回 ENEEDAUTH；本机安全验证发布同一 CI 产物后，重跑步骤独立验证 npm integrity 并完成 Release。没有降低账号安全要求，也没有移动版本标签。后续自动 npm 发布仍需一次 Trusted Publishing 配置。
 
 ## 范围与归档
 

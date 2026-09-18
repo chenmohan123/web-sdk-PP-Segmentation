@@ -1,0 +1,19 @@
+{
+  "verifiedAt": "2026-09-18T06:38:49.876Z",
+  "status": "passed",
+  "version": "0.1.0",
+  "installedFrom": "https://registry.npmjs.org/",
+  "publicExports": [
+    "SegmentationError",
+    "clearAllModelCache",
+    "clearAllModelCaches",
+    "clearCurrentModelCache",
+    "clearModelCache",
+    "createSegmentation",
+    "getCacheUsage",
+    "getModelCacheInfo"
+  ],
+  "workerExportResolves": true,
+  "workerSha256": "672886c08f66995832cc780b2496104e30501bd4cd4ebaae9b9368e2aa9de885",
+  "scope": "npm实际安装、公共ESM导入、Worker子路径解析；Node本身不作浏览器推理兼容声明"
+}
