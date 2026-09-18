@@ -1,0 +1,58 @@
+{
+  "date": "2026-09-18T05:04:43.911Z",
+  "browser": "153.0.8010.12",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900,
+      "canvas": {
+        "x": 287,
+        "y": 125,
+        "width": 796,
+        "height": 758
+      },
+      "selectionStable": true,
+      "languageStable": true,
+      "horizontalOverflow": false
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "canvas": {
+        "x": 287,
+        "y": 125,
+        "width": 722,
+        "height": 626
+      },
+      "selectionStable": true,
+      "languageStable": true,
+      "horizontalOverflow": false
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "canvas": {
+        "x": 267,
+        "y": 125,
+        "width": 740,
+        "height": 428.078125
+      },
+      "selectionStable": true,
+      "languageStable": true,
+      "horizontalOverflow": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "canvas": {
+        "x": 13,
+        "y": 529.5,
+        "width": 364,
+        "height": 352.46875
+      },
+      "selectionStable": true,
+      "languageStable": true,
+      "horizontalOverflow": false
+    }
+  ]
+}

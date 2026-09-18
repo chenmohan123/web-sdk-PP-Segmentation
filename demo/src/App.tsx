@@ -1,14 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
-  Scan,
+  ImagePlus,
   Upload,
   Play,
   Square,
   Trash2,
   ChevronDown,
-  Layers,
-  Globe,
-  ExternalLink,
+  Github,
 } from "lucide-react";
 import type {
   Segmentation,
@@ -25,6 +23,7 @@ type Api = typeof import("../../src/index");
 const labels = {
   zh: {
     title: "实例分割",
+    model: "分割模型",
     subtitle: "PP-YOLOE_seg_s · FP32",
     input: "选择图片",
     run: "开始分割",
@@ -57,6 +56,11 @@ const labels = {
     overlay: "显示掩码",
     original: "原图",
     results: "实例",
+    resultTitle: "分割结果",
+    resultEmpty: "分割后在这里查看实例",
+    noInstances: "未识别到实例",
+    cacheTitle: "缓存管理",
+    inference: "模型推理",
     info: "模型与运行信息",
     cache: "清理当前模型缓存",
     cacheAll: "清理本 SDK 全部缓存",
@@ -73,6 +77,7 @@ const labels = {
   },
   en: {
     title: "Instance segmentation",
+    model: "Segmentation model",
     subtitle: "PP-YOLOE_seg_s · FP32",
     input: "Choose image",
     run: "Segment image",
@@ -106,6 +111,11 @@ const labels = {
     overlay: "Show masks",
     original: "Original",
     results: "Instances",
+    resultTitle: "Segmentation results",
+    resultEmpty: "Instances appear here after segmentation",
+    noInstances: "No instances found",
+    cacheTitle: "Cache management",
+    inference: "Inference",
     info: "Model and runtime",
     cache: "Clear model cache",
     cacheAll: "Clear all SDK caches",
@@ -119,6 +129,30 @@ const labels = {
     repo: "GitHub",
     cpu: "CPU",
     gpu: "GPU",
+  },
+};
+const timingLabels: Record<"zh" | "en", Record<string, string>> = {
+  zh: {
+    modelDownloadMs: "模型下载",
+    modelCacheReadMs: "缓存读取",
+    integrityMs: "完整性校验",
+    sessionMs: "会话初始化",
+    decodeMs: "图片解码",
+    preprocessMs: "预处理",
+    inferenceMs: "模型推理",
+    postprocessMs: "后处理",
+    totalMs: "本次总耗时",
+  },
+  en: {
+    modelDownloadMs: "Download",
+    modelCacheReadMs: "Cache read",
+    integrityMs: "Integrity check",
+    sessionMs: "Session setup",
+    decodeMs: "Image decode",
+    preprocessMs: "Preprocess",
+    inferenceMs: "Inference",
+    postprocessMs: "Postprocess",
+    totalMs: "Total run time",
   },
 };
 export default function App() {
@@ -386,232 +420,273 @@ export default function App() {
       : ((t as Record<string, string>)[notice || displayPhase] ?? displayPhase);
   return (
     <div className="shell">
-      <header>
-        <a className="brand" href="#">
-          <span className="logo">
-            <Scan size={23} />
-          </span>
-          <span>
-            PP-Segmentation<small>{t.title}</small>
-          </span>
-        </a>
-        <nav>
-          <span className="version">0.1.0-alpha.0</span>
-          <button
-            className="quiet"
-            onClick={() => setLang(lang === "zh" ? "en" : "zh")}
+      <header className="topbar">
+        <div className="brand-block">
+          <span className="eyebrow">ONNX RUNTIME WEB</span>
+          <h1>PP-Segmentation</h1>
+          <span className="version">SDK 0.1.0-alpha.0</span>
+        </div>
+        <nav className="top-actions">
+          <a
+            className="repository-link"
+            href="https://github.com/chenmohan123/web-sdk-PP-Segmentation"
+            target="_blank"
+            rel="noreferrer"
           >
-            <Globe size={16} />
+            <Github size={16} />
+            {t.repo}
+          </a>
+          <button onClick={() => setLang(lang === "zh" ? "en" : "zh")}>
             {lang === "zh" ? "English" : "中文"}
           </button>
-          <a
-            href="https://github.com/chenmohan123/web-sdk-PP-Segmentation"
-            title={t.repo}
-          >
-            <ExternalLink size={18} />
-          </a>
         </nav>
       </header>
-      <main>
-        <div className="heading">
-          <div>
-            <h1>{t.title}</h1>
-            <p>{t.subtitle}</p>
-          </div>
-          <span className="badge">{t.development}</span>
-        </div>
-        <section className="controls">
-          <label>
-            {t.backend}
-            <select
-              value={backend}
-              disabled={busy || clearing}
-              onChange={(e) => {
-                setBackend(e.target.value as Backend);
-                void reset();
-              }}
-            >
-              <option value="webgpu">GPU · WebGPU</option>
-              <option value="wasm">CPU · WASM</option>
-            </select>
-          </label>
-          <label>
-            {t.mode}
-            <select
-              value={mode}
-              disabled={busy || clearing}
-              onChange={(e) => {
-                setMode(e.target.value as ExecutionMode);
-                void reset();
-              }}
-            >
-              <option value="worker">{t.worker}</option>
-              <option value="main">{t.main}</option>
-            </select>
-          </label>
-          <label>
-            {t.source}
-            <select
-              disabled
-              value={source}
-              onChange={(e) => setSource(e.target.value)}
-            >
-              <option value="modelscope">ModelScope</option>
-              <option value="huggingface">Hugging Face</option>
-            </select>
-          </label>
-          <span className="source-note">
-            {__LOCAL_MODEL__ ? t.local : t.unpublished}
-          </span>
-          <div className="actions">
-            <input
-              ref={input}
-              type="file"
-              accept="image/jpeg,image/png,image/webp"
-              aria-label={t.input}
-              hidden
-              disabled={clearing}
-              onChange={(e) => {
-                void choose(e.target.files?.[0]);
-              }}
-            />
-            <button disabled={clearing} onClick={() => input.current?.click()}>
-              <Upload size={16} />
-              {t.input}
-            </button>
-            {busy ? (
-              <button
-                onClick={() => {
-                  controller.current?.abort();
-                  void sdk.current?.dispose().catch(() => {});
-                }}
-              >
-                <Square size={15} />
-                {t.cancel}
-              </button>
-            ) : (
-              <button
-                className="primary"
-                disabled={
-                  !file ||
-                  !preview ||
-                  !!previewError ||
-                  clearing ||
-                  !__LOCAL_MODEL__
-                }
-                onClick={() => void run()}
-              >
-                <Play size={16} />
-                {t.run}
-              </button>
-            )}
-            <button
-              className="quiet"
-              disabled={clearing}
-              onClick={() => void reset(true)}
-              aria-label={t.clear}
-            >
-              <Trash2 size={17} />
-            </button>
-          </div>
-        </section>
-        <div className="status" role="status" data-state={displayPhase}>
-          <span className={busy ? "dot pulse" : "dot"} />
-          {stateText}
-          {busy && phase === "downloading" && progress > 0
-            ? ` · ${progress}%`
-            : ""}
-          {displayError && (
-            <span role="alert" className="error">
-              {displayError}
-            </span>
-          )}
-        </div>
-        <div className="workspace">
-          <section className="viewer">
-            <div className="viewer-toolbar">
-              <span>{file?.name ?? t.original}</span>
-              <button
-                className={overlay ? "toggle active" : "toggle"}
-                onClick={() => setOverlay(!overlay)}
-              >
-                <Layers size={15} />
-                {t.overlay}
-              </button>
-              <span className="selection">
-                {selected >= 0 ? `#${selected + 1}` : t.all}
-              </span>
+      <main className="demo-workspace">
+        <aside className="controls-panel">
+          <section className="control-band">
+            <div className="control-group model-control">
+              <div className="control-label model-label">
+                <span>{t.model}</span>
+                <span className="badge">{t.development}</span>
+              </div>
+              <div className="model-value">{t.subtitle}</div>
             </div>
-            <div className="canvas-wrap">
-              {url ? (
-                <canvas ref={canvas} aria-label={t.title} />
+            <label className="control-group source-control">
+              <span className="control-label">{t.source}</span>
+              <select
+                disabled
+                value={source}
+                onChange={(e) => setSource(e.target.value)}
+              >
+                <option value="modelscope">ModelScope</option>
+                <option value="huggingface">Hugging Face</option>
+              </select>
+              <span className="source-note">
+                {__LOCAL_MODEL__ ? t.local : t.unpublished}
+              </span>
+            </label>
+            <div className="control-group" role="group" aria-label={t.backend}>
+              <span className="control-label">{t.backend}</span>
+              <div className="segmented">
+                {(["webgpu", "wasm"] as const).map((value) => (
+                  <button
+                    key={value}
+                    aria-pressed={backend === value}
+                    disabled={busy || clearing}
+                    onClick={() => {
+                      setBackend(value);
+                      void reset();
+                    }}
+                  >
+                    {value === "webgpu" ? t.gpu : t.cpu}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="control-group" role="group" aria-label={t.mode}>
+              <span className="control-label">{t.mode}</span>
+              <div className="segmented">
+                {(["worker", "main"] as const).map((value) => (
+                  <button
+                    key={value}
+                    aria-pressed={mode === value}
+                    disabled={busy || clearing}
+                    onClick={() => {
+                      setMode(value);
+                      void reset();
+                    }}
+                  >
+                    {value === "worker" ? t.worker : t.main}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="control-actions">
+              <input
+                ref={input}
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+                aria-label={t.input}
+                hidden
+                disabled={clearing}
+                onChange={(e) => {
+                  void choose(e.target.files?.[0]);
+                }}
+              />
+              <button
+                className="file-button"
+                disabled={clearing}
+                onClick={() => input.current?.click()}
+              >
+                <Upload size={16} />
+                {t.input}
+              </button>
+              {busy ? (
+                <button
+                  onClick={() => {
+                    controller.current?.abort();
+                    void sdk.current?.dispose().catch(() => {});
+                  }}
+                >
+                  <Square size={15} />
+                  {t.cancel}
+                </button>
               ) : (
                 <button
-                  className="empty"
-                  disabled={clearing}
-                  onClick={() => input.current?.click()}
+                  className="primary"
+                  disabled={
+                    !file ||
+                    !preview ||
+                    !!previewError ||
+                    clearing ||
+                    !__LOCAL_MODEL__
+                  }
+                  onClick={() => void run()}
                 >
-                  <span className="empty-icon">
-                    <Scan size={42} />
-                  </span>
-                  <strong>{t.empty}</strong>
-                  <span>{t.upload}</span>
+                  <Play size={16} />
+                  {t.run}
                 </button>
               )}
+              <button disabled={clearing} onClick={() => void reset(true)}>
+                <Trash2 size={16} />
+                {t.clear}
+              </button>
             </div>
           </section>
-          <aside className="results">
-            <div className="panel-title">
-              <h2>{t.results}</h2>
-              <span>{result?.instances.length ?? 0}</span>
-            </div>
+          <div className="status" role="status" data-state={displayPhase}>
+            <span className={busy ? "dot pulse" : "dot"} />
+            <span>
+              {stateText}
+              {busy && phase === "downloading" && progress > 0
+                ? ` · ${progress}%`
+                : ""}
+            </span>
+            {displayError && (
+              <span role="alert" className="error">
+                {displayError}
+              </span>
+            )}
+          </div>
+        </aside>
+        <section className="viewer">
+          <div className="viewer-toolbar">
+            <h2>{t.title}</h2>
+            <span className="selection" title={file?.name}>
+              {selected >= 0
+                ? `#${selected + 1} · ${result?.instances[selected]?.label ?? ""}`
+                : (file?.name ?? "")}
+            </span>
             <button
-              className={selected === -1 ? "result-row selected" : "result-row"}
-              disabled={!result}
+              className="all-instances"
+              disabled={selected < 0}
               onClick={() => setSelected(-1)}
             >
               {t.all}
             </button>
+            <label className="label-toggle">
+              <input
+                type="checkbox"
+                checked={overlay}
+                onChange={(e) => setOverlay(e.target.checked)}
+              />
+              {t.overlay}
+            </label>
+          </div>
+          <div className="canvas-wrap">
+            {url ? (
+              <canvas ref={canvas} aria-label={t.title} />
+            ) : (
+              <button
+                className="empty"
+                disabled={clearing}
+                onClick={() => input.current?.click()}
+              >
+                <ImagePlus size={30} />
+                <strong>{t.empty}</strong>
+                <span>{t.upload}</span>
+              </button>
+            )}
+          </div>
+        </section>
+        <aside className="details-panel">
+          <section className="results detail-section">
+            <div className="panel-title">
+              <h2>{t.resultTitle}</h2>
+              <span className="count-badge">
+                {result?.instances.length ?? 0} {t.count}
+              </span>
+            </div>
             <div className="result-list">
               {result?.instances.map((item, i) => (
                 <button
                   key={i}
-                  className={
-                    selected === i ? "result-row selected" : "result-row"
-                  }
+                  className="result-row"
+                  aria-pressed={selected === i}
                   onClick={() => setSelected(i)}
                 >
-                  <span>
-                    <i
-                      style={{
-                        background: [
-                          "#2563eb",
-                          "#0ea582",
-                          "#ea580c",
-                          "#9333ea",
-                          "#e11d48",
-                        ][i % 5],
-                      }}
-                    />
-                    #{i + 1} {item.label}
+                  <i
+                    style={{
+                      background: [
+                        "#2563eb",
+                        "#0ea582",
+                        "#ea580c",
+                        "#9333ea",
+                        "#e11d48",
+                      ][i % 5],
+                    }}
+                  />
+                  <span className="result-index">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span>{(item.score * 100).toFixed(1)}%</span>
+                  <span className="result-label">
+                    <strong>{item.label}</strong>
+                    <small>{(item.score * 100).toFixed(1)}%</small>
+                  </span>
                 </button>
               ))}
+              {!result?.instances.length && (
+                <p className="result-empty">
+                  {result ? t.noInstances : t.resultEmpty}
+                </p>
+              )}
             </div>
-            {result && (
-              <div className="summary">
-                <span>{t.total}</span>
-                <strong>{result.timings.totalMs.toFixed(1)} ms</strong>
+          </section>
+          <section className="detail-section">
+            <dl className="timing-summary">
+              <div>
+                <dt>{t.total}</dt>
+                <dd>
+                  {result ? `${result.timings.totalMs.toFixed(1)} ms` : "—"}
+                </dd>
               </div>
-            )}
-          </aside>
-        </div>
-        <section className="information">
-          <details>
+              <div>
+                <dt>{t.inference}</dt>
+                <dd>
+                  {result ? `${result.timings.inferenceMs.toFixed(1)} ms` : "—"}
+                </dd>
+              </div>
+            </dl>
+            <details>
+              <summary>
+                {t.details}
+                <ChevronDown size={17} />
+              </summary>
+              <div data-sdk-timing className="timings">
+                {Object.entries({ ...load, ...result?.timings }).map(
+                  ([k, v]) => (
+                    <div key={k}>
+                      <span>{timingLabels[lang][k] ?? k}</span>
+                      <b>{v.toFixed(1)} ms</b>
+                    </div>
+                  ),
+                )}
+              </div>
+            </details>
+          </section>
+          <details className="detail-section">
             <summary>
-              <ChevronDown size={16} />
               {t.info}
+              <ChevronDown size={17} />
             </summary>
             <div className="info-grid">
               <div data-sdk-model-info>
@@ -666,48 +741,39 @@ export default function App() {
               </div>
             </div>
           </details>
-          <details>
+          <details className="detail-section cache-section">
             <summary>
-              <ChevronDown size={16} />
-              {t.details}
+              {t.cacheTitle}
+              <ChevronDown size={17} />
             </summary>
-            <div data-sdk-timing className="timings">
-              {Object.entries({ ...load, ...result?.timings }).map(([k, v]) => (
-                <div key={k}>
-                  <span>{k}</span>
-                  <b>{v.toFixed(1)} ms</b>
-                </div>
-              ))}
+            <div className="cache-usage">
+              <span>{t.cacheUsage}</span>
+              <span data-sdk-cache-usage>
+                {cacheBytes === undefined
+                  ? "—"
+                  : `${(cacheBytes / 1e6).toFixed(2)} MB`}
+              </span>
             </div>
+            <div className="cache-actions">
+              <button
+                disabled={clearing}
+                data-sdk-cache-clear="current"
+                onClick={() => void clearCache()}
+              >
+                {t.cache}
+              </button>
+              <button
+                disabled={clearing}
+                data-sdk-cache-clear="all"
+                onClick={() => void clearCache(true)}
+              >
+                {t.cacheAll}
+              </button>
+            </div>
+            <p className="privacy">{t.privacy}</p>
           </details>
-          <div className="footer-controls">
-            <span>{t.privacy}</span>
-            <span data-sdk-cache-usage>
-              {t.cacheUsage}:{" "}
-              {cacheBytes === undefined
-                ? "—"
-                : `${(cacheBytes / 1e6).toFixed(2)} MB`}
-            </span>
-            <button
-              className="link"
-              disabled={clearing}
-              data-sdk-cache-clear="current"
-              onClick={() => void clearCache()}
-            >
-              {t.cache}
-            </button>
-            <button
-              className="link"
-              disabled={clearing}
-              data-sdk-cache-clear="all"
-              onClick={() => void clearCache(true)}
-            >
-              {t.cacheAll}
-            </button>
-          </div>
-        </section>
+        </aside>
       </main>
-      <footer>PP-Segmentation · Web Model SDK</footer>
     </div>
   );
 }

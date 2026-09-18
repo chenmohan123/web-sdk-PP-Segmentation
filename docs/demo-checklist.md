@@ -4,8 +4,11 @@
 
 主要证据：[demo/src/App.tsx](../demo/src/App.tsx)、[UI 冒烟汇总](../reports/2026-09-18-image-sdk/ui/summary.json)、[验收报告](../reports/2026-09-18-image-sdk/README.md)。
 
+最新视觉修正以[Detection 风格对齐记录](../reports/2026-09-18-ui-alignment/README.md)、[四组合复验](../reports/2026-09-18-ui-alignment/browser-summary.json)和[响应式布局记录](../reports/2026-09-18-ui-alignment/layout.json)为准。
+
 - [x] Demo 只聚焦当前 PP-Segmentation/PP-YOLOE_seg_s 图片模型。
 - [x] 初始页面为中文 `zh-CN`。
+- [x] 实际对照 Detection 线上 Demo：深色顶栏、三栏工作台、分段按钮、小圆角及右侧折叠信息；1440/1366/1024/390px 中英切换与实例选择不改变画布位置。
 - [x] 中英切换保留当前结果，不重载模型状态；`language=true`。
 - [ ] 品牌栏的包版本、GitHub 和 Demo 入口全部为可用正式链接；当前只可核验本地名称/版本与规划链接，远程尚未发布。
 - [x] 选图、CPU/GPU、main/worker、运行/重置与禁用/加载状态可用；本版精度固定 FP32。

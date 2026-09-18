@@ -1,7 +1,8 @@
 import { chromium } from "playwright";
 import { createServer, preview } from "vite";
 import { access, mkdir, writeFile } from "node:fs/promises";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { resolve, sep } from "node:path";
 import assert from "node:assert/strict";
 const root = fileURLToPath(new URL("../", import.meta.url));
 const image =
@@ -13,9 +14,11 @@ const image =
     ),
   );
 await access(image);
-const evidence = new URL(
-  "../reports/2026-09-18-image-sdk/ui/",
-  import.meta.url,
+const evidence = pathToFileURL(
+  resolve(
+    root,
+    process.env.SDK_UI_EVIDENCE_DIR ?? "reports/2026-09-18-image-sdk/ui",
+  ) + sep,
 );
 await mkdir(evidence, { recursive: true });
 const base = process.env.SDK_DEMO_BASE_URL ?? "http://127.0.0.1:4188/";
@@ -201,8 +204,20 @@ try {
   } else {
     for (const backend of ["wasm", "webgpu"])
       for (const mode of ["main", "worker"]) {
-        await page.getByLabel("运行后端").selectOption(backend);
-        await page.getByLabel("执行模式").selectOption(mode);
+        await page
+          .getByRole("group", { name: "运行后端" })
+          .getByRole("button", {
+            name: backend === "webgpu" ? "GPU" : "CPU",
+            exact: true,
+          })
+          .click();
+        await page
+          .getByRole("group", { name: "执行模式" })
+          .getByRole("button", {
+            name: mode === "worker" ? "Worker" : "主线程",
+            exact: true,
+          })
+          .click();
         await page.locator("input[type=file]").setInputFiles(image);
         await page
           .getByRole("button", { name: "开始分割", exact: true })
@@ -234,21 +249,23 @@ try {
           .click();
         assert.deepEqual(await position(), before);
         await page
-          .getByRole("button", { name: "显示掩码", exact: true })
+          .getByRole("checkbox", { name: "显示掩码", exact: true })
           .click();
         assert.deepEqual(await position(), before, "切换掩码导致画布移动");
         await page
-          .getByRole("button", { name: "显示掩码", exact: true })
+          .getByRole("checkbox", { name: "显示掩码", exact: true })
           .click();
         await page
           .getByRole("button", { name: "English", exact: true })
           .click();
         assert.deepEqual(await position(), before, "中英切换导致画布移动");
         await page.getByRole("button", { name: "中文", exact: true }).click();
+        await page.locator(".cache-section summary").click();
         assert.match(
           await page.locator("[data-sdk-cache-usage]").innerText(),
           /36.27 MB/,
         );
+        await page.locator(".cache-section summary").click();
         results.push({
           backend,
           mode,
@@ -307,6 +324,7 @@ try {
     });
     await page.getByRole("button", { name: "中文", exact: true }).click();
     // 清理和重置后，取消的旧操作不能覆盖新输入。
+    await page.locator(".cache-section summary").click();
     await page.locator("[data-sdk-cache-clear=current]").click();
     await page.getByText("缓存已清理", { exact: true }).waitFor();
     assert.match(
