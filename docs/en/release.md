@@ -22,3 +22,5 @@ The original official-truncation failure remains archived so the criteria change
 ## Delivery status
 
 [PR #2](https://github.com/chenmohan123/web-sdk-PP-Segmentation/pull/2) passed Linux CI and merged. All 22 files in the [HTTPS Demo](https://chenmohan123.github.io/web-sdk-PP-Segmentation/) match accepted artifacts; the default ModelScope/GPU/Worker path ran successfully. See the [live receipt](../../reports/2026-09-18-release-readiness/demo-published.json) and [remote governance](../../reports/2026-09-18-release-readiness/governance-published.json). See the [release checklist](../release-checklist.md) for npm and GitHub Release delivery status.
+
+The first npm version is published and has passed complete package read-back and installation checks; GitHub Release uses immutable `v0.1.0`. See the [npm receipt](../../reports/2026-09-18-release-readiness/npm-published.json) and [Release receipt](../../reports/2026-09-18-release-readiness/github-published.json). The first version was published locally after security verification; future automatic npm publication requires Trusted Publishing configuration for this new package.

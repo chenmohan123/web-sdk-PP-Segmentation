@@ -1,7 +1,9 @@
 {
-  "verifiedAt": "2026-09-18T06:06:39.1986192Z",
+  "verifiedAt": "2026-09-18T06:25:30.3387635Z",
   "repository": "chenmohan123/web-sdk-PP-Segmentation",
   "status": "compliant",
+  "releaseTag": "v0.1.0",
+  "releaseCommit": "dfbc72056e8c8cf748a7697778f5d14a921b5302",
   "repositoryMetadata": {
     "full_name": "chenmohan123/web-sdk-PP-Segmentation",
     "default_branch": "main",
@@ -202,14 +204,14 @@
     ]
   },
   "deployment": {
-    "id": 35313340071,
-    "head_sha": "c62c2187fd5fc1014c48937b538fa910a6eb796f",
+    "id": 35314417678,
+    "head_sha": "dfbc72056e8c8cf748a7697778f5d14a921b5302",
     "event": "push",
     "status": "completed",
     "conclusion": "success",
-    "html_url": "https://github.com/chenmohan123/web-sdk-PP-Segmentation/actions/runs/35313340071",
-    "created_at": "2026-09-18T06:04:28Z",
-    "updated_at": "2026-09-18T06:05:06Z"
+    "html_url": "https://github.com/chenmohan123/web-sdk-PP-Segmentation/actions/runs/35314417678",
+    "created_at": "2026-09-18T06:19:56Z",
+    "updated_at": "2026-09-18T06:20:35Z"
   },
   "rules": [
     {
@@ -225,7 +227,7 @@
     {
       "id": "DEPLOY-001",
       "status": "pass",
-      "evidence": "deployment:35313340071"
+      "evidence": "deployment:35314417678"
     },
     {
       "id": "PAGES-001",

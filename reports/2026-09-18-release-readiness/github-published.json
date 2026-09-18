@@ -1,0 +1,25 @@
+{
+  "verifiedAt": "2026-09-18T06:37:48.0460558Z",
+  "status": "passed",
+  "release": {
+    "isDraft": false,
+    "isPrerelease": false,
+    "name": "PP-Segmentation 0.1.0",
+    "publishedAt": "2026-09-18T06:36:39Z",
+    "tagName": "v0.1.0",
+    "targetCommitish": "main",
+    "url": "https://github.com/chenmohan123/web-sdk-PP-Segmentation/releases/tag/v0.1.0"
+  },
+  "workflow": {
+    "id": 35314428068,
+    "run_attempt": 2,
+    "head_sha": "dfbc72056e8c8cf748a7697778f5d14a921b5302",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/chenmohan123/web-sdk-PP-Segmentation/actions/runs/35314428068",
+    "updated_at": "2026-09-18T06:36:42Z"
+  },
+  "releaseCommit": "dfbc72056e8c8cf748a7697778f5d14a921b5302",
+  "initialAttempt": "首版包未配置Trusted Publishing导致ENEEDAUTH；本机经npm安全验证发布同一CI产物后，重跑npm完整性检查与Release成功"
+}

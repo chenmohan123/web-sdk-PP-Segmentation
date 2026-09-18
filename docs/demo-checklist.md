@@ -10,7 +10,7 @@
 - [x] 初始页面为中文 `zh-CN`。
 - [x] 实际对照 Detection 线上 Demo：深色顶栏、三栏工作台、分段按钮、小圆角及右侧折叠信息；1440/1366/1024/390px 中英切换与实例选择不改变画布位置。
 - [x] 中英切换保留当前结果，不重载模型状态；`language=true`。
-- [ ] 品牌栏的包版本、GitHub 和 Demo 入口全部为可用正式链接；GitHub/HTTPS Demo 已上线并回读，npm 首次发布待账号验证。
+- [x] 品牌栏版本为 0.1.0，GitHub、npm 与 HTTPS Demo 均已发布，入口可用。
 - [x] 选图、CPU/GPU、main/worker、运行/重置与禁用/加载状态可用；本版精度固定 FP32。
 - [x] 空态不显示破损图片；真实 UI 冒烟无 page error。
 - [x] 状态及错误使用可读文案与稳定错误码；实现位于 App。
@@ -29,4 +29,4 @@
 - [x] 生产双源浏览器验收八组合全部通过，见[发布验收](../reports/2026-09-18-release-readiness/release-acceptance.json)与 [UI 汇总](../reports/2026-09-18-release-readiness/ui/summary.json)；早期来源缺失时的禁用记录继续作为历史证据保留。
 - [x] 原图整数尺寸独立参考的严格质量门槛全部通过；四模式各匹配 423 个实例，最小 mask IoU 0.9987084870848708，见[验收报告](../reports/2026-09-18-original-size/README.md)。旧官方截断口径失败档案保留。
 
-未完成项由主流程补写最新证据后再勾选。发布与远程治理另见[发布检查清单](release-checklist.md)。
+上述项目均有对应验收或交付证据。发布与远程治理另见[发布检查清单](release-checklist.md)。
