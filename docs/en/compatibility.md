@@ -2,7 +2,7 @@
 
 [中文](../zh-CN/compatibility.md) · [README](../../README.en.md)
 
-The `0.1.0` release candidate passed fixed-64-image quality acceptance in all four modes in the desktop environment below. Feature detection, successful execution, quality acceptance, and remote publication remain separate conclusions.
+Release `0.1.0` passed fixed-64-image quality acceptance in all four modes in the desktop environment below. Feature detection, successful execution, quality acceptance, and remote publication remain separate conclusions.
 
 ## Environment verified on 2026-09-18
 

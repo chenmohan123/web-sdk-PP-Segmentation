@@ -1,6 +1,6 @@
 # Vanilla TypeScript 示例
 
-对应 `web-sdk-pp-segmentation@0.1.0` 发布候选。可运行入口为 [index.html](index.html) 与 [main.ts](main.ts)，通过构建后的公共 SDK 实现选图、WASM/Worker 分割、ROI 叠加、错误反馈和资源释放，不依赖 React。
+对应 `web-sdk-pp-segmentation@0.1.0`。可运行入口为 [index.html](index.html) 与 [main.ts](main.ts)，通过构建后的公共 SDK 实现选图、WASM/Worker 分割、ROI 叠加、错误反馈和资源释放，不依赖 React。
 
 在仓库根目录准备匹配 [models/model.json](../../models/model.json) 的 `.tmp/model.onnx`，再运行：
 
