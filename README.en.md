@@ -4,7 +4,7 @@
 
 A browser instance-segmentation SDK for PP-YOLOE_seg_s. One `Blob` or RGBA image produces classes, scores, original-image boxes, and compact binary instance masks. Images are processed locally in the browser; the runtime does not depend on React.
 
-> `web-sdk-pp-segmentation@0.1.0` passed first-release quality acceptance. The independent GitHub repository, ModelScope/Hugging Face weights and HTTPS Demo are live and verified. The first npm publication still requires account verification; use the local build workflow below until it completes.
+> `web-sdk-pp-segmentation@0.1.0` provides PP-YOLOE_seg_s 640 FP32 image instance segmentation with CPU/GPU and Worker support. Quality acceptance, both model sources and the HTTPS Demo have been verified. See below for installation and usage.
 
 ## Current scope
 
@@ -13,6 +13,14 @@ A browser instance-segmentation SDK for PP-YOLOE_seg_s. One `Blob` or RGBA image
 - Independent, potentially overlapping ROI masks stored as binary `Uint8Array`. Each ROI encloses all foreground after the second interpolation and may extend beyond the detection box. Draw using `mask.x/y`. List positions are not tracking IDs.
 - Official model sources are ModelScope and Hugging Face. Read `defaultSource` and fixed download URLs from [models/model.json](models/model.json); this guide does not duplicate revisions that can become stale.
 - Video, camera, NPU, portal workflows, and mobile compatibility claims are outside this phase.
+
+## Installation
+
+```powershell
+pnpm add web-sdk-pp-segmentation@0.1.0
+```
+
+See [Quick start](docs/en/quick-start.md) to configure model and ORT static resources for your application.
 
 ## Run locally
 
@@ -61,7 +69,7 @@ document.querySelector("#image").addEventListener("change", async (event) => {
 });
 ```
 
-For another application, host the entire `dist/` directory at same-origin `/sdk/`, including the Worker and matching ORT files. Set `runtimeBaseUrl` to an absolute URL ending with `/`. After publication, install with `pnpm add web-sdk-pp-segmentation@0.1.0`; until npm account verification completes, use a locally packed archive. See [Quick start](docs/en/quick-start.md).
+For another application, host the entire `dist/` directory at same-origin `/sdk/`, including the Worker and matching ORT files. Set `runtimeBaseUrl` to an absolute URL ending with `/`. Install with `pnpm add web-sdk-pp-segmentation@0.1.0` and import from the package name. See [Quick start](docs/en/quick-start.md).
 
 ## Documentation and evidence
 
@@ -77,7 +85,7 @@ For another application, host the entire `dist/` directory at same-origin `/sdk/
 
 All four public-SDK combinations passed the original-integer-size reference acceptance on the fixed 64-image subset dated 2026-09-18. Each mode matched 423 instances at `score>0.5`, with minimum mask IoU 0.9987084870848708. Mask AP drops were 0.07768926117917574 percentage points for WASM and 0.07768469154607605 for WebGPU. Only the reference's final crop and empty-mask dimensions changed; SDK numerics did not. The 256 SDK inferences reuse a checksum-verified archive and were not rerun in this acceptance. See the [original-size report](reports/2026-09-18-original-size/README.md). The old official-truncation failure remains archived. This subset does not establish full-COCO, phone, or NPU performance.
 
-Publication destinations: [GitHub](https://github.com/chenmohan123/web-sdk-PP-Segmentation) · [npm](https://www.npmjs.com/package/web-sdk-pp-segmentation) · [hosted Demo](https://chenmohan123.github.io/web-sdk-PP-Segmentation/). Until the release checklist completes, these links do not assert that the release is live. Upstream provenance and conversion records are in the portal's [segmentation report](https://github.com/chenmohan123/chenmohan123.github.io/tree/main/reports/segmentation/2026-09-18-feasibility).
+Project links: [GitHub](https://github.com/chenmohan123/web-sdk-PP-Segmentation) · [npm](https://www.npmjs.com/package/web-sdk-pp-segmentation) · [hosted Demo](https://chenmohan123.github.io/web-sdk-PP-Segmentation/). Upstream provenance and conversion records are in the portal's [segmentation report](https://github.com/chenmohan123/chenmohan123.github.io/tree/main/reports/segmentation/2026-09-18-feasibility).
 
 ## Local checks and license
 

@@ -7,7 +7,7 @@
 - 建立 PP-YOLOE_seg_s 640 FP32 图片实例分割 runtime、Worker 和 React Demo。
 - 修正 Demo 为 Detection 线上版本的深色顶栏和三栏工作台，统一控件、结果列表与信息折叠；实例选择及中英切换保持画布位置。
 - 增加 ROI 二值掩码、缓存、完整性校验、取消和生命周期测试。
-- 固定 0.1.0 首版 API、双语指南与发布后 npm 安装流程。
+- 固定 0.1.0 首版 API、双语指南与npm 安装流程。
 - 通过原图整数尺寸独立参考的 64 图四组合质量验收，并保留旧官方截断口径档案。
 - 记录 ModelScope/Hugging Face 双源清单规则、Apache-2.0 权重采用决定与上线前回读门槛。
 - 运行后端为 ORT Web 1.27.0 WASM/CPU 与 WebGPU/GPU，均支持 main/Worker；API 默认 WASM/Worker，Demo 默认 WebGPU/Worker，失败不静默回退。

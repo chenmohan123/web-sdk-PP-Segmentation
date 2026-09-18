@@ -2,9 +2,9 @@
 
 [English](../en/quick-start.md) · [返回 README](../../README.md)
 
-`web-sdk-pp-segmentation@0.1.0` 的固定 64 图四组合质量验收已通过，双源权重和 HTTPS Demo 已发布并回读。npm 首次发布仍待账号验证，完成前使用下方本地构建流程，见[兼容性](compatibility.md)。
+`web-sdk-pp-segmentation@0.1.0` 的固定 64 图四组合质量验收已通过，双源权重和 HTTPS Demo 已发布并回读。验证范围见[兼容性](compatibility.md)。
 
-正式发布后安装：
+安装：
 
 ```powershell
 pnpm add web-sdk-pp-segmentation@0.1.0

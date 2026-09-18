@@ -2,9 +2,9 @@
 
 [中文](../zh-CN/quick-start.md) · [README](../../README.en.md)
 
-`web-sdk-pp-segmentation@0.1.0` passed fixed-64-image acceptance in all four modes. Both weight sources and the HTTPS Demo are published and verified. The first npm publication requires account verification; use the local build workflow below until it completes. See [Compatibility](compatibility.md).
+`web-sdk-pp-segmentation@0.1.0` passed fixed-64-image acceptance in all four modes. Both weight sources and the HTTPS Demo are published and verified. See [Compatibility](compatibility.md).
 
-After the release is published, install it with:
+Install:
 
 ```powershell
 pnpm add web-sdk-pp-segmentation@0.1.0

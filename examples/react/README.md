@@ -1,6 +1,6 @@
 # React 完整参考示例
 
-对应 `web-sdk-pp-segmentation@0.1.0` 发布候选。完整实现直接复用 [demo/src/App.tsx](../../demo/src/App.tsx) 和 [demo/src/main.tsx](../../demo/src/main.tsx)，构建配置为 [demo/vite.config.ts](../../demo/vite.config.ts)；不再复制第二份界面或推理代码。React 仅管理界面，推理调用框架无关的公共 SDK。
+对应 `web-sdk-pp-segmentation@0.1.0`。完整实现直接复用 [demo/src/App.tsx](../../demo/src/App.tsx) 和 [demo/src/main.tsx](../../demo/src/main.tsx)，构建配置为 [demo/vite.config.ts](../../demo/vite.config.ts)；不再复制第二份界面或推理代码。React 仅管理界面，推理调用框架无关的公共 SDK。
 
 在仓库根目录准备匹配 [models/model.json](../../models/model.json) 的 `.tmp/model.onnx`，然后执行：
 

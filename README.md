@@ -4,7 +4,7 @@
 
 浏览器端 PP-YOLOE_seg_s 实例分割 SDK。输入一张 `Blob` 或 RGBA 图片，输出对象类别、分数、原图边界框和紧致二值实例掩码；图片在浏览器本地处理，runtime 不依赖 React。
 
-> `web-sdk-pp-segmentation@0.1.0` 首版质量验收已通过，独立 GitHub 仓库、ModelScope/Hugging Face 权重与 HTTPS Demo 已上线并完成回读。npm 首次发布仍待账号验证；完成前使用下面的本地构建流程。
+> `web-sdk-pp-segmentation@0.1.0` 提供 PP-YOLOE_seg_s 640 FP32 图片实例分割，支持 CPU/GPU 与 Worker。质量验收、双源权重和 HTTPS Demo 已完成验证；安装与使用见下文。
 
 ## 当前范围
 
@@ -13,6 +13,14 @@
 - 每个实例保留独立、可重叠的 ROI 二值 `Uint8Array`。ROI 包含二次插值后的全部前景，可能超出检测框；绘制以 `mask.x/y` 为准。列表序号不是跟踪 ID。
 - 正式模型来源为 ModelScope/Hugging Face，默认来源及固定下载 URL 以 [models/model.json](models/model.json) 的 `defaultSource` 与 `sources` 为准；文档不复制可能过期的 revision。
 - 本轮不包含视频、摄像头、NPU、门户组合或移动端兼容承诺。
+
+## 安装
+
+```powershell
+pnpm add web-sdk-pp-segmentation@0.1.0
+```
+
+应用接入见[快速开始](docs/zh-CN/quick-start.md)，模型和 ORT 静态资源需要按指南配置。
 
 ## 本地运行
 
@@ -61,7 +69,7 @@ document.querySelector("#image").addEventListener("change", async (event) => {
 });
 ```
 
-接入其他应用时将整个 `dist/` 部署到同源 `/sdk/`，包括 Worker 和同版本 ORT 文件；`runtimeBaseUrl` 使用以 `/` 结尾的完整 URL。正式发布后可执行 `pnpm add web-sdk-pp-segmentation@0.1.0`；npm 账号验证完成前使用本地打包文件。详见[快速开始](docs/zh-CN/quick-start.md)。
+接入其他应用时将整个 `dist/` 部署到同源 `/sdk/`，包括 Worker 和同版本 ORT 文件；`runtimeBaseUrl` 使用以 `/` 结尾的完整 URL。使用 `pnpm add web-sdk-pp-segmentation@0.1.0` 安装后从包名导入。详见[快速开始](docs/zh-CN/quick-start.md)。
 
 ## 文档与证据
 
@@ -75,9 +83,9 @@ document.querySelector("#image").addEventListener("change", async (event) => {
 | [性能](docs/zh-CN/performance.md)              | [Performance](docs/en/performance.md)                   |
 | [发布说明](docs/zh-CN/release.md)              | [Release notes](docs/en/release.md)                     |
 
-2026-09-18 的固定 64 图公共 SDK 四组合通过原图整数尺寸独立参考验收：每种模式匹配 423 个 `score>0.5` 实例，最小 mask IoU 为 0.9987084870848708；WASM 与 WebGPU 的 mask AP 下降分别为 0.07768926117917574 和 0.07768469154607605 个百分点。此次仅修正参考实现最终裁剪及空掩码尺寸，SDK 无数值改动；256 次 SDK 推理复用已核验摘要的既有归档，并非本次重跑。见[原图尺寸验收](reports/2026-09-18-original-size/README.md)。旧官方截断口径的失败档案继续保留；64 图子集不代表完整 COCO、手机或 NPU 表现。[Demo 检查清单](docs/demo-checklist.md)与[发布检查清单](docs/release-checklist.md)区分质量通过和仍待完成的发布事项。
+2026-09-18 的固定 64 图公共 SDK 四组合通过原图整数尺寸独立参考验收：每种模式匹配 423 个 `score>0.5` 实例，最小 mask IoU 为 0.9987084870848708；WASM 与 WebGPU 的 mask AP 下降分别为 0.07768926117917574 和 0.07768469154607605 个百分点。此次仅修正参考实现最终裁剪及空掩码尺寸，SDK 无数值改动；256 次 SDK 推理复用已核验摘要的既有归档，并非本次重跑。见[原图尺寸验收](reports/2026-09-18-original-size/README.md)。旧官方截断口径的失败档案继续保留；64 图子集不代表完整 COCO、手机或 NPU 表现。[Demo 检查清单](docs/demo-checklist.md)与[发布检查清单](docs/release-checklist.md)记录验证与交付状态。
 
-发布目标：[GitHub](https://github.com/chenmohan123/web-sdk-PP-Segmentation) · [npm](https://www.npmjs.com/package/web-sdk-pp-segmentation) · [在线 Demo](https://chenmohan123.github.io/web-sdk-PP-Segmentation/)。在发布检查清单完成前，这些链接不构成已上线声明。可行性阶段的上游来源与转换记录见门户[实例分割评估报告](https://github.com/chenmohan123/chenmohan123.github.io/tree/main/reports/segmentation/2026-09-18-feasibility)。
+项目入口：[GitHub](https://github.com/chenmohan123/web-sdk-PP-Segmentation) · [npm](https://www.npmjs.com/package/web-sdk-pp-segmentation) · [在线 Demo](https://chenmohan123.github.io/web-sdk-PP-Segmentation/)。可行性阶段的上游来源与转换记录见门户[实例分割评估报告](https://github.com/chenmohan123/chenmohan123.github.io/tree/main/reports/segmentation/2026-09-18-feasibility)。
 
 ## 本地检查与许可证
 
