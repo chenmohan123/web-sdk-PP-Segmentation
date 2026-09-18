@@ -2,9 +2,9 @@
 
 [中文](../zh-CN/release.md) · [README](../../README.en.md)
 
-## 0.1.0 · Release candidate · 2026-09-18
+## 0.1.0 · First release delivery · 2026-09-18
 
-The first release contains a framework-neutral image instance-segmentation SDK, module Worker, React Demo, Vanilla example, integrity checks, versioned model caching, cancellation/disposal, and complete bilingual guides. Quality and local implementation gates have passed, ModelScope/Hugging Face weights have been published and fully read back, and the GitHub repository and governance are configured. npm and the HTTPS Demo remain pending until publication and read-back verification actually complete.
+The first release includes the framework-neutral image segmentation SDK, module Worker, React Demo, Vanilla example, integrity checks, versioned caching, cancellation/disposal and bilingual guides. Both weight sources, the independent repository and HTTPS Demo are published and verified. npm publication and the final version tag await account verification.
 
 - Model: PP-YOLOE_seg_s 640 FP32, COCO 80 classes, ONNX opset 17, 8,995,698 parameters; 36,265,193 bytes; SHA-256 `d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334`.
 - Upstream: PaddleDetection source pinned to `b25522a0f4bde8c80603f3ba5e3472059972e3b5`; see [NOTICE](../../NOTICE). It is not a Hub publication revision.
@@ -19,6 +19,6 @@ WASM/WebGPU × main/worker passed the original-integer-size independent referenc
 
 The original official-truncation failure remains archived so the criteria change is auditable. The 64-image subset does not represent full COCO. Evidence applies only to the recorded Windows/Chromium desktop environment, not phones, NPU, Safari, Firefox, WebViews, video, or cameras. The Demo ships no public sample image; COCO is local acceptance data only.
 
-## Remaining publication work
+## Delivery status
 
-The main release flow must publish npm and an immutable GitHub Release, deploy the HTTPS Demo, and retain dated remote evidence for all version links. Destination links do not mean the release is live. Track status in the [release checklist](../release-checklist.md) and [Demo checklist](../demo-checklist.md).
+[PR #2](https://github.com/chenmohan123/web-sdk-PP-Segmentation/pull/2) passed Linux CI and merged. All 22 files in the [HTTPS Demo](https://chenmohan123.github.io/web-sdk-PP-Segmentation/) match accepted artifacts; the default ModelScope/GPU/Worker path ran successfully. See the [live receipt](../../reports/2026-09-18-release-readiness/demo-published.json) and [remote governance](../../reports/2026-09-18-release-readiness/governance-published.json). npm publication still requires account verification, followed by the immutable tag and GitHub Release. See the [release checklist](../release-checklist.md).

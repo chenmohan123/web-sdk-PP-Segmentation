@@ -1,6 +1,6 @@
 # 发布检查清单
 
-依据门户标准 v1 的 `templates/release-checklist.md`。当前范围为 `0.1.0` 首版发布候选，日期 2026-09-18；质量与本地实现已通过，本清单不是已发布声明。源码/运行证据与正式发布证据分别保留。
+依据门户标准 v1 的 `templates/release-checklist.md`。当前范围为 `0.1.0` 首版，日期 2026-09-18；质量、双源和 HTTPS Demo 已通过，npm 与最终版本标签仍待账号验证。源码/运行证据与正式发布证据分别保留。
 
 ## 本地实现与验收
 
@@ -12,7 +12,7 @@
 - [x] 固定 64 图公共 SDK 四组合已执行并归档；本次核验 256 次 SDK 推理旧档的源码、冻结文件与当前构建摘要，没有重跑。
 - [x] React/Vanilla 与生产来源边界真实浏览器冒烟通过；见 [ui/summary.json](../reports/2026-09-18-release-readiness/ui/summary.json)。
 - [x] 2026-09-18 完整 `pnpm verify` 退出0：50单测、两项类型检查、两构建、npm包清单检查通过。见[结构化记录](../reports/2026-09-18-release-readiness/local-verification.json)与[完整日志](../reports/2026-09-18-release-readiness/local-verification.txt)。
-- [ ] CI 覆盖测试、类型、构建与模型/摘要校验，且在远程实际运行；本地 workflow 文件不能证明远程 CI 生效。
+- [x] CI 覆盖测试、类型、构建与模型/摘要校验，且在 Linux CI 实际通过，见 [PR #2](https://github.com/chenmohan123/web-sdk-PP-Segmentation/pull/2)；发布检查同时绑定当前产物、冻结证据和八组合真实浏览器回执。
 - [x] 2026-09-18 修改[前](../reports/2026-09-18-release-readiness/standard-before.json)与[后](../reports/2026-09-18-release-readiness/standard-after.json)的标准检查已附；最终 required 失败0，远程 required 跳过4。Vite复用React完整Demo的静态发现限制 `EXAMPLE-003` 保留为推荐项失败，可运行示例已有浏览器证据。
 - [x] 原图整数尺寸独立参考的严格模型质量通过：四模式各匹配 423 个 `score>0.5` 实例，未匹配 0，最小 mask IoU 0.9987084870848708；WASM/WebGPU AP 下降为 0.07768926117917574/0.07768469154607605 个百分点。见[验收报告](../reports/2026-09-18-original-size/README.md)。旧官方截断口径失败档案保留。
 - [x] Demo 信息区完整验证矩阵验收；见[Demo 清单](demo-checklist.md)和`ui/summary.json`的`verificationMatrix=true`。
@@ -43,9 +43,9 @@ pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versi
 - [ ] npm 包正式发布且名称/版本可回读，安装包不含模型、原始输出、评估数据或本地测试图片。
 - [ ] GitHub Release 使用现存不可变 tag，说明模型来源、许可、默认资产、后端与已知限制。
 - [ ] 正式仓库、npm、在线 Demo 的 README 链接全部可用。
-- [ ] HTTPS Demo 从受保护源码通过可复现流程部署，保留关联 commit 的部署记录；正式来源可下载且生产产物不含 ONNX。
+- [x] HTTPS Demo 已从受保护源码部署，22 个线上文件与验收构建逐字节一致，默认源 GPU/Worker 实测通过；见 [demo-published.json](../reports/2026-09-18-release-readiness/demo-published.json)。
 - [x] GitHub Pages Source 为 GitHub Actions，使用 `github-pages` environment、限定 Pages 权限、HTTPS 与并发控制。
-- [ ] 远程 API 治理证据记录仓库、Ruleset/environment 标识、观察值、验证时间及修复建议，不含凭据。
-- [ ] 适用远程 required 规则全部核验后，才将 `locally-compliant` 提升为 `compliant`。
+- [x] [远程治理回执](../reports/2026-09-18-release-readiness/governance-published.json)记录仓库、Ruleset/environment、Pages、成功部署 commit 和验证时间，不含凭据。
+- [x] 本地 required 失败 0，四项适用远程治理规则已核验通过；此结论不代表 npm 已发布。
 
-远程项由主发布流程完成并回填证据；真实完成前不得写成已上线。
+剩余 npm/版本标签/Release 在服务端账号验证后继续完成；不把待发布项目写成已上线。

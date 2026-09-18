@@ -2,9 +2,9 @@
 
 [English](../en/release.md) · [返回 README](../../README.md)
 
-## 0.1.0 · 发布候选 · 2026-09-18
+## 0.1.0 · 首版交付 · 2026-09-18
 
-首版包含框架无关的图片实例分割 SDK、模块 Worker、React Demo、Vanilla 示例、完整性校验、版本化模型缓存、取消/释放及完整双语指南。质量与本地实现门槛已通过，ModelScope/Hugging Face 权重已发布并完整回读，GitHub 仓库与治理已配置；npm 和 HTTPS Demo 仍以实际发布及回读结果为准。
+首版包含框架无关的图片实例分割 SDK、模块 Worker、React Demo、Vanilla 示例、完整性校验、版本化缓存、取消/释放及双语指南。双源权重、独立仓库和 HTTPS Demo 已发布并验证。npm 首次发布及最终版本标签仍待账号验证完成。
 
 - 模型：PP-YOLOE_seg_s 640 FP32，COCO 80 类，ONNX opset 17，8,995,698 参数；36,265,193 字节，SHA-256 `d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334`。
 - 上游：PaddleDetection 固定源码提交 `b25522a0f4bde8c80603f3ba5e3472059972e3b5`，见 [NOTICE](../../NOTICE)；它不是 Hub 发布 revision。
@@ -19,6 +19,6 @@
 
 原始官方截断参考的失败记录继续保留，便于审计口径变化。64 图子集不代表完整 COCO；证据仅适用于记录中的 Windows/Chromium 桌面环境，不扩展为手机、NPU、Safari、Firefox、WebView、视频或摄像头兼容。Demo 不附带公开示例图片，COCO 只用于本地验收。
 
-## 发布前剩余事项
+## 交付状态
 
-主流程还需发布 npm、不可变 GitHub Release 和 HTTPS Demo，再核验版本链接并保存带日期的远程证据。目标链接不代表已经上线。逐项状态见[发布检查清单](../release-checklist.md)和[Demo 检查清单](../demo-checklist.md)。
+[PR #2](https://github.com/chenmohan123/web-sdk-PP-Segmentation/pull/2) 已通过 Linux CI 并合并；[HTTPS Demo](https://chenmohan123.github.io/web-sdk-PP-Segmentation/) 的 22 个文件与验收产物摘要一致，默认 ModelScope/GPU/Worker 实测成功。见[线上回执](../../reports/2026-09-18-release-readiness/demo-published.json)和[远程治理](../../reports/2026-09-18-release-readiness/governance-published.json)。npm 首次发布仍待账号验证，随后创建不可变标签与 GitHub Release；见[发布清单](../release-checklist.md)。

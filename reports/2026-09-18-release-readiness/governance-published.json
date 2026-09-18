@@ -1,0 +1,236 @@
+{
+  "verifiedAt": "2026-09-18T06:06:39.1986192Z",
+  "repository": "chenmohan123/web-sdk-PP-Segmentation",
+  "status": "compliant",
+  "repositoryMetadata": {
+    "full_name": "chenmohan123/web-sdk-PP-Segmentation",
+    "default_branch": "main",
+    "description": "浏览器端 PP-YOLOE_seg 实例分割 SDK，支持 CPU/GPU、Worker、ModelScope 与 Hugging Face。",
+    "homepage": "https://chenmohan123.github.io/web-sdk-PP-Segmentation/",
+    "topics": [
+      "instance-segmentation",
+      "onnx",
+      "paddledetection",
+      "typescript",
+      "webgpu"
+    ],
+    "visibility": "public"
+  },
+  "rulesets": [
+    {
+      "id": 23640787,
+      "name": "保护发布标签",
+      "target": "tag",
+      "source_type": "Repository",
+      "source": "chenmohan123/web-sdk-PP-Segmentation",
+      "enforcement": "active",
+      "conditions": {
+        "ref_name": {
+          "exclude": [],
+          "include": [
+            "refs/tags/v*"
+          ]
+        }
+      },
+      "rules": [
+        {
+          "type": "deletion"
+        },
+        {
+          "type": "update"
+        }
+      ],
+      "node_id": "RRS_lACqUmVwb3NpdG9yec5R-3WHzgFoutM",
+      "created_at": "2026-09-18T13:50:17.018+08:00",
+      "updated_at": "2026-09-18T13:50:17.047+08:00",
+      "bypass_actors": [],
+      "current_user_can_bypass": "never",
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/chenmohan123/web-sdk-PP-Segmentation/rulesets/23640787"
+        },
+        "html": {
+          "href": "https://github.com/chenmohan123/web-sdk-PP-Segmentation/rules/23640787"
+        }
+      }
+    },
+    {
+      "id": 23640786,
+      "name": "保护默认分支",
+      "target": "branch",
+      "source_type": "Repository",
+      "source": "chenmohan123/web-sdk-PP-Segmentation",
+      "enforcement": "active",
+      "conditions": {
+        "ref_name": {
+          "exclude": [],
+          "include": [
+            "~DEFAULT_BRANCH"
+          ]
+        }
+      },
+      "rules": [
+        {
+          "type": "deletion"
+        },
+        {
+          "type": "non_fast_forward"
+        },
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 0,
+            "dismiss_stale_reviews_on_push": true,
+            "required_reviewers": [],
+            "require_code_owner_review": false,
+            "require_last_push_approval": false,
+            "required_review_thread_resolution": true,
+            "require_extra_approval_for_unattributed_changes": true,
+            "allowed_merge_methods": [
+              "merge",
+              "squash",
+              "rebase"
+            ]
+          }
+        },
+        {
+          "type": "required_status_checks",
+          "parameters": {
+            "strict_required_status_checks_policy": true,
+            "do_not_enforce_on_create": false,
+            "required_status_checks": [
+              {
+                "context": "verify"
+              }
+            ]
+          }
+        }
+      ],
+      "node_id": "RRS_lACqUmVwb3NpdG9yec5R-3WHzgFoutI",
+      "created_at": "2026-09-18T13:50:16.003+08:00",
+      "updated_at": "2026-09-18T13:50:16.09+08:00",
+      "bypass_actors": [],
+      "current_user_can_bypass": "never",
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/chenmohan123/web-sdk-PP-Segmentation/rulesets/23640786"
+        },
+        "html": {
+          "href": "https://github.com/chenmohan123/web-sdk-PP-Segmentation/rules/23640786"
+        }
+      }
+    }
+  ],
+  "pages": {
+    "url": "https://api.github.com/repos/chenmohan123/web-sdk-PP-Segmentation/pages",
+    "status": null,
+    "cname": null,
+    "custom_404": false,
+    "html_url": "https://chenmohan123.github.io/web-sdk-PP-Segmentation/",
+    "build_type": "workflow",
+    "source": {
+      "branch": "main",
+      "path": "/"
+    },
+    "public": true,
+    "protected_domain_state": null,
+    "pending_domain_unverified_at": null,
+    "https_enforced": true
+  },
+  "environments": {
+    "total_count": 2,
+    "environments": [
+      {
+        "id": 22203014313,
+        "node_id": "EN_kwDOUft1h88AAAAFK2ccqQ",
+        "name": "github-pages",
+        "url": "https://api.github.com/repos/chenmohan123/web-sdk-PP-Segmentation/environments/github-pages",
+        "html_url": "https://github.com/chenmohan123/web-sdk-PP-Segmentation/deployments/activity_log?environments_filter=github-pages",
+        "created_at": "2026-09-18T05:50:17Z",
+        "updated_at": "2026-09-18T05:50:17Z",
+        "can_admins_bypass": true,
+        "protection_rules": [
+          {
+            "id": 65953563,
+            "node_id": "GA_kwDOUft1h84D7l8b",
+            "type": "branch_policy"
+          }
+        ],
+        "deployment_branch_policy": {
+          "protected_branches": true,
+          "custom_branch_policies": false
+        }
+      },
+      {
+        "id": 22203015259,
+        "node_id": "EN_kwDOUft1h88AAAAFK2cgWw",
+        "name": "npm",
+        "url": "https://api.github.com/repos/chenmohan123/web-sdk-PP-Segmentation/environments/npm",
+        "html_url": "https://github.com/chenmohan123/web-sdk-PP-Segmentation/deployments/activity_log?environments_filter=npm",
+        "created_at": "2026-09-18T05:50:19Z",
+        "updated_at": "2026-09-18T05:50:19Z",
+        "can_admins_bypass": true,
+        "protection_rules": [
+          {
+            "id": 65954375,
+            "node_id": "GA_kwDOUft1h84D7mJH",
+            "type": "branch_policy"
+          }
+        ],
+        "deployment_branch_policy": {
+          "protected_branches": false,
+          "custom_branch_policies": true
+        }
+      }
+    ]
+  },
+  "npmDeploymentPolicy": {
+    "total_count": 2,
+    "branch_policies": [
+      {
+        "id": 60307632,
+        "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3k2MDMwNzYzMg==",
+        "name": "main",
+        "type": "branch"
+      },
+      {
+        "id": 60307631,
+        "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3k2MDMwNzYzMQ==",
+        "name": "v*",
+        "type": "tag"
+      }
+    ]
+  },
+  "deployment": {
+    "id": 35313340071,
+    "head_sha": "c62c2187fd5fc1014c48937b538fa910a6eb796f",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/chenmohan123/web-sdk-PP-Segmentation/actions/runs/35313340071",
+    "created_at": "2026-09-18T06:04:28Z",
+    "updated_at": "2026-09-18T06:05:06Z"
+  },
+  "rules": [
+    {
+      "id": "GOV-001",
+      "status": "pass",
+      "evidence": "rulesets:23640786"
+    },
+    {
+      "id": "GOV-002",
+      "status": "pass",
+      "evidence": "rulesets:23640787"
+    },
+    {
+      "id": "DEPLOY-001",
+      "status": "pass",
+      "evidence": "deployment:35313340071"
+    },
+    {
+      "id": "PAGES-001",
+      "status": "pass",
+      "evidence": "pages, environments, deployment"
+    }
+  ]
+}

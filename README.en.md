@@ -4,7 +4,7 @@
 
 A browser instance-segmentation SDK for PP-YOLOE_seg_s. One `Blob` or RGBA image produces classes, scores, original-image boxes, and compact binary instance masks. Images are processed locally in the browser; the runtime does not depend on React.
 
-> `web-sdk-pp-segmentation@0.1.0` is the first-release candidate. Quality acceptance has passed, ModelScope/Hugging Face weights have been published and fully read back, and the GitHub repository and governance are configured. npm and the hosted Demo remain pending until publication and read-back verification actually complete. The npm/Demo links below are destinations until then.
+> `web-sdk-pp-segmentation@0.1.0` passed first-release quality acceptance. The independent GitHub repository, ModelScope/Hugging Face weights and HTTPS Demo are live and verified. The first npm publication still requires account verification; use the local build workflow below until it completes.
 
 ## Current scope
 
@@ -61,7 +61,7 @@ document.querySelector("#image").addEventListener("change", async (event) => {
 });
 ```
 
-For another application, host the entire `dist/` directory at same-origin `/sdk/`, including the Worker and matching ORT files. Set `runtimeBaseUrl` to an absolute URL ending with `/`. After publication, install with `pnpm add web-sdk-pp-segmentation@0.1.0`; during release preparation, continue using a locally packed archive. See [Quick start](docs/en/quick-start.md).
+For another application, host the entire `dist/` directory at same-origin `/sdk/`, including the Worker and matching ORT files. Set `runtimeBaseUrl` to an absolute URL ending with `/`. After publication, install with `pnpm add web-sdk-pp-segmentation@0.1.0`; until npm account verification completes, use a locally packed archive. See [Quick start](docs/en/quick-start.md).
 
 ## Documentation and evidence
 

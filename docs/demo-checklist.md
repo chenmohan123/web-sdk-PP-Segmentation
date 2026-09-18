@@ -1,6 +1,6 @@
 # Demo 检查清单
 
-依据门户标准 v1 的 `templates/demo-checklist.md`，记录 `0.1.0` 发布候选 Demo 在 2026-09-18 的实现和验证。勾选仅表示对应证据覆盖；远程链接必须在实际发布后另行回读。
+依据门户标准 v1 的 `templates/demo-checklist.md`，记录 `0.1.0` Demo 在 2026-09-18 的实现和验证。勾选仅表示对应证据覆盖；远程链接必须在实际发布后另行回读。
 
 主要证据：[demo/src/App.tsx](../demo/src/App.tsx)、[UI 冒烟汇总](../reports/2026-09-18-release-readiness/ui/summary.json)、[验收报告](../reports/2026-09-18-image-sdk/README.md)。
 
@@ -10,7 +10,7 @@
 - [x] 初始页面为中文 `zh-CN`。
 - [x] 实际对照 Detection 线上 Demo：深色顶栏、三栏工作台、分段按钮、小圆角及右侧折叠信息；1440/1366/1024/390px 中英切换与实例选择不改变画布位置。
 - [x] 中英切换保留当前结果，不重载模型状态；`language=true`。
-- [ ] 品牌栏的包版本、GitHub 和 Demo 入口全部为可用正式链接；当前只可核验本地名称/版本与规划链接，远程尚未发布。
+- [ ] 品牌栏的包版本、GitHub 和 Demo 入口全部为可用正式链接；GitHub/HTTPS Demo 已上线并回读，npm 首次发布待账号验证。
 - [x] 选图、CPU/GPU、main/worker、运行/重置与禁用/加载状态可用；本版精度固定 FP32。
 - [x] 空态不显示破损图片；真实 UI 冒烟无 page error。
 - [x] 状态及错误使用可读文案与稳定错误码；实现位于 App。
