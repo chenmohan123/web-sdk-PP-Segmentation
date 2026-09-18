@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "verifiedAt": "2026-09-18T03:47:50.752303+00:00",
+  "python": "3.11.15",
+  "paddle": "2.6.2",
+  "device": "cpu",
+  "threads": 4,
+  "upstreamRevision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+  "weightsSha256": "ee507d8f9e5fad6290ee54ee6704b9b1f2ab26a109cc668e1a966f90fe174cef",
+  "scoreThreshold": 0.01,
+  "nmsThreshold": 0.7,
+  "maxDetections": 100,
+  "images": 64
+}

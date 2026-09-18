@@ -1,0 +1,102 @@
+{
+  "verifiedAt": "2026-09-18T04:09:17.394835+00:00",
+  "scope": "仅定位严格门槛失败原因，原始SDK与官方mask不修改，验收仍按完整原图maskIoU>=0.99判断",
+  "failures": [
+    {
+      "mode": "wasm-main",
+      "imageId": 204871,
+      "classId": 2,
+      "referenceScore": 0.8374326229095459,
+      "candidateScore": 0.8374315500259399,
+      "boxIoU": 0.9999987154312854,
+      "maskIoU": 0.9788243884629427,
+      "originalImage": {
+        "width": 612,
+        "height": 612
+      },
+      "officialMaskShape": [
+        611,
+        611
+      ],
+      "officialForeground": 2681,
+      "sdkForeground": 2739,
+      "differentPixels": 58,
+      "differentPixelsInsideOfficialExtent": 0,
+      "differentPixelsOutsideOfficialExtent": 58,
+      "commonExtentMaskIoU": 1.0,
+      "diagnosis": "全部差异仅在官方int裁剪丢失的边缘"
+    },
+    {
+      "mode": "wasm-worker",
+      "imageId": 204871,
+      "classId": 2,
+      "referenceScore": 0.8374326229095459,
+      "candidateScore": 0.8374315500259399,
+      "boxIoU": 0.9999987154312854,
+      "maskIoU": 0.9788243884629427,
+      "originalImage": {
+        "width": 612,
+        "height": 612
+      },
+      "officialMaskShape": [
+        611,
+        611
+      ],
+      "officialForeground": 2681,
+      "sdkForeground": 2739,
+      "differentPixels": 58,
+      "differentPixelsInsideOfficialExtent": 0,
+      "differentPixelsOutsideOfficialExtent": 58,
+      "commonExtentMaskIoU": 1.0,
+      "diagnosis": "全部差异仅在官方int裁剪丢失的边缘"
+    },
+    {
+      "mode": "webgpu-main",
+      "imageId": 204871,
+      "classId": 2,
+      "referenceScore": 0.8374326229095459,
+      "candidateScore": 0.8374313116073608,
+      "boxIoU": 0.9999981908285785,
+      "maskIoU": 0.9788243884629427,
+      "originalImage": {
+        "width": 612,
+        "height": 612
+      },
+      "officialMaskShape": [
+        611,
+        611
+      ],
+      "officialForeground": 2681,
+      "sdkForeground": 2739,
+      "differentPixels": 58,
+      "differentPixelsInsideOfficialExtent": 0,
+      "differentPixelsOutsideOfficialExtent": 58,
+      "commonExtentMaskIoU": 1.0,
+      "diagnosis": "全部差异仅在官方int裁剪丢失的边缘"
+    },
+    {
+      "mode": "webgpu-worker",
+      "imageId": 204871,
+      "classId": 2,
+      "referenceScore": 0.8374326229095459,
+      "candidateScore": 0.8374313116073608,
+      "boxIoU": 0.9999981908285785,
+      "maskIoU": 0.9788243884629427,
+      "originalImage": {
+        "width": 612,
+        "height": 612
+      },
+      "officialMaskShape": [
+        611,
+        611
+      ],
+      "officialForeground": 2681,
+      "sdkForeground": 2739,
+      "differentPixels": 58,
+      "differentPixelsInsideOfficialExtent": 0,
+      "differentPixelsOutsideOfficialExtent": 58,
+      "commonExtentMaskIoU": 1.0,
+      "diagnosis": "全部差异仅在官方int裁剪丢失的边缘"
+    }
+  ]
+}

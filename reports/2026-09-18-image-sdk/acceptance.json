@@ -1,0 +1,583 @@
+{
+  "status": "failed",
+  "verifiedAt": "2026-09-18T04:11:07.779292+00:00",
+  "dataset": {
+    "images": 64,
+    "annotations": 716,
+    "annotationsSha256": "b72e38c804afb8b7f48263fe2239efae9818ac4e743844c6cb961d5925338091"
+  },
+  "criteria": {
+    "maxAPDropPercentagePoints": 0.5,
+    "minMaskIoU": 0.99,
+    "scoreThreshold": 0.01,
+    "maxDetections": 100
+  },
+  "baseline": {
+    "AP": 0.3693305809576002,
+    "AP50": 0.5732573147318519,
+    "AP75": 0.39086215199389235,
+    "APsmall": 0.19056790558043474,
+    "APmedium": 0.5020606410830157,
+    "APlarge": 0.6538783020693936,
+    "stats": [
+      0.3693305809576002,
+      0.5732573147318519,
+      0.39086215199389235,
+      0.19056790558043474,
+      0.5020606410830157,
+      0.6538783020693936,
+      0.314314604588047,
+      0.43411683784727834,
+      0.4489081400036674,
+      0.23877136751803935,
+      0.5544010087355922,
+      0.7092283950617284
+    ],
+    "detections": 6400,
+    "log": "Loading and preparing results...\nDONE (t=0.05s)\ncreating index...\nindex created!\nRunning per image evaluation...\nEvaluate annotation type *segm*\nDONE (t=0.63s).\nAccumulating evaluation results...\nDONE (t=0.27s).\n Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.369\n Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.573\n Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.391\n Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.191\n Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.502\n Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.654\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.314\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.434\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.449\n Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.239\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.554\n Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.709\n"
+  },
+  "modes": {
+    "wasm-main": {
+      "passed": false,
+      "ap": {
+        "AP": 0.36855368834580843,
+        "AP50": 0.5732573147318519,
+        "AP75": 0.39086215199389235,
+        "APsmall": 0.1905677541499248,
+        "APmedium": 0.49942906213564725,
+        "APlarge": 0.6538783020693936,
+        "stats": [
+          0.36855368834580843,
+          0.5732573147318519,
+          0.39086215199389235,
+          0.1905677541499248,
+          0.49942906213564725,
+          0.6538783020693936,
+          0.31354537381881625,
+          0.4333476070780476,
+          0.4481389092344366,
+          0.23877136751803935,
+          0.5517694297882237,
+          0.7092283950617284
+        ],
+        "detections": 6400,
+        "log": "Loading and preparing results...\nDONE (t=0.06s)\ncreating index...\nindex created!\nRunning per image evaluation...\nEvaluate annotation type *segm*\nDONE (t=0.60s).\nAccumulating evaluation results...\nDONE (t=0.27s).\n Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.369\n Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.573\n Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.391\n Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.191\n Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.499\n Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.654\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.314\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.433\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.448\n Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.239\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.552\n Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.709\n"
+      },
+      "apDropPercentagePoints": 0.07768926117917574,
+      "agreement": {
+        "passed": false,
+        "scoreThresholdStrictlyGreaterThan": 0.5,
+        "matching": "同类别框IoU最大总和一对一匹配，boxIoU>=0.5；双方均检查未匹配实例",
+        "matched": 423,
+        "minMaskIoU": 0.9788243884629427,
+        "meanMaskIoU": 0.9999435495739614,
+        "maxScoreDelta": 1.722574234008789e-05,
+        "unmatched": [],
+        "failedMatches": [
+          {
+            "imageId": 204871,
+            "classId": 2,
+            "referenceScore": 0.8374326229095459,
+            "candidateScore": 0.8374315500259399,
+            "boxIoU": 0.9999987154312854,
+            "maskIoU": 0.9788243884629427
+          }
+        ],
+        "adjustedCanvasHighScoreMatches": {
+          "count": 17,
+          "minMaskIoU": 0.9788243884629427
+        }
+      },
+      "timingsMs": {
+        "decodeMs": {
+          "median": 0.29999999701976776,
+          "p95": 0.4000000048428774,
+          "mean": 0.2750000001396984
+        },
+        "preprocessMs": {
+          "median": 50.099999997764826,
+          "p95": 65.61999999657273,
+          "mean": 51.85781249997672
+        },
+        "inferenceMs": {
+          "median": 1347.2000000029802,
+          "p95": 1553.4900000017135,
+          "mean": 1373.4578125000698
+        },
+        "postprocessMs": {
+          "median": 216.0,
+          "p95": 400.5949999995529,
+          "mean": 244.52656250004657
+        },
+        "totalMs": {
+          "median": 1631.800000000745,
+          "p95": 1952.8050000052897,
+          "mean": 1670.1796875002328
+        }
+      },
+      "returnedMaskBytes": {
+        "median": 728071.0,
+        "maximum": 14774287,
+        "total": 116062753
+      }
+    },
+    "wasm-worker": {
+      "passed": false,
+      "ap": {
+        "AP": 0.36855368834580843,
+        "AP50": 0.5732573147318519,
+        "AP75": 0.39086215199389235,
+        "APsmall": 0.1905677541499248,
+        "APmedium": 0.49942906213564725,
+        "APlarge": 0.6538783020693936,
+        "stats": [
+          0.36855368834580843,
+          0.5732573147318519,
+          0.39086215199389235,
+          0.1905677541499248,
+          0.49942906213564725,
+          0.6538783020693936,
+          0.31354537381881625,
+          0.4333476070780476,
+          0.4481389092344366,
+          0.23877136751803935,
+          0.5517694297882237,
+          0.7092283950617284
+        ],
+        "detections": 6400,
+        "log": "Loading and preparing results...\nDONE (t=0.05s)\ncreating index...\nindex created!\nRunning per image evaluation...\nEvaluate annotation type *segm*\nDONE (t=0.66s).\nAccumulating evaluation results...\nDONE (t=0.32s).\n Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.369\n Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.573\n Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.391\n Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.191\n Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.499\n Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.654\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.314\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.433\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.448\n Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.239\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.552\n Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.709\n"
+      },
+      "apDropPercentagePoints": 0.07768926117917574,
+      "agreement": {
+        "passed": false,
+        "scoreThresholdStrictlyGreaterThan": 0.5,
+        "matching": "同类别框IoU最大总和一对一匹配，boxIoU>=0.5；双方均检查未匹配实例",
+        "matched": 423,
+        "minMaskIoU": 0.9788243884629427,
+        "meanMaskIoU": 0.9999435495739614,
+        "maxScoreDelta": 1.722574234008789e-05,
+        "unmatched": [],
+        "failedMatches": [
+          {
+            "imageId": 204871,
+            "classId": 2,
+            "referenceScore": 0.8374326229095459,
+            "candidateScore": 0.8374315500259399,
+            "boxIoU": 0.9999987154312854,
+            "maskIoU": 0.9788243884629427
+          }
+        ],
+        "adjustedCanvasHighScoreMatches": {
+          "count": 17,
+          "minMaskIoU": 0.9788243884629427
+        }
+      },
+      "timingsMs": {
+        "decodeMs": {
+          "median": 0.29999999701976776,
+          "p95": 0.3999999985098839,
+          "mean": 0.2703124996041879
+        },
+        "preprocessMs": {
+          "median": 48.94999999925494,
+          "p95": 66.85499999895691,
+          "mean": 51.83437499997672
+        },
+        "inferenceMs": {
+          "median": 1321.5499999970198,
+          "p95": 1608.2549999989565,
+          "mean": 1372.7046874994412
+        },
+        "postprocessMs": {
+          "median": 210.34999999776483,
+          "p95": 395.09499999955295,
+          "mean": 239.62343749962747
+        },
+        "totalMs": {
+          "median": 1591.25,
+          "p95": 1954.8699999962002,
+          "mean": 1665.4984374999767
+        }
+      },
+      "returnedMaskBytes": {
+        "median": 728071.0,
+        "maximum": 14774287,
+        "total": 116062753
+      }
+    },
+    "webgpu-main": {
+      "passed": false,
+      "ap": {
+        "AP": 0.3685537340421394,
+        "AP50": 0.5732573147318519,
+        "AP75": 0.39086215199389235,
+        "APsmall": 0.19056790558043474,
+        "APmedium": 0.49942906213564725,
+        "APlarge": 0.6538783020693936,
+        "stats": [
+          0.3685537340421394,
+          0.5732573147318519,
+          0.39086215199389235,
+          0.19056790558043474,
+          0.49942906213564725,
+          0.6538783020693936,
+          0.31354537381881625,
+          0.4333476070780476,
+          0.4481389092344366,
+          0.23877136751803935,
+          0.5517694297882237,
+          0.7092283950617284
+        ],
+        "detections": 6400,
+        "log": "Loading and preparing results...\nDONE (t=0.07s)\ncreating index...\nindex created!\nRunning per image evaluation...\nEvaluate annotation type *segm*\nDONE (t=0.66s).\nAccumulating evaluation results...\nDONE (t=0.28s).\n Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.369\n Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.573\n Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.391\n Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.191\n Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.499\n Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.654\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.314\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.433\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.448\n Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.239\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.552\n Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.709\n"
+      },
+      "apDropPercentagePoints": 0.07768469154607605,
+      "agreement": {
+        "passed": false,
+        "scoreThresholdStrictlyGreaterThan": 0.5,
+        "matching": "同类别框IoU最大总和一对一匹配，boxIoU>=0.5；双方均检查未匹配实例",
+        "matched": 423,
+        "minMaskIoU": 0.9788243884629427,
+        "meanMaskIoU": 0.9999441661066023,
+        "maxScoreDelta": 1.7464160919189453e-05,
+        "unmatched": [],
+        "failedMatches": [
+          {
+            "imageId": 204871,
+            "classId": 2,
+            "referenceScore": 0.8374326229095459,
+            "candidateScore": 0.8374313116073608,
+            "boxIoU": 0.9999981908285785,
+            "maskIoU": 0.9788243884629427
+          }
+        ],
+        "adjustedCanvasHighScoreMatches": {
+          "count": 17,
+          "minMaskIoU": 0.9788243884629427
+        }
+      },
+      "timingsMs": {
+        "decodeMs": {
+          "median": 0.25,
+          "p95": 0.30000000447034836,
+          "mean": 0.24062500067520887
+        },
+        "preprocessMs": {
+          "median": 51.649999998509884,
+          "p95": 62.80499999932944,
+          "mean": 53.22968750039581
+        },
+        "inferenceMs": {
+          "median": 31.649999998509884,
+          "p95": 35.764999998733394,
+          "mean": 50.18281249993015
+        },
+        "postprocessMs": {
+          "median": 209.04999999701977,
+          "p95": 375.1699999980628,
+          "mean": 231.92031249951106
+        },
+        "totalMs": {
+          "median": 293.4000000022352,
+          "p95": 477.9249999999999,
+          "mean": 335.6187500002561
+        }
+      },
+      "returnedMaskBytes": {
+        "median": 728071.0,
+        "maximum": 14774287,
+        "total": 116062636
+      }
+    },
+    "webgpu-worker": {
+      "passed": false,
+      "ap": {
+        "AP": 0.3685537340421394,
+        "AP50": 0.5732573147318519,
+        "AP75": 0.39086215199389235,
+        "APsmall": 0.19056790558043474,
+        "APmedium": 0.49942906213564725,
+        "APlarge": 0.6538783020693936,
+        "stats": [
+          0.3685537340421394,
+          0.5732573147318519,
+          0.39086215199389235,
+          0.19056790558043474,
+          0.49942906213564725,
+          0.6538783020693936,
+          0.31354537381881625,
+          0.4333476070780476,
+          0.4481389092344366,
+          0.23877136751803935,
+          0.5517694297882237,
+          0.7092283950617284
+        ],
+        "detections": 6400,
+        "log": "Loading and preparing results...\nDONE (t=0.05s)\ncreating index...\nindex created!\nRunning per image evaluation...\nEvaluate annotation type *segm*\nDONE (t=0.69s).\nAccumulating evaluation results...\nDONE (t=0.30s).\n Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.369\n Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.573\n Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.391\n Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.191\n Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.499\n Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.654\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.314\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.433\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.448\n Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.239\n Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.552\n Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.709\n"
+      },
+      "apDropPercentagePoints": 0.07768469154607605,
+      "agreement": {
+        "passed": false,
+        "scoreThresholdStrictlyGreaterThan": 0.5,
+        "matching": "同类别框IoU最大总和一对一匹配，boxIoU>=0.5；双方均检查未匹配实例",
+        "matched": 423,
+        "minMaskIoU": 0.9788243884629427,
+        "meanMaskIoU": 0.9999441661066023,
+        "maxScoreDelta": 1.7464160919189453e-05,
+        "unmatched": [],
+        "failedMatches": [
+          {
+            "imageId": 204871,
+            "classId": 2,
+            "referenceScore": 0.8374326229095459,
+            "candidateScore": 0.8374313116073608,
+            "boxIoU": 0.9999981908285785,
+            "maskIoU": 0.9788243884629427
+          }
+        ],
+        "adjustedCanvasHighScoreMatches": {
+          "count": 17,
+          "minMaskIoU": 0.9788243884629427
+        }
+      },
+      "timingsMs": {
+        "decodeMs": {
+          "median": 0.29999999701976776,
+          "p95": 0.3999999985098839,
+          "mean": 0.2609374999301508
+        },
+        "preprocessMs": {
+          "median": 51.79999999701977,
+          "p95": 69.40500000193714,
+          "mean": 54.56562500016298
+        },
+        "inferenceMs": {
+          "median": 32.19999999925494,
+          "p95": 35.254999997466804,
+          "mean": 51.30156249948777
+        },
+        "postprocessMs": {
+          "median": 210.90000000223517,
+          "p95": 385.6750000014898,
+          "mean": 236.0000000006985
+        },
+        "totalMs": {
+          "median": 296.9000000022352,
+          "p95": 524.5949999961998,
+          "mean": 343.0703124994179
+        }
+      },
+      "returnedMaskBytes": {
+        "median": 728071.0,
+        "maximum": 14774287,
+        "total": 116062636
+      }
+    }
+  },
+  "mainWorker": {
+    "wasm": {
+      "passed": true,
+      "scoreThresholdStrictlyGreaterThan": 0.01,
+      "matching": "同类别框IoU最大总和一对一匹配，boxIoU>=0.5；双方均检查未匹配实例",
+      "matched": 6400,
+      "minMaskIoU": 1.0,
+      "meanMaskIoU": 1.0,
+      "maxScoreDelta": 0.0,
+      "unmatched": []
+    },
+    "webgpu": {
+      "passed": true,
+      "scoreThresholdStrictlyGreaterThan": 0.01,
+      "matching": "同类别框IoU最大总和一对一匹配，boxIoU>=0.5；双方均检查未匹配实例",
+      "matched": 6400,
+      "minMaskIoU": 1.0,
+      "meanMaskIoU": 1.0,
+      "maxScoreDelta": 0.0,
+      "unmatched": []
+    }
+  },
+  "baselineMaskCanvasAdjustments": {
+    "reason": "官方ppyoloe_ins_head.py:733使用int(im_shape/scale_factor)裁剪，Float32舍入可使返回mask少一行/列；保留原始RLE，将官方返回结果按左上ROI置入原图画布，缺失边缘为0，不重采样。",
+    "images": [
+      {
+        "imageId": 173091,
+        "image": {
+          "width": 612,
+          "height": 612
+        },
+        "officialMaskSizes": [
+          [
+            611,
+            611
+          ]
+        ],
+        "instances": 100,
+        "highScoreInstances": 3
+      },
+      {
+        "imageId": 204871,
+        "image": {
+          "width": 612,
+          "height": 612
+        },
+        "officialMaskSizes": [
+          [
+            611,
+            611
+          ]
+        ],
+        "instances": 100,
+        "highScoreInstances": 7
+      },
+      {
+        "imageId": 212166,
+        "image": {
+          "width": 612,
+          "height": 612
+        },
+        "officialMaskSizes": [
+          [
+            611,
+            611
+          ]
+        ],
+        "instances": 100,
+        "highScoreInstances": 2
+      },
+      {
+        "imageId": 287874,
+        "image": {
+          "width": 640,
+          "height": 434
+        },
+        "officialMaskSizes": [
+          [
+            433,
+            640
+          ]
+        ],
+        "instances": 100,
+        "highScoreInstances": 4
+      },
+      {
+        "imageId": 341828,
+        "image": {
+          "width": 612,
+          "height": 612
+        },
+        "officialMaskSizes": [
+          [
+            611,
+            611
+          ]
+        ],
+        "instances": 100,
+        "highScoreInstances": 1
+      }
+    ]
+  },
+  "browserStatus": "passed",
+  "postprocessBenchmarkStatus": "passed",
+  "edgeDiagnosis": {
+    "verifiedAt": "2026-09-18T04:09:17.394835+00:00",
+    "scope": "仅定位严格门槛失败原因，原始SDK与官方mask不修改，验收仍按完整原图maskIoU>=0.99判断",
+    "failures": [
+      {
+        "mode": "wasm-main",
+        "imageId": 204871,
+        "classId": 2,
+        "referenceScore": 0.8374326229095459,
+        "candidateScore": 0.8374315500259399,
+        "boxIoU": 0.9999987154312854,
+        "maskIoU": 0.9788243884629427,
+        "originalImage": {
+          "width": 612,
+          "height": 612
+        },
+        "officialMaskShape": [
+          611,
+          611
+        ],
+        "officialForeground": 2681,
+        "sdkForeground": 2739,
+        "differentPixels": 58,
+        "differentPixelsInsideOfficialExtent": 0,
+        "differentPixelsOutsideOfficialExtent": 58,
+        "commonExtentMaskIoU": 1.0,
+        "diagnosis": "全部差异仅在官方int裁剪丢失的边缘"
+      },
+      {
+        "mode": "wasm-worker",
+        "imageId": 204871,
+        "classId": 2,
+        "referenceScore": 0.8374326229095459,
+        "candidateScore": 0.8374315500259399,
+        "boxIoU": 0.9999987154312854,
+        "maskIoU": 0.9788243884629427,
+        "originalImage": {
+          "width": 612,
+          "height": 612
+        },
+        "officialMaskShape": [
+          611,
+          611
+        ],
+        "officialForeground": 2681,
+        "sdkForeground": 2739,
+        "differentPixels": 58,
+        "differentPixelsInsideOfficialExtent": 0,
+        "differentPixelsOutsideOfficialExtent": 58,
+        "commonExtentMaskIoU": 1.0,
+        "diagnosis": "全部差异仅在官方int裁剪丢失的边缘"
+      },
+      {
+        "mode": "webgpu-main",
+        "imageId": 204871,
+        "classId": 2,
+        "referenceScore": 0.8374326229095459,
+        "candidateScore": 0.8374313116073608,
+        "boxIoU": 0.9999981908285785,
+        "maskIoU": 0.9788243884629427,
+        "originalImage": {
+          "width": 612,
+          "height": 612
+        },
+        "officialMaskShape": [
+          611,
+          611
+        ],
+        "officialForeground": 2681,
+        "sdkForeground": 2739,
+        "differentPixels": 58,
+        "differentPixelsInsideOfficialExtent": 0,
+        "differentPixelsOutsideOfficialExtent": 58,
+        "commonExtentMaskIoU": 1.0,
+        "diagnosis": "全部差异仅在官方int裁剪丢失的边缘"
+      },
+      {
+        "mode": "webgpu-worker",
+        "imageId": 204871,
+        "classId": 2,
+        "referenceScore": 0.8374326229095459,
+        "candidateScore": 0.8374313116073608,
+        "boxIoU": 0.9999981908285785,
+        "maskIoU": 0.9788243884629427,
+        "originalImage": {
+          "width": 612,
+          "height": 612
+        },
+        "officialMaskShape": [
+          611,
+          611
+        ],
+        "officialForeground": 2681,
+        "sdkForeground": 2739,
+        "differentPixels": 58,
+        "differentPixelsInsideOfficialExtent": 0,
+        "differentPixelsOutsideOfficialExtent": 58,
+        "commonExtentMaskIoU": 1.0,
+        "diagnosis": "全部差异仅在官方int裁剪丢失的边缘"
+      }
+    ]
+  }
+}
