@@ -49,4 +49,3 @@ pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versi
 - [ ] 适用远程 required 规则全部核验后，才将 `locally-compliant` 提升为 `compliant`。
 
 本轮不执行上述远程变更；下一发布阶段按明确授权继续。
-

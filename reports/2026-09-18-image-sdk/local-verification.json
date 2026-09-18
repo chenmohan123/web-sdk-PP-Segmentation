@@ -13,8 +13,9 @@
   "demoBuild": true,
   "npmPack": {
     "files": 24,
-    "compressedBytes": 6013649,
-    "includesModel": false
+    "compressedBytes": 6013661,
+    "includesModel": false,
+    "verifiedAt": "2026-09-18T04:40:00.119Z"
   },
   "ui": {
     "evidence": "ui/summary.json",
@@ -49,6 +50,8 @@
     "demo/src/draw-mask.ts": "219a3de6f1580ae350ae6b1e5def6089766ae7d0ce1d0aa721c9d459042a3c26",
     "tests/browser.mjs": "adaffa59cc3c71c5a72d838b055d52558bbd5c0528eec1bbcfeebe1827c5da98",
     "sdk-manifest.yaml": "bc222a63bdc6fc824f673e2d5604c6bcbfa2562e76c8b6e17db26d5a5292af80",
-    "reports/2026-09-18-image-sdk/local-verification.txt": "b019c70842a11a5e0738a55aa1f35fca8f02ed1a155c1a372b53c204fb587ac6"
-  }
+    "reports/2026-09-18-image-sdk/local-verification.txt": "59216951bcd9cca304677ce27368603342994232c030da68b4f58c02990ec5ed"
+  },
+  "implementationCommit": "97d6207",
+  "finalReview": "review.md"
 }

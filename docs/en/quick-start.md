@@ -98,4 +98,3 @@ pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versi
 ```
 
 You can then use `import { createSegmentation } from 'web-sdk-pp-segmentation'`. The ORT/Worker static directory must still be deployed. See [Privacy and deployment](privacy-deployment.md) for HTTPS, CORS, CSP, and caching.
-

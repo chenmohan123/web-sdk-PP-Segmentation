@@ -35,4 +35,3 @@ console.log(await getModelCacheInfo(sdk.manifest));
 ```
 
 清理持久缓存不会卸载现有会话；需要强制重新下载时，先释放旧实例，清理缓存，再新建实例加载。更多部署细节见[隐私与部署](privacy-deployment.md)。
-

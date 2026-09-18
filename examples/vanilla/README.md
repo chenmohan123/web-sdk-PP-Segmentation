@@ -15,4 +15,3 @@ pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versi
 模型与 SDK 由开发服务器提供：`/local-model/model.onnx` 显式映射到忽略目录，`/sdk/` 提供完整构建文件。前者不是正式模型分发地址。正式 ModelScope/Hugging Face 尚未发布，生产构建不携带 ONNX。该示例是浏览器 DOM/TypeScript 接入基线，不能据此宣称微信/WebView 或移动设备已验证。
 
 2026-09-18 的实际运行证据见 [ui/summary.json](../../reports/2026-09-18-image-sdk/ui/summary.json)；严格模型质量仍有[已知差异](../../docs/zh-CN/compatibility.md)。更完整的选项、取消、缓存与后端切换交互见 [React 参考](../react/README.md)。[中文快速开始](../../docs/zh-CN/quick-start.md) · [English quick start](../../docs/en/quick-start.md)。
-

@@ -24,4 +24,3 @@
 ## 正式发布前
 
 继续处理严格质量验收结论；核验权重许可和素材归因；为两个 Hub 固定不可变 revision 并完整下载回读；完成 GitHub 仓库、CI、分支/tag Rulesets 和 About；发布 npm 与不可变 GitHub Release；完成 HTTPS Demo 部署、版本链接回读及带日期的远程证据。规划地址不代表已发布。逐项追踪见[发布检查清单](../release-checklist.md)和[Demo 检查清单](../demo-checklist.md)。
-

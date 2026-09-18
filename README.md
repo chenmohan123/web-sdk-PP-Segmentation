@@ -88,4 +88,3 @@ pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versi
 浏览器检查需要本地模型、已构建资源和可用 Chromium；具体验收操作见 [scripts/evaluation/README.md](scripts/evaluation/README.md)。标准检查从相邻门户执行，见发布清单。
 
 SDK 源码使用 Apache-2.0，见 [LICENSE](LICENSE)。上游 PaddleDetection 源码许可不等同于模型权重再分发审查；正式上传权重前仍需核验权重许可、来源及第三方归因，见 [NOTICE](NOTICE)。评估数据和模型不进入 npm 或 Git。
-

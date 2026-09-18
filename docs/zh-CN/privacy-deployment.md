@@ -55,4 +55,3 @@ base-uri 'self';
 本地开发用显式 `new URL('/local-model/model.onnx', location.origin).href` 覆盖，Vite 从忽略目录 `.tmp/model.onnx` 提供；它不是正式分发来源。SDK npm 产物与生产 Demo 不包含 ONNX。正式来源未配置时，生产 Demo 应保持不可运行并显示原因。
 
 正式发布前为每个 Hub 固定不可变 revision、完整 URL、字节数及 SHA-256，并做完整下载回读；同时核验权重再分发许可与第三方归因。源码 Apache-2.0 不代替权重许可结论，见 [NOTICE](../../NOTICE)。评估图片也有各自许可，不能直接作为生产 Demo 素材再分发。更多发布门槛见[发布说明](release.md)。
-

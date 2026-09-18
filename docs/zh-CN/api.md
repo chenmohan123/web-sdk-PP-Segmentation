@@ -96,4 +96,3 @@ ROI 包含二次插值后全部前景，边界独立于 `box`，可能超出检�
 | `NOT_LOADED` | 尚未完成加载 |
 
 处理建议见[排障](troubleshooting.md)。
-

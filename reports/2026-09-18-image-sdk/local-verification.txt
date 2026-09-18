@@ -31,3 +31,7 @@ computing gzip size...
 ✓ built in 2.30s
 $ node scripts/check-package.mjs
 npm 产物检查通过：24 个文件，压缩后 6013649 字节；不含模型或开发数据。
+
+文档空白规范化后的独立打包复核：
+$ node scripts/check-package.mjs
+npm 产物检查通过：24 个文件，压缩后 6013661 字节；不含模型或开发数据。

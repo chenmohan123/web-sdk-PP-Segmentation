@@ -39,4 +39,3 @@ WASM also needs WebAssembly, Web Crypto SHA-256, and correctly served ORT assets
 Phones, Safari, Firefox, WeChat or other WebViews, NPU, and other OS/browser/GPU-driver combinations have not been verified. Video, camera, and tracking are outside the current input contract. A responsive UI test at 390px establishes layout behavior only, not phone inference compatibility. The 64-image subset does not establish full-COCO accuracy or universal device performance.
 
 Before adding compatibility claims, record the date, OS, browser, device, driver, runtime, backend/execution mode, model checksum, input, and actual results. See the [release checklist](../release-checklist.md) for release gates.
-

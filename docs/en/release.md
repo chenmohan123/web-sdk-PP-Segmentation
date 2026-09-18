@@ -24,4 +24,3 @@ Local tests, types, builds, package checks, and standard-checker results are tra
 ## Before publication
 
 Resolve the strict quality-acceptance conclusion; verify weight licenses and asset attribution; pin both Hubs to immutable revisions and verify full downloads; configure the GitHub repository, CI, branch/tag Rulesets, and About; publish npm and an immutable GitHub Release; deploy the HTTPS Demo and verify version links with dated remote evidence. Planned URLs do not mean publication. Track each gate in the [release checklist](../release-checklist.md) and [Demo checklist](../demo-checklist.md).
-

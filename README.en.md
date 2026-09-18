@@ -88,4 +88,3 @@ pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versi
 Browser checks require the local model, built resources, and an available Chromium executable. See [scripts/evaluation/README.md](scripts/evaluation/README.md) for acceptance operations. Run the standard checker from the adjacent portal as described in the release checklist.
 
 SDK source is Apache-2.0; see [LICENSE](LICENSE). The upstream PaddleDetection source license does not establish permission to redistribute model weights. Weight licensing, provenance, and third-party attribution remain gates before uploading weights; see [NOTICE](NOTICE). Evaluation data and model binaries are excluded from npm and Git.
-

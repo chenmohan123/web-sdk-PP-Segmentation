@@ -55,4 +55,3 @@ Add the actual model hosts to `connect-src`. Cross-origin ORT modules also need 
 Local development explicitly overrides the URL with `new URL('/local-model/model.onnx', location.origin).href`; Vite serves the file from ignored `.tmp/model.onnx`. This is not an official distribution source. npm artifacts and the production Demo exclude ONNX. Without official sources configured, the production Demo must remain unable to run and explain why.
 
 Before publication, pin each Hub to an immutable revision, full URL, byte length, and SHA-256, then verify a complete download. Review weight redistribution permission and third-party attribution. Apache-2.0 source licensing does not establish the weight license; see [NOTICE](../../NOTICE). Evaluation images also have individual licenses and cannot automatically be redistributed as production Demo assets. See [Release notes](release.md) for other gates.
-

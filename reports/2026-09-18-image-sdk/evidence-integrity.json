@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-09-18T04:35:09.314Z",
+  "verifiedAt": "2026-09-18T04:40:00.522Z",
   "evidenceIntegrityStatus": "passed",
   "strictAcceptanceStatus": "failed",
   "imagesPerMode": 64,
@@ -52,13 +52,13 @@
     },
     {
       "name": "local-verification.json",
-      "bytes": 1865,
-      "sha256": "21c39758395bf90926ca9c9f6ee7af066f974ab5ab28a5ebb9a5d8944c3888fb"
+      "bytes": 1978,
+      "sha256": "514d178759fc44dba1003b3075e736371c925a7706bb5dfed85d0a9f058a8364"
     },
     {
       "name": "local-verification.txt",
-      "bytes": 1644,
-      "sha256": "b019c70842a11a5e0738a55aa1f35fca8f02ed1a155c1a372b53c204fb587ac6"
+      "bytes": 1825,
+      "sha256": "59216951bcd9cca304677ce27368603342994232c030da68b4f58c02990ec5ed"
     },
     {
       "name": "numeric.json",
@@ -89,6 +89,11 @@
       "name": "preprocessing-comparison.json",
       "bytes": 11528,
       "sha256": "13581d6e3806ddc96a46af43fbdae15464c80694f738083ac8d5c3efce769fc9"
+    },
+    {
+      "name": "review.md",
+      "bytes": 5620,
+      "sha256": "ad0ae2c9730c02c057617ab61d5aa0e3cdbd884a6359bf7ba296e9e67e1826b8"
     },
     {
       "name": "standard-after.json",

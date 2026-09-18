@@ -35,4 +35,3 @@ console.log(await getModelCacheInfo(sdk.manifest));
 ```
 
 Clearing persistent cache does not unload a session. To force a fresh download, dispose of the old instance, clear its cache, then create and load a new one. See [Privacy and deployment](privacy-deployment.md) for deployment details.
-

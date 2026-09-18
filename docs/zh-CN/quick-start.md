@@ -98,4 +98,3 @@ pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versi
 ```
 
 随后可用 `import { createSegmentation } from 'web-sdk-pp-segmentation'`；ORT/Worker 静态目录仍须部署。HTTPS、CORS、CSP 和缓存要求见[隐私与部署](privacy-deployment.md)。
-

@@ -22,4 +22,3 @@ pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versi
 生产产物位于 `demo-dist/`，携带 SDK/ORT 静态资源但不携带 ONNX；正式 Hub 来源尚未发布时会禁用推理并说明原因。不要把开发服务器模型覆盖当作生产来源。Vite 是这里的构建工具，`examples/react` 也作为 Vite 集成说明入口，无需复制为另一套示例。
 
 2026-09-18 的中英、四组合、实例选择、390px、取消恢复、缓存和生产来源检查见 [ui/summary.json](../../reports/2026-09-18-image-sdk/ui/summary.json)。严格模型质量尚有[已知差异](../../docs/zh-CN/compatibility.md)；响应式布局通过不等于手机推理验证。[中文快速开始](../../docs/zh-CN/quick-start.md) · [English quick start](../../docs/en/quick-start.md)。
-

@@ -41,4 +41,3 @@ Reduce overhead by resizing the original image, increasing `scoreThreshold`, dec
 The [acceptance report](../../reports/2026-09-18-image-sdk/README.md) contains the fixed 64-image WASM/WebGPU × main/worker records dated 2026-09-18, returned mask bytes, median/p95 timings, and environment. Quality has a [known edge difference](compatibility.md); speed measurements do not establish quality acceptance.
 
 Performance conclusions apply only to the report's Windows/Chromium/hardware/date, not phones, NPU, or other browsers. Future benchmarks should record model checksum, precision, image dimensions/count, thresholds, cold/warm state, warmup count, backend/execution mode, runtime/driver, cache bytes, peak-memory measurement method, and date.
-
