@@ -2,7 +2,7 @@
 
 [English](../en/quick-start.md) · [返回 README](../../README.md)
 
-当前文档对应 `web-sdk-pp-segmentation@0.1.0` 发布候选。固定 64 图四组合质量验收已通过，ModelScope/Hugging Face 权重已发布并完整回读；npm 和在线 Demo 在实际发布并回读前仍为待发布，见[兼容性](compatibility.md)。
+`web-sdk-pp-segmentation@0.1.0` 的固定 64 图四组合质量验收已通过，双源权重和 HTTPS Demo 已发布并回读。npm 首次发布仍待账号验证，完成前使用下方本地构建流程，见[兼容性](compatibility.md)。
 
 正式发布后安装：
 
@@ -10,7 +10,7 @@
 pnpm add web-sdk-pp-segmentation@0.1.0
 ```
 
-模型地址不要从文档复制。应用读取 [models/model.json](../../models/model.json)，按 `defaultSource` 在 `sources` 中选择条目，并使用该条目的固定 `downloadUrl`、`bytes` 和 `sha256`。显式来源失败时报错；只有应用实现的 `auto` 策略可以尝试其他来源。当前发布准备阶段如 `sources` 尚未填充，继续使用下面的本地开发流程。
+模型地址不要从文档复制。应用读取 [models/model.json](../../models/model.json)，按 `defaultSource` 在 `sources` 中选择条目，并使用该条目的固定 `downloadUrl`、`bytes` 和 `sha256`。显式来源失败时报错；只有应用实现的 `auto` 策略可以尝试其他来源。当前双源清单已完整填写。
 
 ## 准备与启动
 

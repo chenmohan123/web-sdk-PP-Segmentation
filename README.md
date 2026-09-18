@@ -4,7 +4,7 @@
 
 浏览器端 PP-YOLOE_seg_s 实例分割 SDK。输入一张 `Blob` 或 RGBA 图片，输出对象类别、分数、原图边界框和紧致二值实例掩码；图片在浏览器本地处理，runtime 不依赖 React。
 
-> `web-sdk-pp-segmentation@0.1.0` 当前为首版发布候选。质量验收已通过，ModelScope/Hugging Face 权重已发布并完整回读，GitHub 仓库与治理已配置；npm 包和在线 Demo 仍以实际发布完成及回读结果为准。以下 npm/Demo 入口在完成前只是目标地址。
+> `web-sdk-pp-segmentation@0.1.0` 首版质量验收已通过，独立 GitHub 仓库、ModelScope/Hugging Face 权重与 HTTPS Demo 已上线并完成回读。npm 首次发布仍待账号验证；完成前使用下面的本地构建流程。
 
 ## 当前范围
 
@@ -61,7 +61,7 @@ document.querySelector("#image").addEventListener("change", async (event) => {
 });
 ```
 
-接入其他应用时将整个 `dist/` 部署到同源 `/sdk/`，包括 Worker 和同版本 ORT 文件；`runtimeBaseUrl` 使用以 `/` 结尾的完整 URL。正式发布后可执行 `pnpm add web-sdk-pp-segmentation@0.1.0`；当前发布准备阶段继续使用本地打包文件。详见[快速开始](docs/zh-CN/quick-start.md)。
+接入其他应用时将整个 `dist/` 部署到同源 `/sdk/`，包括 Worker 和同版本 ORT 文件；`runtimeBaseUrl` 使用以 `/` 结尾的完整 URL。正式发布后可执行 `pnpm add web-sdk-pp-segmentation@0.1.0`；npm 账号验证完成前使用本地打包文件。详见[快速开始](docs/zh-CN/quick-start.md)。
 
 ## 文档与证据
 

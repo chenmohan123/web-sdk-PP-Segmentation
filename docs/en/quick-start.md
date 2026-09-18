@@ -2,7 +2,7 @@
 
 [中文](../zh-CN/quick-start.md) · [README](../../README.en.md)
 
-These docs describe the `web-sdk-pp-segmentation@0.1.0` release candidate. Quality acceptance passed on the fixed 64-image subset in all four modes, and ModelScope/Hugging Face weights have been published and fully read back. npm and the hosted Demo remain pending until publication and read-back verification complete; see [Compatibility](compatibility.md).
+`web-sdk-pp-segmentation@0.1.0` passed fixed-64-image acceptance in all four modes. Both weight sources and the HTTPS Demo are published and verified. The first npm publication requires account verification; use the local build workflow below until it completes. See [Compatibility](compatibility.md).
 
 After the release is published, install it with:
 
@@ -10,7 +10,7 @@ After the release is published, install it with:
 pnpm add web-sdk-pp-segmentation@0.1.0
 ```
 
-Do not copy a model URL from this guide. Read [models/model.json](../../models/model.json), select the `sources` entry named by `defaultSource`, and use its fixed `downloadUrl`, `bytes`, and `sha256`. An explicitly selected source fails visibly; only an application-provided `auto` policy may try another source. During release preparation, keep using the local workflow below if `sources` has not yet been populated.
+Do not copy a model URL from this guide. Read [models/model.json](../../models/model.json), select the `sources` entry named by `defaultSource`, and use its fixed `downloadUrl`, `bytes`, and `sha256`. An explicitly selected source fails visibly; only an application-provided `auto` policy may try another source. The current manifest contains both published sources.
 
 ## Prepare and start
 
