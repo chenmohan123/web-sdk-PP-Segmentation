@@ -1,0 +1,6 @@
+PP-Segmentation 本地开发版
+
+模型架构与来源：PaddlePaddle/PaddleDetection，Apache-2.0。
+上游固定提交：b25522a0f4bde8c80603f3ba5e3472059972e3b5。
+通用下载、IndexedDB缓存、ORT装载与生命周期结构参考本组织web-sdk-PP-TinyPose，Apache-2.0。
+实例分割数值实现与Demo由本项目维护。模型权重不包含在npm产物中；权重再分发与第三方来源追溯须在正式发布前另行核验。

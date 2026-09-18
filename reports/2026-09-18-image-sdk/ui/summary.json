@@ -1,0 +1,44 @@
+{
+  "date": "2026-09-18T04:29:29.983Z",
+  "browser": "153.0.8010.12",
+  "matrix": [
+    {
+      "backend": "wasm",
+      "mode": "main",
+      "instances": 4,
+      "selectionStable": true
+    },
+    {
+      "backend": "wasm",
+      "mode": "worker",
+      "instances": 4,
+      "selectionStable": true
+    },
+    {
+      "backend": "webgpu",
+      "mode": "main",
+      "instances": 4,
+      "selectionStable": true
+    },
+    {
+      "backend": "webgpu",
+      "mode": "worker",
+      "instances": 4,
+      "selectionStable": true
+    }
+  ],
+  "language": true,
+  "viewport390": true,
+  "cancelRecovery": true,
+  "replaceImage": true,
+  "invalidPreview": true,
+  "oversizedPreview": true,
+  "previewRecovery": true,
+  "overlayStable": true,
+  "languageStable": true,
+  "verificationMatrix": true,
+  "cacheClear": true,
+  "vanilla": true,
+  "productionSourceDisabled": true,
+  "pageErrors": []
+}

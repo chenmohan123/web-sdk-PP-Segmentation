@@ -1,0 +1,5 @@
+# 固定文本换行，保证跨系统检出的评估源码摘要可复算。
+* text=auto eol=lf
+*.gz binary
+*.png binary
+*.onnx binary

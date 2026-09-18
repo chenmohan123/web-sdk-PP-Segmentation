@@ -1,0 +1,64 @@
+{
+  "name": "web-sdk-pp-segmentation",
+  "version": "0.1.0-alpha.0",
+  "description": "基于 PP-YOLOE_seg 的浏览器实例分割 SDK",
+  "type": "module",
+  "private": false,
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chenmohan123/web-sdk-PP-Segmentation.git"
+  },
+  "homepage": "https://chenmohan123.github.io/web-sdk-PP-Segmentation/",
+  "files": [
+    "dist",
+    "README.md",
+    "README.en.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./inference.worker.js": "./dist/inference.worker.js"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "build": "node scripts/build.mjs",
+    "dev": "vite --config demo/vite.config.ts --host 127.0.0.1",
+    "build:demo": "vite build --config demo/vite.config.ts",
+    "preview": "vite preview --config demo/vite.config.ts --host 127.0.0.1",
+    "typecheck:demo": "tsc --noEmit --target ES2022 --module ESNext --moduleResolution Bundler --jsx react-jsx --resolveJsonModule --strict --skipLibCheck --lib ES2022,DOM,DOM.Iterable demo/src/main.tsx demo/src/App.tsx demo/vite.config.ts examples/vanilla/main.ts",
+    "test:browser": "node tests/browser.mjs",
+    "check:package": "node scripts/check-package.mjs",
+    "dev:vanilla": "vite --config demo/vite.config.ts --mode vanilla --host 127.0.0.1 --port 4189",
+    "verify": "pnpm test && pnpm typecheck && pnpm typecheck:demo && pnpm build && pnpm build:demo && pnpm check:package"
+  },
+  "dependencies": {
+    "onnxruntime-web": "1.27.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "esbuild": "^0.25.0",
+    "fake-indexeddb": "^6.2.5",
+    "lucide-react": "0.468.0",
+    "playwright": "1.63.0",
+    "prettier": "3.6.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "5.9.3",
+    "vite": "^7.1.0",
+    "vitest": "^3.2.4",
+    "yaml": "2.8.2"
+  }
+}

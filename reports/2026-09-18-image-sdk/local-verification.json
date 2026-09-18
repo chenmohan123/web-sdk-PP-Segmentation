@@ -1,0 +1,54 @@
+{
+  "verifiedAt": "2026-09-18T04:33:44.390Z",
+  "scope": "本地独立图片SDK工程检查；不是稳定质量或远程发布验收",
+  "command": "pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versions=false verify",
+  "exitCode": 0,
+  "unitTests": {
+    "passed": 42,
+    "failed": 0
+  },
+  "typecheck": true,
+  "demoAndVanillaTypecheck": true,
+  "sdkBuild": true,
+  "demoBuild": true,
+  "npmPack": {
+    "files": 24,
+    "compressedBytes": 6013649,
+    "includesModel": false
+  },
+  "ui": {
+    "evidence": "ui/summary.json",
+    "verifiedAt": "2026-09-18T04:29:29.983Z",
+    "passed": true
+  },
+  "sdkStandard": {
+    "requiredPassed": 18,
+    "requiredFailed": 0,
+    "requiredSkipped": 4,
+    "requiredUnknown": 0,
+    "requiredNotApplicable": 0,
+    "recommendedPassed": 2,
+    "recommendedFailed": 1,
+    "labs": 1,
+    "status": "locally-compliant"
+  },
+  "portal": {
+    "maintainedTestsPassed": 65,
+    "astroErrors": 0,
+    "astroWarnings": 0,
+    "astroHints": 7,
+    "pagesBuilt": 14
+  },
+  "strictModelAcceptance": "failed",
+  "strictFailureEvidence": "edge-diagnosis.json",
+  "frozenSdkSha256": "bec08d2754a4b278f89faea15ca64f785aac5cb5f0f76503ca7004cab7a4f8e3",
+  "frozenWorkerSha256": "672886c08f66995832cc780b2496104e30501bd4cd4ebaae9b9368e2aa9de885",
+  "sourceMatches64ImageEvaluation": true,
+  "hashes": {
+    "demo/src/App.tsx": "bde998aeb36965b99b43e1e42463042ee5f7c3ac4faa3dbb64b5d8c9a37a5ab0",
+    "demo/src/draw-mask.ts": "219a3de6f1580ae350ae6b1e5def6089766ae7d0ce1d0aa721c9d459042a3c26",
+    "tests/browser.mjs": "adaffa59cc3c71c5a72d838b055d52558bbd5c0528eec1bbcfeebe1827c5da98",
+    "sdk-manifest.yaml": "bc222a63bdc6fc824f673e2d5604c6bcbfa2562e76c8b6e17db26d5a5292af80",
+    "reports/2026-09-18-image-sdk/local-verification.txt": "b019c70842a11a5e0738a55aa1f35fca8f02ed1a155c1a372b53c204fb587ac6"
+  }
+}

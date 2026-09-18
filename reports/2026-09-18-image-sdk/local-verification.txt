@@ -1,0 +1,33 @@
+$ pnpm test && pnpm typecheck && pnpm typecheck:demo && pnpm build && pnpm build:demo && pnpm check:package
+$ vitest run
+
+ RUN  v3.2.7 F:/git/00_chenmohan/github/web-sdk-PP-Segmentation
+
+ ✓ tests/cache.test.ts (2 tests) 18ms
+ ✓ tests/worker.test.ts (2 tests) 8ms
+ ✓ tests/runtime.test.ts (11 tests) 174ms
+ ✓ tests/segmentation.test.ts (27 tests) 3859ms
+   ✓ 实例筛选与掩码恢复 > 返回mask累计超过64MiB时明确失败而非丢弃实例  2917ms
+   ✓ 实例筛选与掩码恢复 > 真实32通道夹具与归档官方mask一致  507ms
+
+ Test Files  4 passed (4)
+      Tests  42 passed (42)
+   Start at  12:32:21
+   Duration  4.69s (transform 359ms, setup 0ms, collect 905ms, tests 4.06s, environment 1ms, prepare 859ms)
+
+$ tsc --noEmit
+$ tsc --noEmit --target ES2022 --module ESNext --moduleResolution Bundler --jsx react-jsx --resolveJsonModule --strict --skipLibCheck --lib ES2022,DOM,DOM.Iterable demo/src/main.tsx demo/src/App.tsx demo/vite.config.ts examples/vanilla/main.ts
+$ node scripts/build.mjs
+SDK、类型、Worker 与 ORT 1.27.0 构建完成（不含模型）。
+$ vite build --config demo/vite.config.ts
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 1577 modules transformed.
+rendering chunks...
+computing gzip size...
+../demo-dist/index.html                   0.38 kB │ gzip:  0.30 kB
+../demo-dist/assets/index-C1JX-MZe.css    6.34 kB │ gzip:  1.91 kB
+../demo-dist/assets/index-CNkQK5rV.js   238.65 kB │ gzip: 75.74 kB
+✓ built in 2.30s
+$ node scripts/check-package.mjs
+npm 产物检查通过：24 个文件，压缩后 6013649 字节；不含模型或开发数据。

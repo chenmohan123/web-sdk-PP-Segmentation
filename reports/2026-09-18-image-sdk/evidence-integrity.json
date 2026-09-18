@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-09-18T04:14:00.375Z",
+  "verifiedAt": "2026-09-18T04:35:09.314Z",
   "evidenceIntegrityStatus": "passed",
   "strictAcceptanceStatus": "failed",
   "imagesPerMode": 64,
@@ -41,9 +41,24 @@
       "sha256": "52b66afa7ff0ab6e70af8e20efd803b0823a6b2f40ddb38b69016bca146694ee"
     },
     {
+      "name": "implementation.md",
+      "bytes": 3296,
+      "sha256": "1ec8baa573298477f9a51938baf251cb4f5852762a3651e5907c5fa943f4176d"
+    },
+    {
       "name": "instance-comparisons.json.gz",
       "bytes": 247096,
       "sha256": "0e8219c2abf743cc8d2f47f474ecda103389af27da8ed7af96692cadc6501cbc"
+    },
+    {
+      "name": "local-verification.json",
+      "bytes": 1865,
+      "sha256": "21c39758395bf90926ca9c9f6ee7af066f974ab5ab28a5ebb9a5d8944c3888fb"
+    },
+    {
+      "name": "local-verification.txt",
+      "bytes": 1644,
+      "sha256": "b019c70842a11a5e0738a55aa1f35fca8f02ed1a155c1a372b53c204fb587ac6"
     },
     {
       "name": "numeric.json",
@@ -74,6 +89,16 @@
       "name": "preprocessing-comparison.json",
       "bytes": 11528,
       "sha256": "13581d6e3806ddc96a46af43fbdae15464c80694f738083ac8d5c3efce769fc9"
+    },
+    {
+      "name": "standard-after.json",
+      "bytes": 10641,
+      "sha256": "8ee785242fb689c2e7ab873d827e0ec9da90520655438d57bee6da337c0fa8ce"
+    },
+    {
+      "name": "standard-before.json",
+      "bytes": 8734,
+      "sha256": "0185340aa4bcdc5328fdd6e02818b92ed1cc3a3ce2c783653a517bd12f2751a8"
     },
     {
       "name": "wasm-main-results.json.gz",
