@@ -1,0 +1,165 @@
+{
+  "date": "2026-09-18T03:56:16.121Z",
+  "environment": {
+    "node": "v24.16.0",
+    "platform": "win32",
+    "architecture": "x64"
+  },
+  "scope": "归档浏览器四输出的Node后处理比较；单次耗时仅作观察，不代表浏览器端到端性能或COCO AP。",
+  "results": [
+    {
+      "backend": "wasm",
+      "id": "000000010977",
+      "instances": 4,
+      "referenceMs": 207.9807,
+      "optimizedMs": 70.13909999999998,
+      "referenceBytes": 750000,
+      "roiBytes": 8774,
+      "referenceMismatches": 0,
+      "minimumOfficialIoU": 1
+    },
+    {
+      "backend": "wasm",
+      "id": "000000026690",
+      "instances": 10,
+      "referenceMs": 617.1625999999999,
+      "optimizedMs": 77.38839999999982,
+      "referenceBytes": 2732800,
+      "roiBytes": 54625,
+      "referenceMismatches": 0,
+      "minimumOfficialIoU": 1
+    },
+    {
+      "backend": "wasm",
+      "id": "000000027186",
+      "instances": 3,
+      "referenceMs": 205.01170000000002,
+      "optimizedMs": 23.66470000000004,
+      "referenceBytes": 821760,
+      "roiBytes": 268331,
+      "referenceMismatches": 0,
+      "minimumOfficialIoU": 1
+    },
+    {
+      "backend": "wasm",
+      "id": "000000027932",
+      "instances": 0,
+      "referenceMs": 2.8846000000000913,
+      "optimizedMs": 11.276599999999917,
+      "referenceBytes": 0,
+      "roiBytes": 0,
+      "referenceMismatches": 0,
+      "minimumOfficialIoU": 1
+    },
+    {
+      "backend": "wasm",
+      "id": "000000060823",
+      "instances": 17,
+      "referenceMs": 1175.9446999999998,
+      "optimizedMs": 65.8417999999997,
+      "referenceBytes": 5222400,
+      "roiBytes": 75875,
+      "referenceMismatches": 0,
+      "minimumOfficialIoU": 1
+    },
+    {
+      "backend": "wasm",
+      "id": "000000105264",
+      "instances": 10,
+      "referenceMs": 642.7456000000002,
+      "optimizedMs": 40.80000000000018,
+      "referenceBytes": 2732800,
+      "roiBytes": 116298,
+      "referenceMismatches": 0,
+      "minimumOfficialIoU": 1
+    },
+    {
+      "backend": "wasm",
+      "id": "blank",
+      "instances": 0,
+      "referenceMs": 1.581800000000385,
+      "optimizedMs": 4.622100000000046,
+      "referenceBytes": 0,
+      "roiBytes": 0,
+      "referenceMismatches": 0,
+      "minimumOfficialIoU": 1
+    },
+    {
+      "backend": "webgpu",
+      "id": "000000010977",
+      "instances": 4,
+      "referenceMs": 149.3047999999999,
+      "optimizedMs": 27.21979999999985,
+      "referenceBytes": 750000,
+      "roiBytes": 8774,
+      "referenceMismatches": 0,
+      "minimumOfficialIoU": 1
+    },
+    {
+      "backend": "webgpu",
+      "id": "000000026690",
+      "instances": 10,
+      "referenceMs": 453.21150000000034,
+      "optimizedMs": 38.275399999999536,
+      "referenceBytes": 2732800,
+      "roiBytes": 54625,
+      "referenceMismatches": 0,
+      "minimumOfficialIoU": 1
+    },
+    {
+      "backend": "webgpu",
+      "id": "000000027186",
+      "instances": 3,
+      "referenceMs": 140.08879999999954,
+      "optimizedMs": 19.05659999999989,
+      "referenceBytes": 821760,
+      "roiBytes": 268331,
+      "referenceMismatches": 0,
+      "minimumOfficialIoU": 1
+    },
+    {
+      "backend": "webgpu",
+      "id": "000000027932",
+      "instances": 0,
+      "referenceMs": 1.7617999999993117,
+      "optimizedMs": 5.670799999999872,
+      "referenceBytes": 0,
+      "roiBytes": 0,
+      "referenceMismatches": 0,
+      "minimumOfficialIoU": 1
+    },
+    {
+      "backend": "webgpu",
+      "id": "000000060823",
+      "instances": 17,
+      "referenceMs": 871.3993,
+      "optimizedMs": 47.92489999999998,
+      "referenceBytes": 5222400,
+      "roiBytes": 75875,
+      "referenceMismatches": 0,
+      "minimumOfficialIoU": 1
+    },
+    {
+      "backend": "webgpu",
+      "id": "000000105264",
+      "instances": 10,
+      "referenceMs": 475.35679999999957,
+      "optimizedMs": 26.36580000000049,
+      "referenceBytes": 2732800,
+      "roiBytes": 116298,
+      "referenceMismatches": 0,
+      "minimumOfficialIoU": 1
+    },
+    {
+      "backend": "webgpu",
+      "id": "blank",
+      "instances": 0,
+      "referenceMs": 1.4485999999997148,
+      "optimizedMs": 4.456599999999526,
+      "referenceBytes": 0,
+      "roiBytes": 0,
+      "referenceMismatches": 0,
+      "minimumOfficialIoU": 1
+    }
+  ]
+}
