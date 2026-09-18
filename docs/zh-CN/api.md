@@ -2,22 +2,22 @@
 
 [English](../en/api.md) · [返回 README](../../README.md)
 
-类型以 [src/types.ts](../../src/types.ts) 为准。包 `web-sdk-pp-segmentation@0.1.0-alpha.0` 的 runtime 与 UI 框架无关；当前只验证 PP-YOLOE_seg_s 640 FP32 的固定四输出契约。
+类型以 [src/types.ts](../../src/types.ts) 为准。包 `web-sdk-pp-segmentation@0.1.0` 的 runtime 与 UI 框架无关；当前只验证 PP-YOLOE_seg_s 640 FP32 的固定四输出契约。
 
 ## 创建与生命周期
 
 `createSegmentation(options): Segmentation` 同步检查参数，返回实例；不会立即下载模型。
 
-| 选项 | 类型、默认值与语义 |
-|---|---|
-| `model` | 必填：`{ id, version, url, bytes, sha256 }` |
-| `model.id/version` | 非空字符串；参与缓存隔离 |
-| `model.url` | HTTP(S) 绝对地址；调用者显式指定来源 |
-| `model.bytes` | 正安全整数；下载长度必须一致 |
-| `model.sha256` | 64 位十六进制 SHA-256，内部转小写；缓存和下载均校验 |
-| `backend` | `'wasm' \| 'webgpu'`，默认 `'wasm'` |
-| `executionMode` | `'main' \| 'worker'`，默认 `'worker'` |
-| `runtimeBaseUrl` | ORT/Worker 资源目录；推荐以 `/` 结尾的绝对 URL。省略时以 SDK 模块目录为基准 |
+| 选项               | 类型、默认值与语义                                                          |
+| ------------------ | --------------------------------------------------------------------------- |
+| `model`            | 必填：`{ id, version, url, bytes, sha256 }`                                 |
+| `model.id/version` | 非空字符串；参与缓存隔离                                                    |
+| `model.url`        | HTTP(S) 绝对地址；调用者显式指定来源                                        |
+| `model.bytes`      | 正安全整数；下载长度必须一致                                                |
+| `model.sha256`     | 64 位十六进制 SHA-256，内部转小写；缓存和下载均校验                         |
+| `backend`          | `'wasm' \| 'webgpu'`，默认 `'wasm'`                                         |
+| `executionMode`    | `'main' \| 'worker'`，默认 `'worker'`                                       |
+| `runtimeBaseUrl`   | ORT/Worker 资源目录；推荐以 `/` 结尾的绝对 URL。省略时以 SDK 模块目录为基准 |
 
 返回的 `manifest` 为只读模型快照；`capabilities` 包含 `wasm/webgpu/worker/secureContext`，仅做能力探测，不证明模型可运行。`loadTimings` 是最近一次实际加载的只读耗时快照。显式后端不支持时不自动切换；本版没有 fallback 选项。
 
@@ -33,12 +33,12 @@
 
 Blob 使用浏览器解码并应用 EXIF 方向；透明部分合成白底。模型预处理把 RGB 直接缩放到 640×640，采用 bicubic（A=-0.75），量化回 uint8 后除以 255，输出 NCHW。不是 letterbox；不接受视频流。
 
-| 运行选项 | 默认值 | 合法值与含义 |
-|---|---:|---|
-| `scoreThreshold` | 0.5 | 有限数 [0,1]；仅保留严格大于阈值的分数 |
-| `nmsThreshold` | 0.7 | 有限数 [0,1]；逐类框 IoU 的 NMS 阈值 |
-| `maxDetections` | 100 | 整数 1～300；全局输出上限 |
-| `signal` | 无 | `AbortSignal` |
+| 运行选项         | 默认值 | 合法值与含义                           |
+| ---------------- | -----: | -------------------------------------- |
+| `scoreThreshold` |    0.5 | 有限数 [0,1]；仅保留严格大于阈值的分数 |
+| `nmsThreshold`   |    0.7 | 有限数 [0,1]；逐类框 IoU 的 NMS 阈值   |
+| `maxDetections`  |    100 | 整数 1～300；全局输出上限              |
+| `signal`         |     无 | `AbortSignal`                          |
 
 每类先按分数排序，最多检查前 1000 个候选执行 NMS，最后全局取分数最高的实例。返回全部 ROI mask 的字节数累计上限为 64 MiB；超出抛 `OUT_OF_MEMORY`，不会静默丢实例。
 
@@ -46,17 +46,19 @@ Blob 使用浏览器解码并应用 EXIF 方向；透明部分合成白底。模
 
 `SegmentationResult` 含以下字段：
 
-| 字段 | 语义 |
-|---|---|
-| `image` | 原图 `{ width, height }` |
-| `instances` | `{ classId, label, score, box, mask }[]`，按分数递减 |
-| `runtime` | `requestedBackend/actualBackend/executionMode/runtimeVersion`；当前 ORT 为 `onnxruntime-web@1.27.0` |
-| `model` | 实际使用的 `id/version/sha256` |
-| `timings` | `decodeMs/preprocessMs/inferenceMs/postprocessMs/totalMs`，详见[性能](performance.md) |
+| 字段        | 语义                                                                                                |
+| ----------- | --------------------------------------------------------------------------------------------------- |
+| `image`     | 原图 `{ width, height }`                                                                            |
+| `instances` | `{ classId, label, score, box, mask }[]`，按分数递减                                                |
+| `runtime`   | `requestedBackend/actualBackend/executionMode/runtimeVersion`；当前 ORT 为 `onnxruntime-web@1.27.0` |
+| `model`     | 实际使用的 `id/version/sha256`                                                                      |
+| `timings`   | `decodeMs/preprocessMs/inferenceMs/postprocessMs/totalMs`，详见[性能](performance.md)               |
 
 `classId` 是 0～79 的 COCO 连续类别编号，`label` 为英文标签。`box` 是裁到原图边界内的浮点 `{ x, y, width, height }`。
 
 `mask` 是 `{ x, y, width, height, data: Uint8Array }`，坐标及尺寸为原图整数像素；`data[y * width + x]` 为 0 或 1。ROI 外视为 0。空 mask 为 `{ x: 0, y: 0, width: 0, height: 0, data: new Uint8Array(0) }`。
+
+解码后的整数 `image.width/height` 决定完整输出画布。不得从浮点缩放系数反算后截断尺寸而丢弃最后一行或一列；还原 ROI 时按结果的 `image` 尺寸分配画布。这是当前 SDK 的尺寸语义，独立于上游部分 CPU 后处理的整数截断行为。
 
 ROI 包含二次插值后全部前景，边界独立于 `box`，可能超出检测框。叠加时用 `mask.x/y` 平移，不再次裁到框内。实例间允许重叠，不合并成互斥语义图；数组序号不是跟踪 ID。
 
@@ -68,11 +70,11 @@ ROI 包含二次插值后全部前景，边界独立于 `box`，可能超出检�
 
 以下函数从包根导出，别名具有相同签名：
 
-| 函数 | 返回值与范围 |
-|---|---|
-| `getModelCacheInfo(model)` / `getCacheUsage(model)` | `Promise<{ entries: number; bytes: number }>`，仅指定模型 |
-| `clearCurrentModelCache(model)` / `clearModelCache(model)` | `Promise<void>`，删除指定模型缓存 |
-| `clearAllModelCache()` / `clearAllModelCaches()` | `Promise<void>`，删除本 SDK 数据库中的全部模型 |
+| 函数                                                       | 返回值与范围                                              |
+| ---------------------------------------------------------- | --------------------------------------------------------- |
+| `getModelCacheInfo(model)` / `getCacheUsage(model)`        | `Promise<{ entries: number; bytes: number }>`，仅指定模型 |
+| `clearCurrentModelCache(model)` / `clearModelCache(model)` | `Promise<void>`，删除指定模型缓存                         |
+| `clearAllModelCache()` / `clearAllModelCaches()`           | `Promise<void>`，删除本 SDK 数据库中的全部模型            |
 
 缓存键为 `[id, version, sha256.toLowerCase()]`，数据库名 `web-sdk-pp-segmentation-models-v1`。更换版本或摘要不会误用旧权重；URL 不在键中，相同身份/版本/摘要可复用缓存。“全部”不清理其他 SDK 数据库、浏览器 HTTP 缓存或已加载会话。清理不会触发运行中会话重载。
 
@@ -80,19 +82,19 @@ ROI 包含二次插值后全部前景，边界独立于 `box`，可能超出检�
 
 `SegmentationError` 继承 `Error`，提供稳定 `code` 和人类可读 `message`。按 `code` 分支，不解析消息文本。
 
-| code | 含义 |
-|---|---|
-| `INVALID_INPUT` | 输入、阈值、执行选项或资源目录 URL 无效 |
-| `INVALID_MANIFEST` | 模型身份/URL/大小/摘要无效，或输入输出契约不符 |
-| `DOWNLOAD` | 模型网络、HTTP 或读取失败 |
-| `INTEGRITY` | 模型长度或 SHA-256 不符 |
-| `UNSUPPORTED` | 缺失安全上下文能力、解码、Worker 或 WebGPU 适配器等 |
-| `OUT_OF_MEMORY` | 分配失败或返回掩码累计超过 64 MiB |
-| `SESSION` | ORT 资源或会话创建失败 |
-| `INFERENCE` | 模型运行、输出形状/类型/有限值或 Worker 通信异常 |
-| `BUSY` | 同实例已有活动操作 |
-| `ABORTED` | 操作被取消 |
-| `DISPOSED` | 实例已释放 |
-| `NOT_LOADED` | 尚未完成加载 |
+| code               | 含义                                                |
+| ------------------ | --------------------------------------------------- |
+| `INVALID_INPUT`    | 输入、阈值、执行选项或资源目录 URL 无效             |
+| `INVALID_MANIFEST` | 模型身份/URL/大小/摘要无效，或输入输出契约不符      |
+| `DOWNLOAD`         | 模型网络、HTTP 或读取失败                           |
+| `INTEGRITY`        | 模型长度或 SHA-256 不符                             |
+| `UNSUPPORTED`      | 缺失安全上下文能力、解码、Worker 或 WebGPU 适配器等 |
+| `OUT_OF_MEMORY`    | 分配失败或返回掩码累计超过 64 MiB                   |
+| `SESSION`          | ORT 资源或会话创建失败                              |
+| `INFERENCE`        | 模型运行、输出形状/类型/有限值或 Worker 通信异常    |
+| `BUSY`             | 同实例已有活动操作                                  |
+| `ABORTED`          | 操作被取消                                          |
+| `DISPOSED`         | 实例已释放                                          |
+| `NOT_LOADED`       | 尚未完成加载                                        |
 
 处理建议见[排障](troubleshooting.md)。

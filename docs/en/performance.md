@@ -4,17 +4,17 @@
 
 The SDK exposes nine stable timing names, all in milliseconds. `sdk.loadTimings` supplies four loading fields; `result.timings` supplies five run fields. These groups cover different intervals.
 
-| Field | Interval and interpretation |
-|---|---|
-| `modelDownloadMs` | Downloading model bytes; 0 on this SDK's cache hit. Browser HTTP caching can still change network cost |
-| `modelCacheReadMs` | Attempted IndexedDB read, potentially nonzero even on a miss |
-| `integrityMs` | Byte-length and SHA-256 verification; may accumulate two checks if invalid cached bytes are downloaded again |
-| `sessionMs` | Runner loading of model/ORT and session creation, including messages during this phase in Worker mode |
-| `decodeMs` | Input reading; Blob includes decoding, orientation, and canvas pixels; RGBA includes validation and copying |
-| `preprocessMs` | CPU direct resize to 640, quantization, and NCHW conversion |
-| `inferenceMs` | Wall time of `session.run()`, not pure GPU-kernel time |
-| `postprocessMs` | Output validation, NMS, prototype composition, two interpolations, cropping, and binary ROI packing; currently CPU work |
-| `totalMs` | Wall time inside public `run()`, from processing start to returned result, including decoding, scheduling, and Worker transfers; excludes `load()` and UI drawing |
+| Field              | Interval and interpretation                                                                                                                                       |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `modelDownloadMs`  | Downloading model bytes; 0 on this SDK's cache hit. Browser HTTP caching can still change network cost                                                            |
+| `modelCacheReadMs` | Attempted IndexedDB read, potentially nonzero even on a miss                                                                                                      |
+| `integrityMs`      | Byte-length and SHA-256 verification; may accumulate two checks if invalid cached bytes are downloaded again                                                      |
+| `sessionMs`        | Runner loading of model/ORT and session creation, including messages during this phase in Worker mode                                                             |
+| `decodeMs`         | Input reading; Blob includes decoding, orientation, and canvas pixels; RGBA includes validation and copying                                                       |
+| `preprocessMs`     | CPU direct resize to 640, quantization, and NCHW conversion                                                                                                       |
+| `inferenceMs`      | Wall time of `session.run()`, not pure GPU-kernel time                                                                                                            |
+| `postprocessMs`    | Output validation, NMS, prototype composition, two interpolations, cropping, and binary ROI packing; currently CPU work                                           |
+| `totalMs`          | Wall time inside public `run()`, from processing start to returned result, including decoding, scheduling, and Worker transfers; excludes `load()` and UI drawing |
 
 Unlisted overhead means stage timings need not sum exactly to `totalMs`. The four load fields also do not cover all `load()` wall time; cache writes, for example, are not separately timed. To measure visible-result latency, the application must time the complete load, run, and drawing sequence.
 
@@ -38,6 +38,6 @@ Reduce overhead by resizing the original image, increasing `scoreThreshold`, dec
 
 ## Measurement evidence
 
-The [acceptance report](../../reports/2026-09-18-image-sdk/README.md) contains the fixed 64-image WASM/WebGPU × main/worker records dated 2026-09-18, returned mask bytes, median/p95 timings, and environment. Quality has a [known edge difference](compatibility.md); speed measurements do not establish quality acceptance.
+The [original execution archive](../../reports/2026-09-18-image-sdk/README.md) contains the fixed 64-image WASM/WebGPU × main/worker timings dated 2026-09-18, returned mask bytes, median/p95 values, and environment. The current quality conclusion is in the [original-size acceptance](../../reports/2026-09-18-original-size/README.md). That acceptance reused the checksum-verified archive of 256 SDK inferences and did not remeasure performance.
 
 Performance conclusions apply only to the report's Windows/Chromium/hardware/date, not phones, NPU, or other browsers. Future benchmarks should record model checksum, precision, image dimensions/count, thresholds, cold/warm state, warmup count, backend/execution mode, runtime/driver, cache bytes, peak-memory measurement method, and date.

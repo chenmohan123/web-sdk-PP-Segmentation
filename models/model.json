@@ -1,14 +1,33 @@
 {
   "id": "ppyoloe-seg-s-640-fp32",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0",
   "file": "ppyoloe-seg-s-640-fp32.onnx",
   "bytes": 36265193,
   "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334",
   "precision": "fp32",
   "opset": 17,
   "parameterCount": 8995698,
-  "status": "labs",
+  "status": "stable",
   "defaultSource": "modelscope",
-  "sources": {},
+  "sources": [
+    {
+      "kind": "modelscope",
+      "repository": "chenmohan/web-sdk-pp-segmentation",
+      "revision": "7dff857118c4d223b1bdf031d42121f7db2e09b8",
+      "path": "ppyoloe-seg-s-640/0.1.0/ppyoloe-seg-s-640-fp32.onnx",
+      "downloadUrl": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-segmentation/resolve/7dff857118c4d223b1bdf031d42121f7db2e09b8/ppyoloe-seg-s-640/0.1.0/ppyoloe-seg-s-640-fp32.onnx",
+      "bytes": 36265193,
+      "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334"
+    },
+    {
+      "kind": "huggingface",
+      "repository": "chenmohan/web-sdk-pp-segmentation",
+      "revision": "9997957d1bd1e47f5b367a54a8f7527806494d8e",
+      "path": "ppyoloe-seg-s-640/0.1.0/ppyoloe-seg-s-640-fp32.onnx",
+      "downloadUrl": "https://huggingface.co/chenmohan/web-sdk-pp-segmentation/resolve/9997957d1bd1e47f5b367a54a8f7527806494d8e/ppyoloe-seg-s-640/0.1.0/ppyoloe-seg-s-640-fp32.onnx",
+      "bytes": 36265193,
+      "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334"
+    }
+  ],
   "upstreamRevision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5"
 }

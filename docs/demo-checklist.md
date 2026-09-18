@@ -1,8 +1,8 @@
 # Demo 检查清单
 
-依据门户标准 v1 的 `templates/demo-checklist.md`，记录 `0.1.0-alpha.0` 本地 Demo 在 2026-09-18 的实现和验证。勾选仅表示下列本地证据覆盖，不能用于声明远程发布或稳定模型质量通过。
+依据门户标准 v1 的 `templates/demo-checklist.md`，记录 `0.1.0` 发布候选 Demo 在 2026-09-18 的实现和验证。勾选仅表示对应证据覆盖；远程链接必须在实际发布后另行回读。
 
-主要证据：[demo/src/App.tsx](../demo/src/App.tsx)、[UI 冒烟汇总](../reports/2026-09-18-image-sdk/ui/summary.json)、[验收报告](../reports/2026-09-18-image-sdk/README.md)。
+主要证据：[demo/src/App.tsx](../demo/src/App.tsx)、[UI 冒烟汇总](../reports/2026-09-18-release-readiness/ui/summary.json)、[验收报告](../reports/2026-09-18-image-sdk/README.md)。
 
 最新视觉修正以[Detection 风格对齐记录](../reports/2026-09-18-ui-alignment/README.md)、[四组合复验](../reports/2026-09-18-ui-alignment/browser-summary.json)和[响应式布局记录](../reports/2026-09-18-ui-alignment/layout.json)为准。
 
@@ -14,7 +14,7 @@
 - [x] 选图、CPU/GPU、main/worker、运行/重置与禁用/加载状态可用；本版精度固定 FP32。
 - [x] 空态不显示破损图片；真实 UI 冒烟无 page error。
 - [x] 状态及错误使用可读文案与稳定错误码；实现位于 App。
-- [x] 信息区展示模型、版本、大小、参数量、FP32、ONNX、当前本地来源/未发布提示、源码许可边界与 SHA-256。
+- [x] 信息区展示模型、版本、大小、参数量、FP32、ONNX、当前来源、许可采用依据与 SHA-256。
 - [x] 信息区展示请求/实际后端、执行模式和 ORT 版本。
 - [x] 折叠信息区展示日期、浏览器、OS、CPU/GPU及两种执行模式；`verificationMatrix=true`，已验证展开后的实际文本。
 - [x] 加载与运行九项耗时可查看：下载、缓存、完整性、会话、解码、预处理、推理、后处理、总耗时。
@@ -26,7 +26,7 @@
 - [x] 取消、连续换图后可恢复；`cancelRecovery/replaceImage=true`。
 - [x] 损坏图片和超过16,777,216像素的图片在预览绘制前被拒绝，清空旧画面和结果；换回有效图片后可恢复推理。
 - [x] Vanilla 基线示例实际运行；`vanilla=true`。
-- [x] 生产来源缺失时禁用推理；`productionSourceDisabled=true`，没有模型请求。
-- [ ] 严格质量门槛全部通过；目前仍有官方末行/末列裁剪造成的已知失败，见[边缘诊断](../reports/2026-09-18-image-sdk/edge-diagnosis.json)。
+- [x] 生产双源浏览器验收八组合全部通过，见[发布验收](../reports/2026-09-18-release-readiness/release-acceptance.json)与 [UI 汇总](../reports/2026-09-18-release-readiness/ui/summary.json)；早期来源缺失时的禁用记录继续作为历史证据保留。
+- [x] 原图整数尺寸独立参考的严格质量门槛全部通过；四模式各匹配 423 个实例，最小 mask IoU 0.9987084870848708，见[验收报告](../reports/2026-09-18-original-size/README.md)。旧官方截断口径失败档案保留。
 
 未完成项由主流程补写最新证据后再勾选。发布与远程治理另见[发布检查清单](release-checklist.md)。

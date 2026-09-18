@@ -2,7 +2,15 @@
 
 [English](../en/quick-start.md) · [返回 README](../../README.md)
 
-当前包为 `web-sdk-pp-segmentation@0.1.0-alpha.0`，仅本地可用，尚未发布 npm、Hub 权重或在线 Demo。稳定质量验收尚未通过，见[兼容性](compatibility.md)。
+当前文档对应 `web-sdk-pp-segmentation@0.1.0` 发布候选。固定 64 图四组合质量验收已通过，ModelScope/Hugging Face 权重已发布并完整回读；npm 和在线 Demo 在实际发布并回读前仍为待发布，见[兼容性](compatibility.md)。
+
+正式发布后安装：
+
+```powershell
+pnpm add web-sdk-pp-segmentation@0.1.0
+```
+
+模型地址不要从文档复制。应用读取 [models/model.json](../../models/model.json)，按 `defaultSource` 在 `sources` 中选择条目，并使用该条目的固定 `downloadUrl`、`bytes` 和 `sha256`。显式来源失败时报错；只有应用实现的 `auto` 策略可以尝试其他来源。当前发布准备阶段如 `sources` 尚未填充，继续使用下面的本地开发流程。
 
 ## 准备与启动
 
@@ -22,45 +30,49 @@ pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versi
 pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versions=false dev:vanilla
 ```
 
-开发服务仅从忽略目录读取本地模型。正式 ModelScope/Hugging Face 来源尚未发布，不能凭规划地址下载；缺少模型时需先准备上述已知文件。生产 Demo 构建不包含 ONNX，未配置正式来源时不能运行推理。
+开发服务仅从忽略目录读取本地模型。正式 ModelScope/Hugging Face 来源以模型清单为准；清单尚无来源时不能凭规划地址下载。生产 Demo 构建不包含 ONNX，未配置正式来源时不能运行推理。
 
 ## 调用公共 API
 
 开发服务把构建后的整个 SDK 放在 `/sdk/`，把本地模型放在 `/local-model/model.onnx`。在该服务下的页面加入文件选择器：
 
 ```html
-<input id="image" type="file" accept="image/*">
+<input id="image" type="file" accept="image/*" />
 ```
 
 浏览器模块代码如下。不要从 `file://` 直接打开页面：
 
 ```js
-import { createSegmentation } from '/sdk/index.js';
+import { createSegmentation } from "/sdk/index.js";
 
-const input = document.querySelector('#image');
-input.addEventListener('change', async () => {
+const input = document.querySelector("#image");
+input.addEventListener("change", async () => {
   const file = input.files?.[0];
   if (!file) return;
   input.disabled = true;
   const sdk = createSegmentation({
     model: {
-      id: 'ppyoloe-seg-s-640-fp32',
-      version: '0.1.0-alpha.0',
-      url: new URL('/local-model/model.onnx', location.origin).href,
+      id: "ppyoloe-seg-s-640-fp32",
+      version: "0.1.0",
+      url: new URL("/local-model/model.onnx", location.origin).href,
       bytes: 36265193,
-      sha256: 'd418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334',
+      sha256:
+        "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334",
     },
-    backend: 'wasm',
-    executionMode: 'worker',
-    runtimeBaseUrl: new URL('/sdk/', location.origin).href,
+    backend: "wasm",
+    executionMode: "worker",
+    runtimeBaseUrl: new URL("/sdk/", location.origin).href,
   });
   try {
     await sdk.load({ onProgress: console.log });
-    const result = await sdk.run({ image: file }, {
-      scoreThreshold: 0.5,
-      nmsThreshold: 0.7,
-      maxDetections: 100,
-    });
+    const result = await sdk.run(
+      { image: file },
+      {
+        scoreThreshold: 0.5,
+        nmsThreshold: 0.7,
+        maxDetections: 100,
+      },
+    );
     console.log(result.instances, result.runtime, result.timings);
   } catch (error) {
     console.error(error.code, error.message);
@@ -94,7 +106,7 @@ pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versi
 在与 SDK 并列的应用目录安装本地文件：
 
 ```powershell
-pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versions=false add ../web-sdk-PP-Segmentation/.tmp/web-sdk-pp-segmentation-0.1.0-alpha.0.tgz
+pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versions=false add ../web-sdk-PP-Segmentation/.tmp/web-sdk-pp-segmentation-0.1.0.tgz
 ```
 
 随后可用 `import { createSegmentation } from 'web-sdk-pp-segmentation'`；ORT/Worker 静态目录仍须部署。HTTPS、CORS、CSP 和缓存要求见[隐私与部署](privacy-deployment.md)。

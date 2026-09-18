@@ -2,25 +2,23 @@
 
 [中文](../zh-CN/release.md) · [README](../../README.en.md)
 
-## 0.1.0-alpha.0 · Local development release · 2026-09-18
+## 0.1.0 · Release candidate · 2026-09-18
 
-This version implements a runnable image-segmentation SDK, module Worker, React Demo, Vanilla example, integrity checks, versioned model caching, cancellation/disposal, and bilingual guides. Scope remains local implementation and acceptance; the remote repository, uploaded weights, npm package, and hosted Demo are unpublished.
+The first release contains a framework-neutral image instance-segmentation SDK, module Worker, React Demo, Vanilla example, integrity checks, versioned model caching, cancellation/disposal, and complete bilingual guides. Quality and local implementation gates have passed, ModelScope/Hugging Face weights have been published and fully read back, and the GitHub repository and governance are configured. npm and the HTTPS Demo remain pending until publication and read-back verification actually complete.
 
 - Model: PP-YOLOE_seg_s 640 FP32, COCO 80 classes, ONNX opset 17, 8,995,698 parameters; 36,265,193 bytes; SHA-256 `d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334`.
-- Upstream: PaddleDetection source pinned to `b25522a0f4bde8c80603f3ba5e3472059972e3b5`; see [NOTICE](../../NOTICE). This is not a ModelScope/Hugging Face publication revision.
+- Upstream: PaddleDetection source pinned to `b25522a0f4bde8c80603f3ba5e3472059972e3b5`; see [NOTICE](../../NOTICE). It is not a Hub publication revision.
 - Backends: ORT Web 1.27.0, WASM/WebGPU × main/worker. The API defaults to WASM/Worker and the Demo to WebGPU/Worker, without silent fallback.
-- Output: original-image boxes and independent compact binary ROIs, preserving all foreground after the second interpolation and overlaps between instances. Positions are not tracking IDs.
-- Distribution: official sources are limited to ModelScope/Hugging Face, defaulting to ModelScope, but `sources` is currently empty. Only an explicit local model override is available. npm and production Demo artifacts exclude ONNX.
-- Licensing: SDK and upstream source are Apache-2.0. Weight redistribution, third-party attribution, and production example-asset licensing still require verification.
+- Output: original-image boxes and independent compact binary ROIs, preserving all foreground after the second interpolation and instance overlaps. Array positions are not tracking IDs.
+- Distribution: ModelScope and Hugging Face. Read the default source and fixed URLs from `defaultSource`/`sources` in [models/model.json](../../models/model.json). npm and Demo artifacts do not embed ONNX.
+- License: Apache-2.0 is applied to the SDK, official weights, and their ONNX conversion with upstream and conversion attribution. Hub mirrors are maintained by this project. The lack of a separate license naming the weight file is an interpretive boundary, not an additional authorization gate.
 
-## Evidence and known limitations
+## Quality evidence and limits
 
-Public SDK execution on the fixed 64-image dataset covers all four combinations. AP and instance-quality records are in the [acceptance report](../../reports/2026-09-18-image-sdk/README.md). Original strict quality acceptance remains failed: for the car mask in image `204871`, the official path truncates 612×612 to 611×611. All 58 differing pixels lie on the removed edges, and common-region IoU is 1. The SDK retains the entire original image without trimming edges or weakening gates; see [edge-diagnosis.json](../../reports/2026-09-18-image-sdk/edge-diagnosis.json). This is therefore a runnable alpha, not stable quality acceptance.
+WASM/WebGPU × main/worker passed the original-integer-size independent reference on the fixed 64-image subset. Every mode matched 423 instances at `score>0.5`, with none unmatched and minimum mask IoU 0.9987084870848708. WASM/WebGPU mask AP drops were 0.07768926117917574/0.07768469154607605 percentage points. The independent reference changes only final crop and empty-mask dimensions; SDK numerics are unchanged. The 256 SDK inferences reuse an archive whose source, frozen inputs, and current build checksums were verified; they were not rerun for this acceptance. See the [original-size acceptance](../../reports/2026-09-18-original-size/README.md).
 
-The [UI smoke record](../../reports/2026-09-18-image-sdk/ui/summary.json) covers real Demo execution in all four combinations, language switching, stable canvas position after selection, no overflow at 390px, cancellation/image-replacement recovery, cache cleanup, Vanilla, and disabled production sources. Its `pageErrors` is empty. Evidence applies to the recorded Windows/Chromium desktop environment, not phones, NPU, Safari, Firefox, WebViews, video, or cameras.
+The original official-truncation failure remains archived so the criteria change is auditable. The 64-image subset does not represent full COCO. Evidence applies only to the recorded Windows/Chromium desktop environment, not phones, NPU, Safari, Firefox, WebViews, video, or cameras. The Demo ships no public sample image; COCO is local acceptance data only.
 
-Local tests, types, builds, package checks, and standard-checker results are tracked in the [release checklist](../release-checklist.md) and logs retained by the main acceptance workflow. Passing UI and required static checks does not replace numerical quality or remote-governance acceptance.
+## Remaining publication work
 
-## Before publication
-
-Resolve the strict quality-acceptance conclusion; verify weight licenses and asset attribution; pin both Hubs to immutable revisions and verify full downloads; configure the GitHub repository, CI, branch/tag Rulesets, and About; publish npm and an immutable GitHub Release; deploy the HTTPS Demo and verify version links with dated remote evidence. Planned URLs do not mean publication. Track each gate in the [release checklist](../release-checklist.md) and [Demo checklist](../demo-checklist.md).
+The main release flow must publish npm and an immutable GitHub Release, deploy the HTTPS Demo, and retain dated remote evidence for all version links. Destination links do not mean the release is live. Track status in the [release checklist](../release-checklist.md) and [Demo checklist](../demo-checklist.md).

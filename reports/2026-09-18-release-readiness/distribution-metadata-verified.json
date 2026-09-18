@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "verifiedAt": "2026-09-18T05:48:16.905843+00:00",
+  "model": {
+    "bytes": 36265193,
+    "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334"
+  },
+  "results": [
+    {
+      "source": "modelscope",
+      "revision": "b2f42184c716bc6a5d0e89fc4e3c1b9a8d2b3d4f",
+      "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-segmentation/resolve/b2f42184c716bc6a5d0e89fc4e3c1b9a8d2b3d4f/ppyoloe-seg-s-640/0.1.0/model.json",
+      "path": "ppyoloe-seg-s-640/0.1.0/model.json",
+      "bytes": 1457,
+      "sha256": "9fc61baf6803311017e7bad1dd1ea17f6c866b8fed7c12e39ea9a9807457d19d",
+      "verifiedAt": "2026-09-18T05:48:13.181191+00:00",
+      "passed": true
+    },
+    {
+      "source": "huggingface",
+      "revision": "1d7dabcc4da7591c405d67b2c16a5b9711572eef",
+      "url": "https://huggingface.co/chenmohan/web-sdk-pp-segmentation/resolve/1d7dabcc4da7591c405d67b2c16a5b9711572eef/ppyoloe-seg-s-640/0.1.0/model.json",
+      "path": "ppyoloe-seg-s-640/0.1.0/model.json",
+      "bytes": 1457,
+      "sha256": "9fc61baf6803311017e7bad1dd1ea17f6c866b8fed7c12e39ea9a9807457d19d",
+      "verifiedAt": "2026-09-18T05:48:16.905300+00:00",
+      "passed": true
+    }
+  ]
+}

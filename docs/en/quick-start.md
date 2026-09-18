@@ -2,7 +2,15 @@
 
 [中文](../zh-CN/quick-start.md) · [README](../../README.en.md)
 
-The current package is `web-sdk-pp-segmentation@0.1.0-alpha.0`, available locally only. npm, Hub weights, and the hosted Demo are unpublished. Stable quality acceptance has not passed; see [Compatibility](compatibility.md).
+These docs describe the `web-sdk-pp-segmentation@0.1.0` release candidate. Quality acceptance passed on the fixed 64-image subset in all four modes, and ModelScope/Hugging Face weights have been published and fully read back. npm and the hosted Demo remain pending until publication and read-back verification complete; see [Compatibility](compatibility.md).
+
+After the release is published, install it with:
+
+```powershell
+pnpm add web-sdk-pp-segmentation@0.1.0
+```
+
+Do not copy a model URL from this guide. Read [models/model.json](../../models/model.json), select the `sources` entry named by `defaultSource`, and use its fixed `downloadUrl`, `bytes`, and `sha256`. An explicitly selected source fails visibly; only an application-provided `auto` policy may try another source. During release preparation, keep using the local workflow below if `sources` has not yet been populated.
 
 ## Prepare and start
 
@@ -22,45 +30,49 @@ Open [127.0.0.1:4188](http://127.0.0.1:4188/) and select a local image. The Demo
 pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versions=false dev:vanilla
 ```
 
-The development server reads the local model only from the ignored directory. Official ModelScope/Hugging Face sources are unpublished; planned URLs cannot supply a download. Prepare the known file above before running. The production Demo build contains no ONNX and cannot run inference until an official source is configured.
+The development server reads the local model only from the ignored directory. ModelScope/Hugging Face publication state comes from the model manifest; planned URLs are not download evidence. The production Demo build contains no ONNX and cannot run inference until an official source is configured.
 
 ## Call the public API
 
 The development server serves the entire built SDK at `/sdk/` and the local model at `/local-model/model.onnx`. Add a file picker to a page served there:
 
 ```html
-<input id="image" type="file" accept="image/*">
+<input id="image" type="file" accept="image/*" />
 ```
 
 Use the following browser module. Do not open the page directly through `file://`:
 
 ```js
-import { createSegmentation } from '/sdk/index.js';
+import { createSegmentation } from "/sdk/index.js";
 
-const input = document.querySelector('#image');
-input.addEventListener('change', async () => {
+const input = document.querySelector("#image");
+input.addEventListener("change", async () => {
   const file = input.files?.[0];
   if (!file) return;
   input.disabled = true;
   const sdk = createSegmentation({
     model: {
-      id: 'ppyoloe-seg-s-640-fp32',
-      version: '0.1.0-alpha.0',
-      url: new URL('/local-model/model.onnx', location.origin).href,
+      id: "ppyoloe-seg-s-640-fp32",
+      version: "0.1.0",
+      url: new URL("/local-model/model.onnx", location.origin).href,
       bytes: 36265193,
-      sha256: 'd418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334',
+      sha256:
+        "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334",
     },
-    backend: 'wasm',
-    executionMode: 'worker',
-    runtimeBaseUrl: new URL('/sdk/', location.origin).href,
+    backend: "wasm",
+    executionMode: "worker",
+    runtimeBaseUrl: new URL("/sdk/", location.origin).href,
   });
   try {
     await sdk.load({ onProgress: console.log });
-    const result = await sdk.run({ image: file }, {
-      scoreThreshold: 0.5,
-      nmsThreshold: 0.7,
-      maxDetections: 100,
-    });
+    const result = await sdk.run(
+      { image: file },
+      {
+        scoreThreshold: 0.5,
+        nmsThreshold: 0.7,
+        maxDetections: 100,
+      },
+    );
     console.log(result.instances, result.runtime, result.timings);
   } catch (error) {
     console.error(error.code, error.message);
@@ -94,7 +106,7 @@ pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versi
 From an application directory beside the SDK directory, install the local file:
 
 ```powershell
-pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versions=false add ../web-sdk-PP-Segmentation/.tmp/web-sdk-pp-segmentation-0.1.0-alpha.0.tgz
+pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versions=false add ../web-sdk-PP-Segmentation/.tmp/web-sdk-pp-segmentation-0.1.0.tgz
 ```
 
 You can then use `import { createSegmentation } from 'web-sdk-pp-segmentation'`. The ORT/Worker static directory must still be deployed. See [Privacy and deployment](privacy-deployment.md) for HTTPS, CORS, CSP, and caching.

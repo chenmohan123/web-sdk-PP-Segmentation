@@ -1,10 +1,10 @@
-schemaVersion: "1.1.0"
+schemaVersion: 1.1.0
 id: pp-segmentation
 name: PP-Segmentation
 summary: 面向浏览器的 PP-YOLOE_seg_s 单帧实例分割 SDK，返回对象类别、边界框和紧凑二值掩码。
 package:
   name: web-sdk-pp-segmentation
-  version: 0.1.0-alpha.0
+  version: 0.1.0
 repository: https://github.com/chenmohan123/web-sdk-PP-Segmentation
 demo:
   url: https://chenmohan123.github.io/web-sdk-PP-Segmentation/
@@ -15,56 +15,103 @@ docs:
   zhCN: docs/zh-CN/quick-start.md
   en: docs/en/quick-start.md
 runtime:
-  backends: [wasm, webgpu]
-  executionModes: [main, worker]
+  backends:
+    - wasm
+    - webgpu
+  executionModes:
+    - main
+    - worker
   actualBackendReported: true
   runtimeVersion: onnxruntime-web@1.27.0
 model:
   id: ppyoloe-seg-s-640-fp32
-  version: 0.1.0-alpha.0
+  version: 0.1.0
   format: onnx
   parameterCount: 8995698
-  precision: [fp32]
+  precision:
+    - fp32
   source: https://github.com/PaddlePaddle/PaddleDetection/tree/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ppyoloe_seg
-  license: 权重再分发待核验；上游源码 Apache-2.0
+  license: Apache-2.0；采用依据与权重声明边界见 models/README.md
   defaultVariant: ppyoloe-seg-s-640-fp32
-  # 正式产品默认来源为ModelScope；此开发清单只指向实际本地资源，不虚构Hub提交。
-  defaultSource: custom
+  defaultSource: modelscope
   assets:
     - id: ppyoloe-seg-s-640-fp32
       bytes: 36265193
       precision: fp32
-      url: http://127.0.0.1:4188/local-model/model.onnx
+      url: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-segmentation/resolve/7dff857118c4d223b1bdf031d42121f7db2e09b8/ppyoloe-seg-s-640/0.1.0/ppyoloe-seg-s-640-fp32.onnx
       sha256: d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334
+  variants:
+    - id: ppyoloe-seg-s-640-fp32
+      precision: fp32
+      quantization: null
+      opset: 17
+      bytes: 36265193
+      parameterCount: 8995698
+      backends:
+        - wasm
+        - webgpu
+      sources:
+        - kind: modelscope
+          repository: chenmohan/web-sdk-pp-segmentation
+          revision: 7dff857118c4d223b1bdf031d42121f7db2e09b8
+          path: ppyoloe-seg-s-640/0.1.0/ppyoloe-seg-s-640-fp32.onnx
+          downloadUrl: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-segmentation/resolve/7dff857118c4d223b1bdf031d42121f7db2e09b8/ppyoloe-seg-s-640/0.1.0/ppyoloe-seg-s-640-fp32.onnx
+          bytes: 36265193
+          sha256: d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334
+        - kind: huggingface
+          repository: chenmohan/web-sdk-pp-segmentation
+          revision: 9997957d1bd1e47f5b367a54a8f7527806494d8e
+          path: ppyoloe-seg-s-640/0.1.0/ppyoloe-seg-s-640-fp32.onnx
+          downloadUrl: https://huggingface.co/chenmohan/web-sdk-pp-segmentation/resolve/9997957d1bd1e47f5b367a54a8f7527806494d8e/ppyoloe-seg-s-640/0.1.0/ppyoloe-seg-s-640-fp32.onnx
+          bytes: 36265193
+          sha256: d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334
 performance:
-  timings: [modelDownloadMs, modelCacheReadMs, integrityMs, sessionMs, decodeMs, preprocessMs, inferenceMs, postprocessMs, totalMs]
+  timings:
+    - modelDownloadMs
+    - modelCacheReadMs
+    - integrityMs
+    - sessionMs
+    - decodeMs
+    - preprocessMs
+    - inferenceMs
+    - postprocessMs
+    - totalMs
   coldStartDefined: true
   warmRunDefined: true
 cache:
-  storage: [indexeddb]
+  storage:
+    - indexeddb
   versionedKeys: true
   clearCurrent: true
   clearAll: true
   estimate: true
 examples:
-  vanilla: { status: available, path: examples/vanilla }
-  react: { status: available, path: examples/react }
-  vue: { status: unsupported }
-  cdn: { status: unsupported }
-  vite: { status: available, path: examples/react }
-  wechatWebView: { status: unsupported }
+  vanilla:
+    status: available
+    path: examples/vanilla
+  react:
+    status: available
+    path: examples/react
+  vue:
+    status: unsupported
+  cdn:
+    status: unsupported
+  vite:
+    status: available
+    path: examples/react
+  wechatWebView:
+    status: unsupported
 verification:
-  # 以下证明执行和生命周期；严格掩码一致性尚有一例未通过，详见验收报告。
   environments:
     - browser: Chromium 153.0.8010.12（main 与 Worker）
       os: Windows 11 10.0.26200
       device: Intel Core i5-10400F
-      testedAt: "2026-09-18"
+      testedAt: 2026-09-18
       backend: wasm
       runtimeVersion: onnxruntime-web@1.27.0
     - browser: Chromium 153.0.8010.12（main 与 Worker）
       os: Windows 11 10.0.26200
       device: NVIDIA GeForce RTX 5060 Ti，驱动 32.0.16.1692
-      testedAt: "2026-09-18"
+      testedAt: 2026-09-18
       backend: webgpu
       runtimeVersion: onnxruntime-web@1.27.0

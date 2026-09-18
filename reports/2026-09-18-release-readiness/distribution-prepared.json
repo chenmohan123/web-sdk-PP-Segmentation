@@ -1,0 +1,45 @@
+{
+  "preparedAt": "2026-09-18T05:42:06.623294+00:00",
+  "repository": "chenmohan/web-sdk-pp-segmentation",
+  "model": {
+    "bytes": 36265193,
+    "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334"
+  },
+  "files": [
+    {
+      "path": "ppyoloe-seg-s-640/0.1.0/conversion.json",
+      "bytes": 2340,
+      "sha256": "b79823a365c4f9534892831d830e7aa6670ca3e929f05235bf4c5e8309958eaf"
+    },
+    {
+      "path": "ppyoloe-seg-s-640/0.1.0/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "ppyoloe-seg-s-640/0.1.0/NOTICE",
+      "bytes": 2001,
+      "sha256": "e8494d427c32ab3b0b863f3865c4d80740c92d984e901eabe20200b5db0cd99f"
+    },
+    {
+      "path": "ppyoloe-seg-s-640/0.1.0/ppyoloe-seg-s-640-fp32.onnx",
+      "bytes": 36265193,
+      "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334"
+    },
+    {
+      "path": "ppyoloe-seg-s-640/0.1.0/README.en.md",
+      "bytes": 3932,
+      "sha256": "5fa7d0424e552820962c84949d52f8d61c4cb7a6fa98ecbfcd26d4d73d26913f"
+    },
+    {
+      "path": "ppyoloe-seg-s-640/0.1.0/README.md",
+      "bytes": 3489,
+      "sha256": "a8d065f841c114518fce674b8e7f43cff2f1e2283be6dcdef99fcc1d9c11b109"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1133,
+      "sha256": "79eaccc30ed3d133baa53628e4df7990a6ca6226faa459c9f8fe2f7265c018c2"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "verifiedAt": "2026-09-18T14:15:00+08:00",
+  "scope": "PP-YOLOE_seg_s 640 FP32 权重再分发许可与第三方归因",
+  "decision": "apache-2.0-supported-by-pinned-project-release-context-and-official-model-table",
+  "decisionBoundary": "未发现单独点名该 pdparams 的许可证；采用依据是固定仓库的项目发布声明、官方模型表、配置与文件级许可。",
+  "weight": {
+    "url": "https://paddledet.bj.bcebos.com/models/ppyoloe_seg_s_80e_coco.pdparams",
+    "bytes": 36122452,
+    "sha256": "ee507d8f9e5fad6290ee54ee6704b9b1f2ab26a109cc668e1a966f90fe174cef",
+    "etag": "\"-7143702661c4b49c011b30467ce76946\"",
+    "lastModified": "Wed, 29 May 2024 05:31:26 GMT",
+    "separateWeightLicenseFound": false,
+    "differentLicenseOrExceptionFound": false
+  },
+  "convertedOnnx": {
+    "bytes": 36265193,
+    "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334",
+    "opset": 17,
+    "licenseAdoption": "Apache-2.0"
+  },
+  "sources": [
+    {
+      "id": "paddledetection-license",
+      "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "observation": "Apache-2.0 根许可证"
+    },
+    {
+      "id": "paddledetection-readme-zh",
+      "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+      "path": "README_cn.md",
+      "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/README_cn.md",
+      "bytes": 62203,
+      "sha256": "8381d2ecb2dd88a8edb633a37a3517e8296e1fffd95c5089f7966a38e075abda",
+      "observation": "Apache 2 徽章及本项目发布受 Apache 2.0 许可声明"
+    },
+    {
+      "id": "paddledetection-readme-en",
+      "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+      "path": "README_en.md",
+      "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/README_en.md",
+      "bytes": 43684,
+      "sha256": "938020128412436ba0f1fa2481670924b73a17ef60d258642792e2dbad166261",
+      "observation": "等价英文 License 章节"
+    },
+    {
+      "id": "paddledetection-model-table",
+      "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+      "path": "configs/ppyoloe_seg/README.md",
+      "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ppyoloe_seg/README.md",
+      "bytes": 1110,
+      "sha256": "293c1d7d6464eb05c396b38908af43593c46cbd644c80522c4f40898033323d2",
+      "observation": "官方模型表直接链接目标 pdparams"
+    },
+    {
+      "id": "paddledetection-model-config",
+      "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+      "path": "configs/ppyoloe_seg/ppyoloe_seg_s_80e_coco.yml",
+      "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ppyoloe_seg/ppyoloe_seg_s_80e_coco.yml",
+      "bytes": 409,
+      "sha256": "eccde862c3d47aa4c8affb5fdf63a38a62498fda8d7354219fd8d0d49de64ba3",
+      "observation": "训练输出名与 Object365 预训练权重 URL"
+    },
+    {
+      "id": "paddledetection-head",
+      "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+      "path": "ppdet/modeling/heads/ppyoloe_ins_head.py",
+      "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/ppdet/modeling/heads/ppyoloe_ins_head.py",
+      "bytes": 34982,
+      "sha256": "cf0287f8a946d54e7bcb16808c7f3e9dafe5f365105f715525e3d5a8521d44b9",
+      "observedFileHeaderLicense": "Apache-2.0"
+    },
+    {
+      "id": "paddledetection-pr-9117",
+      "revision": "1e209331d8a70380897a288b4b4824787b12b0a6",
+      "url": "https://api.github.com/repos/PaddlePaddle/PaddleDetection/pulls/9117",
+      "htmlUrl": "https://github.com/PaddlePaddle/PaddleDetection/pull/9117",
+      "mergedAt": "2024-08-29T04:50:32Z",
+      "snapshotBytes": 18261,
+      "snapshotSha256": "6717039ff42a37ad01b6961e351fa2fb500f5ac01dd31a0ae0666946b38c022f",
+      "observation": "标题指向 PaddleYOLO，未声明精确复制 revision"
+    },
+    {
+      "id": "paddledetection-copy-commit",
+      "revision": "1e209331d8a70380897a288b4b4824787b12b0a6",
+      "url": "https://api.github.com/repos/PaddlePaddle/PaddleDetection/commits/1e209331d8a70380897a288b4b4824787b12b0a6",
+      "committedAt": "2024-08-29T04:50:32Z",
+      "snapshotBytes": 57384,
+      "snapshotSha256": "c49436737e3f2cea9580abe36a9f6201738ea08e42176b64607396a70b038c45"
+    },
+    {
+      "id": "paddleyolo-known-pre-copy-snapshot",
+      "revision": "8e4ec69c631e33bae7d331c228cf707e0622ac60",
+      "committedAt": "2024-07-05T02:49:19Z",
+      "url": "https://github.com/PaddlePaddle/PaddleYOLO/commit/8e4ec69c631e33bae7d331c228cf707e0622ac60",
+      "rootLicense": "GPL-3.0",
+      "relevantFileHeaderLicense": "Apache-2.0",
+      "provenanceLimit": "不是已证实的精确复制源；混合许可并存不构成冲突或权重适用 GPL 的证明"
+    },
+    {
+      "id": "paddleyolo-instance-segmentation-commit",
+      "revision": "d98d525b5376e4a9e9f6c39fb75f8122fa78a078",
+      "url": "https://api.github.com/repos/PaddlePaddle/PaddleYOLO/commits/d98d525b5376e4a9e9f6c39fb75f8122fa78a078",
+      "committedAt": "2024-05-29T06:58:30Z",
+      "message": "merge ins_seg branch",
+      "snapshotBytes": 308037,
+      "snapshotSha256": "c86ca6fd508f59c7885733ab4d73ee340f065eb81e84972d548e0034ec70037f",
+      "associatedPullsUrl": "https://api.github.com/repos/PaddlePaddle/PaddleYOLO/commits/d98d525b5376e4a9e9f6c39fb75f8122fa78a078/pulls",
+      "associatedPullsCount": 0
+    }
+  ],
+  "excludedInference": "未固定 Proto 的精确外部来源，因此不依据 Ultralytics 任一版本推导权重、ONNX 或本项目源码的许可证。"
+}

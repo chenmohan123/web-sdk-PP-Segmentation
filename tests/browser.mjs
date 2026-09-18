@@ -17,7 +17,8 @@ await access(image);
 const evidence = pathToFileURL(
   resolve(
     root,
-    process.env.SDK_UI_EVIDENCE_DIR ?? "reports/2026-09-18-image-sdk/ui",
+    process.env.SDK_UI_EVIDENCE_DIR ??
+      "reports/2026-09-18-release-readiness/ui",
   ) + sep,
 );
 await mkdir(evidence, { recursive: true });
@@ -388,7 +389,7 @@ try {
     await page.getByRole("button", { name: "开始分割", exact: true }).click();
     await page.getByText(/分割完成：\d+ 个实例/).waitFor({ timeout: 60000 });
     assert(await page.locator("canvas").evaluate((el) => el.width > 0));
-    // 构建预览不得发起本地模型请求，来源尚未发布时明确禁止运行。
+    // 正式构建使用已发布来源，不携带或请求本地模型。
     production = await preview({
       configFile: root + "demo/vite.config.ts",
       preview: { port: 4190, host: "127.0.0.1", strictPort: true },
@@ -403,14 +404,7 @@ try {
       await page
         .getByRole("button", { name: "开始分割", exact: true })
         .isDisabled(),
-      true,
-    );
-    assert.equal(
-      await page
-        .getByText("模型来源尚未发布", { exact: true })
-        .first()
-        .isVisible(),
-      true,
+      false,
     );
     assert.deepEqual(modelRequests, []);
     assert.deepEqual(errors, []);
@@ -433,7 +427,7 @@ try {
           verificationMatrix: true,
           cacheClear: true,
           vanilla: true,
-          productionSourceDisabled: true,
+          productionSourceAvailable: true,
           pageErrors: errors,
         },
         null,
@@ -441,7 +435,7 @@ try {
       ) + "\n",
     );
     console.log(
-      "Demo 验收通过：四组合、真实图片、选择/掩码/中英不跳动、390px、无效预览拒绝与恢复、取消/换图恢复、缓存、Vanilla、生产来源禁用。",
+      "Demo 验收通过：四组合、真实图片、选择/掩码/中英不跳动、390px、无效预览拒绝与恢复、取消/换图恢复、缓存、Vanilla、生产来源可用。",
     );
   }
 } finally {

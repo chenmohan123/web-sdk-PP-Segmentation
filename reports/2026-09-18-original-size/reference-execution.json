@@ -1,0 +1,1172 @@
+{
+  "status": "passed",
+  "verifiedAt": "2026-09-18T05:25:59.919580+00:00",
+  "paddle": "2.6.2",
+  "device": "cpu",
+  "threads": 4,
+  "images": 64,
+  "upstreamRevision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+  "upstreamSourceUrl": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/ppdet/modeling/heads/ppyoloe_ins_head.py",
+  "upstreamHeadSha256": "cf0287f8a946d54e7bcb16808c7f3e9dafe5f365105f715525e3d5a8521d44b9",
+  "archivedHeadSha256": "cf0287f8a946d54e7bcb16808c7f3e9dafe5f365105f715525e3d5a8521d44b9",
+  "importedHeadSha256": "cf0287f8a946d54e7bcb16808c7f3e9dafe5f365105f715525e3d5a8521d44b9",
+  "weightsSha256": "ee507d8f9e5fad6290ee54ee6704b9b1f2ab26a109cc668e1a966f90fe174cef",
+  "originalFunctionSha256": "f9ca292d73fe07d7c575ee7cff300f3e7f8e04c2e35cded6479bc048c754fa24",
+  "correctedFunctionSha256": "41f34b33a5aa798ac64065bd467c4f286dbbbeb65e0e3abeead4d2a2d1c25d0b",
+  "astChanges": 4,
+  "method": "完整model(inputs)，在同一head_outs上分别执行固定源原函数与仅改CPU最终尺寸的函数；下载文件与归档post_process AST严格相等；export_mode断言关闭。4处int替换：正常分支h/w和空检测分支h/w。NPU分支未修改、未验证。",
+  "cases": [
+    {
+      "imageId": 10977,
+      "instances": 100,
+      "originalShape": [
+        375,
+        500
+      ],
+      "correctedShape": [
+        375,
+        500
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 26690,
+      "instances": 100,
+      "originalShape": [
+        640,
+        427
+      ],
+      "correctedShape": [
+        640,
+        427
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 27186,
+      "instances": 100,
+      "originalShape": [
+        428,
+        640
+      ],
+      "correctedShape": [
+        428,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 27932,
+      "instances": 100,
+      "originalShape": [
+        307,
+        288
+      ],
+      "correctedShape": [
+        307,
+        288
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 60823,
+      "instances": 100,
+      "originalShape": [
+        480,
+        640
+      ],
+      "correctedShape": [
+        480,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 105264,
+      "instances": 100,
+      "originalShape": [
+        427,
+        640
+      ],
+      "correctedShape": [
+        427,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 119516,
+      "instances": 100,
+      "originalShape": [
+        427,
+        640
+      ],
+      "correctedShape": [
+        427,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 119641,
+      "instances": 100,
+      "originalShape": [
+        480,
+        640
+      ],
+      "correctedShape": [
+        480,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 125072,
+      "instances": 100,
+      "originalShape": [
+        314,
+        640
+      ],
+      "correctedShape": [
+        314,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 129756,
+      "instances": 100,
+      "originalShape": [
+        480,
+        640
+      ],
+      "correctedShape": [
+        480,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 134322,
+      "instances": 100,
+      "originalShape": [
+        480,
+        640
+      ],
+      "correctedShape": [
+        480,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 166563,
+      "instances": 100,
+      "originalShape": [
+        408,
+        640
+      ],
+      "correctedShape": [
+        408,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 173091,
+      "instances": 100,
+      "originalShape": [
+        611,
+        611
+      ],
+      "correctedShape": [
+        612,
+        612
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 45
+    },
+    {
+      "imageId": 200152,
+      "instances": 100,
+      "originalShape": [
+        427,
+        640
+      ],
+      "correctedShape": [
+        427,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 203629,
+      "instances": 100,
+      "originalShape": [
+        427,
+        640
+      ],
+      "correctedShape": [
+        427,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 204871,
+      "instances": 100,
+      "originalShape": [
+        611,
+        611
+      ],
+      "correctedShape": [
+        612,
+        612
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 860
+    },
+    {
+      "imageId": 208423,
+      "instances": 100,
+      "originalShape": [
+        480,
+        640
+      ],
+      "correctedShape": [
+        480,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 209142,
+      "instances": 100,
+      "originalShape": [
+        425,
+        640
+      ],
+      "correctedShape": [
+        425,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 212166,
+      "instances": 100,
+      "originalShape": [
+        611,
+        611
+      ],
+      "correctedShape": [
+        612,
+        612
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 227478,
+      "instances": 100,
+      "originalShape": [
+        480,
+        640
+      ],
+      "correctedShape": [
+        480,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 228436,
+      "instances": 100,
+      "originalShape": [
+        485,
+        640
+      ],
+      "correctedShape": [
+        485,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 235836,
+      "instances": 100,
+      "originalShape": [
+        640,
+        427
+      ],
+      "correctedShape": [
+        640,
+        427
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 236592,
+      "instances": 100,
+      "originalShape": [
+        480,
+        640
+      ],
+      "correctedShape": [
+        480,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 238410,
+      "instances": 100,
+      "originalShape": [
+        480,
+        640
+      ],
+      "correctedShape": [
+        480,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 250282,
+      "instances": 100,
+      "originalShape": [
+        426,
+        640
+      ],
+      "correctedShape": [
+        426,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 256868,
+      "instances": 100,
+      "originalShape": [
+        428,
+        640
+      ],
+      "correctedShape": [
+        428,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 269866,
+      "instances": 100,
+      "originalShape": [
+        427,
+        640
+      ],
+      "correctedShape": [
+        427,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 269942,
+      "instances": 100,
+      "originalShape": [
+        640,
+        480
+      ],
+      "correctedShape": [
+        640,
+        480
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 270244,
+      "instances": 100,
+      "originalShape": [
+        428,
+        640
+      ],
+      "correctedShape": [
+        428,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 276024,
+      "instances": 100,
+      "originalShape": [
+        480,
+        640
+      ],
+      "correctedShape": [
+        480,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 276720,
+      "instances": 100,
+      "originalShape": [
+        480,
+        640
+      ],
+      "correctedShape": [
+        480,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 284698,
+      "instances": 100,
+      "originalShape": [
+        500,
+        375
+      ],
+      "correctedShape": [
+        500,
+        375
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 287874,
+      "instances": 100,
+      "originalShape": [
+        433,
+        640
+      ],
+      "correctedShape": [
+        434,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 318455,
+      "instances": 100,
+      "originalShape": [
+        480,
+        640
+      ],
+      "correctedShape": [
+        480,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 341828,
+      "instances": 100,
+      "originalShape": [
+        611,
+        611
+      ],
+      "correctedShape": [
+        612,
+        612
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 352760,
+      "instances": 100,
+      "originalShape": [
+        640,
+        544
+      ],
+      "correctedShape": [
+        640,
+        544
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 356094,
+      "instances": 100,
+      "originalShape": [
+        389,
+        640
+      ],
+      "correctedShape": [
+        389,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 360951,
+      "instances": 100,
+      "originalShape": [
+        427,
+        640
+      ],
+      "correctedShape": [
+        427,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 368212,
+      "instances": 100,
+      "originalShape": [
+        640,
+        478
+      ],
+      "correctedShape": [
+        640,
+        478
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 376093,
+      "instances": 100,
+      "originalShape": [
+        480,
+        640
+      ],
+      "correctedShape": [
+        480,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 376900,
+      "instances": 100,
+      "originalShape": [
+        640,
+        480
+      ],
+      "correctedShape": [
+        640,
+        480
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 377497,
+      "instances": 100,
+      "originalShape": [
+        640,
+        432
+      ],
+      "correctedShape": [
+        640,
+        432
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 386879,
+      "instances": 100,
+      "originalShape": [
+        640,
+        426
+      ],
+      "correctedShape": [
+        640,
+        426
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 426372,
+      "instances": 100,
+      "originalShape": [
+        427,
+        640
+      ],
+      "correctedShape": [
+        427,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 438862,
+      "instances": 100,
+      "originalShape": [
+        427,
+        640
+      ],
+      "correctedShape": [
+        427,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 439854,
+      "instances": 100,
+      "originalShape": [
+        333,
+        500
+      ],
+      "correctedShape": [
+        333,
+        500
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 458325,
+      "instances": 100,
+      "originalShape": [
+        427,
+        640
+      ],
+      "correctedShape": [
+        427,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 459195,
+      "instances": 100,
+      "originalShape": [
+        375,
+        500
+      ],
+      "correctedShape": [
+        375,
+        500
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 472623,
+      "instances": 100,
+      "originalShape": [
+        640,
+        425
+      ],
+      "correctedShape": [
+        640,
+        425
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 479099,
+      "instances": 100,
+      "originalShape": [
+        480,
+        640
+      ],
+      "correctedShape": [
+        480,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 481386,
+      "instances": 100,
+      "originalShape": [
+        640,
+        427
+      ],
+      "correctedShape": [
+        640,
+        427
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 483999,
+      "instances": 100,
+      "originalShape": [
+        428,
+        640
+      ],
+      "correctedShape": [
+        428,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 486479,
+      "instances": 100,
+      "originalShape": [
+        375,
+        500
+      ],
+      "correctedShape": [
+        375,
+        500
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 492992,
+      "instances": 100,
+      "originalShape": [
+        640,
+        427
+      ],
+      "correctedShape": [
+        640,
+        427
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 493334,
+      "instances": 100,
+      "originalShape": [
+        311,
+        500
+      ],
+      "correctedShape": [
+        311,
+        500
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 497599,
+      "instances": 100,
+      "originalShape": [
+        640,
+        427
+      ],
+      "correctedShape": [
+        640,
+        427
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 511398,
+      "instances": 100,
+      "originalShape": [
+        427,
+        640
+      ],
+      "correctedShape": [
+        427,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 527960,
+      "instances": 100,
+      "originalShape": [
+        427,
+        640
+      ],
+      "correctedShape": [
+        427,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 529568,
+      "instances": 100,
+      "originalShape": [
+        640,
+        480
+      ],
+      "correctedShape": [
+        640,
+        480
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 541123,
+      "instances": 100,
+      "originalShape": [
+        427,
+        640
+      ],
+      "correctedShape": [
+        427,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 543300,
+      "instances": 100,
+      "originalShape": [
+        480,
+        640
+      ],
+      "correctedShape": [
+        480,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 546219,
+      "instances": 100,
+      "originalShape": [
+        427,
+        640
+      ],
+      "correctedShape": [
+        427,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 562818,
+      "instances": 100,
+      "originalShape": [
+        480,
+        640
+      ],
+      "correctedShape": [
+        480,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    },
+    {
+      "imageId": 570456,
+      "instances": 100,
+      "originalShape": [
+        480,
+        640
+      ],
+      "correctedShape": [
+        480,
+        640
+      ],
+      "sameForwardBoxesScoresExact": true,
+      "commonDifferentPixels": 0,
+      "archiveMaskDifferentPixels": 0,
+      "archiveMaxScoreDelta": 0.0,
+      "archiveMaxBoxDelta": 0.0,
+      "restoredForegroundPixels": 0
+    }
+  ]
+}

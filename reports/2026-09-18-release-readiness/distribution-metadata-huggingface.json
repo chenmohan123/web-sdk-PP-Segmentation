@@ -1,0 +1,15 @@
+{
+  "source": "huggingface",
+  "repository": "chenmohan/web-sdk-pp-segmentation",
+  "phase": "metadata",
+  "parent": "9997957d1bd1e47f5b367a54a8f7527806494d8e",
+  "revision": "1d7dabcc4da7591c405d67b2c16a5b9711572eef",
+  "uploadedAt": "2026-09-18T05:47:43.956721+00:00",
+  "files": [
+    {
+      "path": "ppyoloe-seg-s-640/0.1.0/model.json",
+      "bytes": 1457,
+      "sha256": "9fc61baf6803311017e7bad1dd1ea17f6c866b8fed7c12e39ea9a9807457d19d"
+    }
+  ]
+}

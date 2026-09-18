@@ -1,0 +1,42 @@
+{
+  "verifiedAt": "2026-09-18T05:29:05.642863+00:00",
+  "commands": [
+    {
+      "command": "../web-sdk-PP-Detection/.tmp/phase2/venv/Scripts/python.exe scripts/evaluation/original_size_reference.py",
+      "exitCode": 0,
+      "log": ".tmp/2026-09-18-original-size/paddle-rerun.log",
+      "result": "64图完整model(inputs)；6400检测历史mask/scores/boxes精确重现，共同区域0差异"
+    },
+    {
+      "command": "../web-sdk-PP-Detection/.tmp/phase2/venv/Scripts/python.exe scripts/evaluation/compare_original_size.py",
+      "exitCode": 0,
+      "log": ".tmp/2026-09-18-original-size/compare.log",
+      "result": "4模式423高分实例均通过，AP下降小于0.5pp，main/worker6400匹配IoU=1"
+    },
+    {
+      "command": "../web-sdk-PP-Detection/.tmp/phase2/venv/Scripts/python.exe scripts/evaluation/compare_original_size.py --original-official",
+      "exitCode": 1,
+      "expectedFailure": true,
+      "log": ".tmp/2026-09-18-original-size/original-failure-replay.log",
+      "result": "原始严格失败复演；仅退出门槛选原始结论，报告仍保留双列"
+    },
+    {
+      "command": "../web-sdk-PP-Detection/.tmp/phase2/venv/Scripts/python.exe tests/original_size_regression.py",
+      "exitCode": 0,
+      "testsPassed": 4,
+      "log": ".tmp/2026-09-18-original-size/regression.log"
+    }
+  ],
+  "initialFailure": {
+    "command": "original_size_reference.py初次AST检查",
+    "exitCode": 1,
+    "log": ".tmp/2026-09-18-original-size/paddle.log",
+    "cause": "错误删除归档export_mode分支后比较；固定下载源也含该分支，已改为完整函数AST比较"
+  },
+  "referenceIntegrityNote": "reference-integrity.json在64图运行结束后由同一SHA函数生成；脚本末尾随后补入同等自动生成逻辑，未改变推理和数值计算。",
+  "scriptSha256": {
+    "scripts/evaluation/original_size_reference.py": "c4516888d489d4699e5611e6fcc82b69f946b05efcb952c10b8e675e9990f63c",
+    "scripts/evaluation/compare_original_size.py": "274a124788cd7c8228f45794bf6c4449d720012f3b6aa8d658dc0f071b714b58",
+    "tests/original_size_regression.py": "4ab4f719433687fe2673b2f072153c7d130fc9a3618900eda989dcda8b39f5dd"
+  }
+}

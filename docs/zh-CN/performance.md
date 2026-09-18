@@ -4,17 +4,17 @@
 
 SDK 暴露九项稳定耗时，单位均为毫秒。`sdk.loadTimings` 提供加载四项，`result.timings` 提供运行五项；这两组不是同一个计时区间。
 
-| 字段 | 区间与解释 |
-|---|---|
-| `modelDownloadMs` | 下载模型字节的耗时；本 SDK 缓存命中时为 0。浏览器 HTTP 缓存仍可能影响实际网络成本 |
-| `modelCacheReadMs` | 尝试读取 IndexedDB 的耗时，未命中也可非零 |
-| `integrityMs` | 字节数及 SHA-256 校验；缓存损坏后重下载时可累计两次校验 |
-| `sessionMs` | runner 加载模型/ORT 与创建会话的耗时；Worker 路径包含该阶段消息交互 |
-| `decodeMs` | 输入读取；Blob 包括解码、方向处理、画布读像素，RGBA 包括验证和复制 |
-| `preprocessMs` | CPU RGB 直缩 640、量化及 NCHW 转换 |
-| `inferenceMs` | `session.run()` 的墙钟耗时；不是纯 GPU kernel 时间 |
-| `postprocessMs` | 输出检查、NMS、原型组合、两次插值、裁剪和 ROI 二值打包，当前都在 CPU |
-| `totalMs` | 公共 `run()` 内从开始处理到返回结果的墙钟时间，含解码、调度及 Worker 传输，不含 `load()` 和 UI 绘制 |
+| 字段               | 区间与解释                                                                                          |
+| ------------------ | --------------------------------------------------------------------------------------------------- |
+| `modelDownloadMs`  | 下载模型字节的耗时；本 SDK 缓存命中时为 0。浏览器 HTTP 缓存仍可能影响实际网络成本                   |
+| `modelCacheReadMs` | 尝试读取 IndexedDB 的耗时，未命中也可非零                                                           |
+| `integrityMs`      | 字节数及 SHA-256 校验；缓存损坏后重下载时可累计两次校验                                             |
+| `sessionMs`        | runner 加载模型/ORT 与创建会话的耗时；Worker 路径包含该阶段消息交互                                 |
+| `decodeMs`         | 输入读取；Blob 包括解码、方向处理、画布读像素，RGBA 包括验证和复制                                  |
+| `preprocessMs`     | CPU RGB 直缩 640、量化及 NCHW 转换                                                                  |
+| `inferenceMs`      | `session.run()` 的墙钟耗时；不是纯 GPU kernel 时间                                                  |
+| `postprocessMs`    | 输出检查、NMS、原型组合、两次插值、裁剪和 ROI 二值打包，当前都在 CPU                                |
+| `totalMs`          | 公共 `run()` 内从开始处理到返回结果的墙钟时间，含解码、调度及 Worker 传输，不含 `load()` 和 UI 绘制 |
 
 各项存在未单列的开销，分段和不保证精确等于 `totalMs`；加载四项之和也不是整个 `load()` 的完整墙钟时间，例如缓存写入未单列。需要用户看到结果的延迟时，由应用另测加载、运行和绘制完整链路。
 
@@ -38,6 +38,6 @@ WebGPU 加速的是模型执行路径，当前掩码后处理仍在 CPU。主线
 
 ## 测量证据
 
-2026-09-18 的固定 64 图、WASM/WebGPU × main/worker 记录、返回掩码字节数、median/p95 及环境见[验收报告](../../reports/2026-09-18-image-sdk/README.md)。质量仍有[已知边缘差异](compatibility.md)，不能用速度数字代替质量通过结论。
+2026-09-18 的固定 64 图、WASM/WebGPU × main/worker 耗时、返回掩码字节数、median/p95 及环境见[旧执行归档](../../reports/2026-09-18-image-sdk/README.md)；当前质量结论见[原图尺寸验收](../../reports/2026-09-18-original-size/README.md)。本次质量验收复用核验过摘要的 256 次 SDK 推理归档，没有重新测量性能。
 
 所有性能结论限定报告中的 Windows/Chromium/硬件与日期，不外推手机、NPU 或其他浏览器。进一步基准应记录模型摘要、精度、输入尺寸/数量、阈值、冷/热状态、预热次数、后端/执行模式、runtime/驱动、缓存字节、峰值内存测量方式和日期。

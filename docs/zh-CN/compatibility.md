@@ -2,33 +2,33 @@
 
 [English](../en/compatibility.md) · [返回 README](../../README.md)
 
-`0.1.0-alpha.0` 可在已验证的本地桌面环境运行，但稳定质量验收尚未通过。能力探测、运行成功和质量合格是不同结论。
+`0.1.0` 发布候选已在下列本地桌面环境通过固定 64 图四组合质量验收。能力探测、运行成功、质量合格和远程发布仍是不同结论。
 
 ## 2026-09-18 验证环境
 
-| 项目 | 实测环境 |
-|---|---|
-| 操作系统 | Windows 11 专业版，10.0.26200 / Build 26200 |
-| 浏览器 | Chromium 153.0.8010.12 |
-| CPU | Intel Core i5-10400F @ 2.90 GHz，6 核 / 12 线程 |
-| GPU | NVIDIA GeForce RTX 5060 Ti |
-| GPU 驱动 | 32.0.16.1692 |
-| Runtime | onnxruntime-web 1.27.0；WASM 单线程 |
-| 模型 | PP-YOLOE_seg_s 640 FP32，ONNX opset 17 |
-| 日期及证据 | 2026-09-18；[host.json](../../reports/2026-09-18-image-sdk/host.json)、[验收报告](../../reports/2026-09-18-image-sdk/README.md) |
+| 项目       | 实测环境                                                                                                                                |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| 操作系统   | Windows 11 专业版，10.0.26200 / Build 26200                                                                                             |
+| 浏览器     | Chromium 153.0.8010.12                                                                                                                  |
+| CPU        | Intel Core i5-10400F @ 2.90 GHz，6 核 / 12 线程                                                                                         |
+| GPU        | NVIDIA GeForce RTX 5060 Ti                                                                                                              |
+| GPU 驱动   | 32.0.16.1692                                                                                                                            |
+| Runtime    | onnxruntime-web 1.27.0；WASM 单线程                                                                                                     |
+| 模型       | PP-YOLOE_seg_s 640 FP32，ONNX opset 17                                                                                                  |
+| 日期及证据 | 2026-09-18；[host.json](../../reports/2026-09-18-image-sdk/host.json)、[原图尺寸验收](../../reports/2026-09-18-original-size/README.md) |
 
-| 后端 | 执行模式 | 本轮范围与结论 |
-|---|---|---|
-| WASM | main | 固定 64 图公共 SDK 已执行；质量门槛未全部通过 |
-| WASM | worker | 固定 64 图公共 SDK 已执行；质量门槛未全部通过 |
-| WebGPU | main | 固定 64 图公共 SDK 已执行；质量门槛未全部通过 |
-| WebGPU | worker | 固定 64 图公共 SDK 已执行；质量门槛未全部通过 |
+| 后端   | 执行模式 | 本轮范围与结论       |
+| ------ | -------- | -------------------- |
+| WASM   | main     | 原图整数尺寸参考通过 |
+| WASM   | worker   | 原图整数尺寸参考通过 |
+| WebGPU | main     | 原图整数尺寸参考通过 |
+| WebGPU | worker   | 原图整数尺寸参考通过 |
 
-四种组合使用同一批带 segmentation GT 的 COCO val2017 图片，经公共 `run({ image: RGBA })` 调用。AP 评测参数为 `scoreThreshold=0.01/nmsThreshold=0.7/maxDetections=100`；逐实例一致性检查使用 `score>0.5`。AP 下降须 ≤0.5 个百分点，匹配实例 mask IoU 须 ≥0.99。具体数值、未匹配实例及 main/worker 一致性以报告为准。Blob、空白图、取消恢复和重复释放等实际记录见 [browser-execution.json](../../reports/2026-09-18-image-sdk/browser-execution.json)；Demo 四组合、中英切换、选择稳定、390px、取消/换图与缓存等已通过 [UI 冒烟](../../reports/2026-09-18-image-sdk/ui/summary.json)。
+四种组合使用同一批带 segmentation GT 的 COCO val2017 图片，经公共 `run({ image: RGBA })` 调用。AP 参数为 `scoreThreshold=0.01/nmsThreshold=0.7/maxDetections=100`；一致性检查使用 `score>0.5`。每种模式匹配 423 个实例，未匹配 0，最小 mask IoU 0.9987084870848708；WASM/WebGPU 的 mask AP 下降分别为 0.07768926117917574/0.07768469154607605 个百分点，满足 AP 下降 ≤0.5、mask IoU ≥0.99 的门槛。主线程与 Worker 在各后端均匹配 6400 个实例，mask 完全一致。256 次 SDK 推理复用已核验源码、冻结文件和当前 `dist` 摘要的旧归档，本次未重新运行 SDK 推理。Blob、空白图、取消恢复和重复释放等记录见 [browser-execution.json](../../reports/2026-09-18-image-sdk/browser-execution.json)。
 
-## 已知质量差异
+## 参考口径说明
 
-COCO 图片 `204871` 的一个 `car` 实例在严格 mask IoU 门槛下失败：官方路径将 612×612 原图掩码截为 611×611，差异的 58 个像素位于被裁掉的末行/末列；共同 611×611 区域的 IoU 为 1。SDK 保留完整原图前景，没有为通过验收裁掉边缘，也没有降低 0.99 门槛。因此原始严格验收仍为失败，不能标为稳定质量通过。诊断及原始口径见 [edge-diagnosis.json](../../reports/2026-09-18-image-sdk/edge-diagnosis.json) 和[验收报告](../../reports/2026-09-18-image-sdk/README.md)。
+输入解码得到的整数 `width/height` 是输出画布权威。独立参考只把上游最终裁剪和空掩码尺寸改为这些整数，原型、插值、NMS、阈值和 SDK 均未改动。原始官方 CPU 路径会把图片 `204871` 的 612×612 掩码截成 611×611，其失败档案仍保留在[旧验收报告](../../reports/2026-09-18-image-sdk/README.md)；新结论见[原图尺寸验收](../../reports/2026-09-18-original-size/README.md)。
 
 ## 使用前提与未验证范围
 
