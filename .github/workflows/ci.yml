@@ -16,3 +16,4 @@ jobs:
         with: { node-version: 24, cache: pnpm }
       - run: pnpm install --frozen-lockfile --config.verify-deps-before-run=false --config.manage-package-manager-versions=false
       - run: pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versions=false verify
+      - run: node scripts/check-release-ready.mjs
