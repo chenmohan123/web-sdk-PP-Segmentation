@@ -3,3 +3,6 @@
 *.gz binary
 *.png binary
 *.onnx binary
+# 冻结数值证据按原始字节保存，避免 Git 换行转换破坏已归档 SHA-256。
+reports/2026-09-18-original-size/** -text
+reports/2026-09-18-original-size/upstream-head.py -whitespace
